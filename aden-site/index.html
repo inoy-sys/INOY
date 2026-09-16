@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ADEN Boulangerie Renewal 2026">
+  <meta name="author" content="황인오">
+  <title>ADEN Boulangerie</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body class="main-page">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#home" aria-label="ADEN 홈으로 이동">
+      <img src="./assets/logo.png" alt="ADEN Boulangerie 로고">
+    </a>
+
+    <nav class="desktop-nav" aria-label="주요 메뉴">
+      <a href="menu.html" data-section="menu">MENU</a>
+      <a href="brand.html" data-section="brand">BRAND</a>
+      <a href="news.html" data-section="event">EVENT</a>
+      <a href="store.html" data-section="store">STORE</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-yellow" href="#event">카카오 채널</a>
+      <button class="menu-toggle" type="button" aria-label="모바일 메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" aria-label="모바일 메뉴">
+    <a href="menu.html" data-section="menu">MENU</a>
+    <a href="brand.html" data-section="brand">BRAND</a>
+    <a href="news.html" data-section="event">EVENT</a>
+    <a href="store.html" data-section="store">STORE</a>
+  </nav>
+</header>
+
+<main>
+
+<section id="home" class="hero">
+  <img class="hero-bg" src="./assets/hero.jpg" alt="">
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-inner">
+    <div class="hero-copy reveal">
+       <p class="eyebrow hero-branch">ADEN BOULANGERIE · 센텀SH밸리점</p>
+      <h1>Freshly Baked<br>Every Morning</h1>
+      <p class="hero-sub">매일 아침, 아덴에서 만나는<br>프리미엄 베이커리 &amp; 브런치</p>
+
+      <div class="hero-actions">
+        <a class="btn btn-blue" href="#menu">메뉴 보기</a>
+        <a class="btn btn-light" href="#store">찾아오시는 길</a>
+      </div>
+    </div>
+
+   <div class="hero-mascot-wrap reveal delay">
+
+  <img
+    class="hero-mascot"
+    src="./assets/deny-hero.png"
+    alt="커피와 크루아상을 든 데니"
+  >
+
+  <!-- 아메리카노 클릭 영역 -->
+  <button
+    class="hero-drink-hitbox"
+    type="button"
+    aria-label="데니가 아메리카노 마시기"
+    title="아메리카노 마시기">
+  </button>
+
+  <!-- 크루아상 클릭 영역 -->
+  <button
+    class="hero-bread-hitbox"
+    type="button"
+    aria-label="데니가 크루아상 먹기"
+    title="크루아상 먹기">
+  </button>
+
+</div>
+  </div>
+</section>
+
+<section id="menu" class="section menu-preview-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow blue">OUR BEST</p>
+        <h2>SIGNATURE MENU</h2>
+        <p>아덴만의 특별한 대표 메뉴를 만나보세요.</p>
+      </div>
+
+      <a class="text-link detail-link"
+         href="menu.html#new-menu">
+         더 많은 메뉴 보기 →
+      </a>
+    </div>
+
+    <div class="menu-grid">
+      <article class="menu-card reveal">
+        <div class="menu-image-wrap">
+          <span class="badge best">BEST</span>
+          <img src="./assets/menu-01.jpg" alt="버터 크루아상">
+        </div>
+        <div class="menu-card-body">
+          <h3>버터 크루아상</h3>
+          <p class="menu-en">Butter Croissant</p>
+          <p>프랑스 AOP 버터로 만든 겉바속촉 대표 크루아상</p>
+          <strong>3,300원</strong>
+        </div>
+      </article>
+
+      <article class="menu-card reveal delay">
+        <div class="menu-image-wrap">
+          <span class="badge best">BEST</span>
+          <img src="./assets/menu-02.jpg" alt="매콤 핫소시지 브레드">
+        </div>
+        <div class="menu-card-body">
+          <h3>매콤 핫소시지 브레드</h3>
+          <p class="menu-en">Spicy Hot Sausage Bread</p>
+          <p>매콤한 소시지와 부드러운 빵이 어우러진 든든한 베이커리</p>
+          <strong>2,500원</strong>
+        </div>
+      </article>
+
+      <article class="menu-card reveal">
+        <div class="menu-image-wrap">
+          <span class="badge new">NEW</span>
+          <img src="./assets/menu-03.jpg" alt="초코 바게트">
+        </div>
+        <div class="menu-card-body">
+          <h3>초코 바게트</h3>
+          <p class="menu-en">Choco Baguette</p>
+          <p>진한 초콜릿과 견과류가 어우러진 프리미엄 바게트</p>
+          <strong>5,300원</strong>
+        </div>
+      </article>
+
+      <article class="menu-card reveal delay">
+        <div class="menu-image-wrap">
+          <span class="badge best">BEST</span>
+          <img src="./assets/menu-04.jpg" alt="아보카도 에그 샌드">
+        </div>
+        <div class="menu-card-body">
+          <h3>아보카도 에그 샌드</h3>
+          <p class="menu-en">Avocado Egg Sandwich</p>
+          <p>신선한 아보카도와 에그가 듬뿍 들어간 샌드위치</p>
+          <strong>6,800원</strong>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section promo-section">
+  <div class="container promo-banner reveal">
+    <div class="promo-copy">
+      <p class="eyebrow">ADEN DAY</p>
+      <h2>빵과 커피가 있는 하루</h2>
+      <p>아덴의 추천 조합과 시즌 프로모션을 만나보세요.</p>
+      <a class="btn btn-light"
+         href="news.html">
+         이벤트 자세히 보기
+      </a>
+    </div>
+
+    <div class="promo-art">
+      <div class="promo-set">
+        <img class="promo-set-menu" src="./assets/set-menu.png" alt="시오빵과 아메리카노 세트">
+        <p class="promo-set-name">시오빵 + 아메리카노</p>
+        <p class="promo-set-price">SET 4,300원</p>
+      </div>
+      <img class="promo-deny" src="./assets/deny-promo.png" alt="데니 캐릭터">
+    </div>
+  </div>
+</section>
+
+<section id="brand" class="section brand-section">
+  <div class="container brand-grid">
+    <div class="brand-copy reveal">
+      <p class="eyebrow blue">ABOUT ADEN</p>
+      <h2>좋은 재료로 정성껏,<br>매일 아침 더 신선하게</h2>
+      <p>
+        아덴은 신선한 재료와 정성으로 매일 빵을 굽습니다.
+        베이커리와 브런치, 커피가 어우러지는 공간에서
+        일상의 여유를 경험해보세요.
+      </p>
+
+      <a class="btn btn-light border-blue"
+         href="brand.html">
+         브랜드 스토리 보기 →
+      </a>
+    </div>
+
+    <div class="logo-story-card reveal delay">
+      <p class="eyebrow blue">ADEN LOGO STORY</p>
+
+
+      <div class="logo-equation">
+        <div>
+          <img src="./assets/logo-deny.png" alt="데니 심볼">
+          <span> CROISSANT</span>
+        </div>
+        <b>+</b>
+        <div>
+          <img src="./assets/logo-croissant.png" alt="크루아상 심볼">
+          <span>LOGO</span>
+        </div>
+        <b>=</b>
+        <div>
+          <img src="./assets/logo.png" alt="ADEN 로고">
+          <span>ADEN</span>
+        </div>
+      </div>
+      <p class="logo-story-desc">
+  데니와 크루아상 심볼을 하나의 형태로 결합한 뒤,
+  센텀 매장의 깊은 블루를 로고 전체에 적용해
+  서로 다른 요소가 하나의 ADEN으로 보이도록 통일했습니다.
+</p>
+      <div class="brand-color-story">
+
+  <div class="color-story-copy">
+    <p class="color-story-label">COLOR STORY</p>
+
+    <h3>
+      매장의 깊은 블루에서<br>
+      ADEN의 컬러가 시작됐습니다.
+    </h3>
+
+    <p>
+      센텀 매장의 짙은 블루 타일에서
+      브랜드의 중심 컬러를 가져왔습니다.
+      깊고 차분한 블루는 아덴의 신뢰감과
+      또렷한 인상을 만들어줍니다.
+    </p>
+
+    <p>
+      여기에 갓 구운 크루아상과 버터를 떠올리는
+      부드러운 크림과 버터 옐로우를 더해
+      베이커리 특유의 따뜻함을 담았습니다.
+    </p>
+  </div>
+
+  <div class="color-story-palette">
+
+    <div class="color-chip">
+      <span class="color-box deep-blue"></span>
+      <div>
+        <strong>DEEP SAPPHIRE</strong>
+        <small>#082F61</small>
+      </div>
+    </div>
+
+    <div class="color-chip">
+      <span class="color-box soft-blue"></span>
+      <div>
+        <strong>SOFT BLUE</strong>
+        <small>#A5CDFA</small>
+      </div>
+    </div>
+
+    <div class="color-chip">
+      <span class="color-box warm-cream"></span>
+      <div>
+        <strong>WARM CREAM</strong>
+        <small>#FFFAF2</small>
+      </div>
+    </div>
+
+    <div class="color-chip">
+      <span class="color-box butter-yellow"></span>
+      <div>
+        <strong>BUTTER YELLOW</strong>
+        <small>#F6CD55</small>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section character-section">
+  <div class="container deny-card reveal">
+    <div class="deny-copy">
+      <p class="eyebrow blue">MEET DENY</p>
+      <h2>아덴의 귀여운 베이커</h2>
+      <p>데니는 따뜻한 빵과 향긋한 커피로 아덴의 행복한 하루를 전합니다.</p>
+    </div>
+
+    <img src="./assets/deny-main.png" alt="데니 캐릭터">
+
+    <div class="deny-points">
+      <p>🥐 빵 굽는 것을 좋아해요</p>
+      <p>☕ 커피도 정말 좋아해요</p>
+      <p>♡ 모두에게 행복을 전해요</p>
+    </div>
+  </div>
+</section>
+
+<section id="event" class="section event-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow blue">LATEST UPDATE</p>
+        <h2>EVENT &amp; NEWS</h2>
+        <p>아덴의 다양한 소식과 이벤트를 확인하세요.</p>
+      </div>
+
+      <a class="text-link detail-link"
+         href="news.html">
+         더 많은 소식 보기 →
+      </a>
+    </div>
+
+    <div class="news-grid">
+      <!-- <article class="reveal">
+        <img src="./assets/news-01.jpg" alt="몽블랑 프렌치 토스트">
+        <div><span>NEW MENU</span><h3>몽블랑 프렌치 토스트</h3><p>2026.08.15</p></div>
+      </article> -->
+      <article class="reveal delay">
+        <img src="./assets/news-02.jpg" alt="카카오톡 채널 추가 이벤트">
+        <div><span>EVENT</span><h3>카카오톡 채널 추가 이벤트</h3><p>2026.08.10</p></div>
+      </article>
+      <article class="reveal">
+        <img src="./assets/news-03.jpg" alt="아덴데이 스페셜 쿠폰">
+        <div><span>COUPON</span><h3>아덴데이 스페셜 쿠폰</h3><p>2026.08.08</p></div>
+      </article>
+      <article class="reveal delay">
+        <img src="./assets/news-04.jpg" alt="센텀점 방문 후기 이벤트">
+        <div><span>VISIT ADEN</span><h3>센텀점 방문 후기 이벤트</h3><p>2026.08.01</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="store" class="section store-section">
+  <div class="container store-grid">
+    <div class="store-info reveal">
+      <p class="eyebrow blue">STORE INFO</p>
+      <h2>ADEN Boulangerie<br>Centum SH</h2>
+
+      <ul>
+        <li><strong>주소</strong><span>부산광역시 해운대구 센텀동로 35</span></li>
+        <li><strong>영업시간</strong><span>매일 08:00 - 21:00</span></li>
+        <li><strong>전화</strong><span>051-123-4567</span></li>
+        <li><strong>Instagram</strong><span>@aden.bakery_centum</span></li>
+        <li><strong>주차</strong><span>건물 주차장 이용 가능</span></li>
+      </ul>
+
+      <div class="store-buttons">
+        <a class="btn btn-blue"
+           href="store.html">
+           매장 자세히 보기
+        </a>
+
+        <a class="btn btn-light border-blue"
+           href="https://map.naver.com/p/entry/place/1490400702?c=15.00,0,0,0,dh&placePath=%2Fhome%3Ffrom%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202609011722%26locale%3Dko%26svcName%3Dmap_pcv5"
+           target="_blank"
+           rel="noopener noreferrer">
+           길찾기
+        </a>
+      </div>
+    </div>
+
+    <div
+    id="naver-map"
+    class="map-card"
+    aria-label="아덴블랑제리 센텀SH밸리점 지도">
+</div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="./assets/logo-white.png" alt="ADEN 로고">
+      <p>빵과 커피가 있는 하루</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="index.html#event" aria-label="Kakao">●</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <div>
+        <h3>BRAND</h3>
+        <a href="index.html#brand">브랜드 소개</a>
+        <a href="brand.html">브랜드 상세</a>
+      </div>
+      <div>
+        <h3>MENU</h3>
+        <a href="index.html#menu">대표 메뉴</a>
+        <a href="menu.html#new-menu">전체 메뉴</a>
+      </div>
+      <div>
+        <h3>NEWS</h3>
+        <a href="index.html#event">이벤트 미리보기</a>
+        <a href="news.html">소식 전체보기</a>
+      </div>
+      <div>
+        <h3>STORE</h3>
+        <a href="index.html#store">매장 정보</a>
+        <a href="store.html">매장 상세</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 ADEN Boulangerie. All rights reserved.</p>
+    <div><a href="#">이용약관</a><a href="#">개인정보처리방침</a></div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>

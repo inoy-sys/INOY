@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ADEN Boulangerie Centum SH 메뉴">
+  <title>MENU | ADEN</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="detail-page menu-book-page">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html#home" aria-label="ADEN 메인 홈으로 이동">
+      <img src="./assets/logo.png" alt="ADEN Boulangerie 로고">
+    </a>
+
+    <nav class="desktop-nav" aria-label="주요 메뉴">
+      <a href="menu.html">MENU</a>
+      <a href="brand.html">BRAND</a>
+      <a href="news.html">EVENT</a>
+      <a href="store.html">STORE</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-yellow" href="https://app.passorder.co.kr/normal/ba97a77e-35a3-4b80-9f04-b81d6a48f42f/menus" target="_blank" rel="noopener noreferrer">
+        패스오더
+      </a>
+      <button class="menu-toggle" type="button" aria-label="모바일 메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" aria-label="모바일 메뉴">
+    <a href="menu.html">MENU</a>
+    <a href="brand.html">BRAND</a>
+    <a href="news.html">EVENT</a>
+    <a href="store.html">STORE</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- =========================
+       MENU HERO
+       기존 디자인 유지
+  ========================= -->
+
+  <section class="page-hero menu-book-hero">
+    <div class="container page-hero-grid">
+
+      <div>
+        <p class="eyebrow">ADEN MENU</p>
+
+        <h1>
+          아덴의 다양한 메뉴를<br>
+          한눈에 만나보세요
+        </h1>
+
+        <p>
+          시그니처 음료부터 베이커리, 커피와 티까지
+          카테고리별로 확인할 수 있습니다.
+        </p>
+
+        <div class="hero-actions">
+
+          <a class="btn btn-blue" href="#menu-browser">
+            메뉴 둘러보기
+          </a>
+
+          <a
+            class="btn btn-light border-blue"
+            href="https://app.passorder.co.kr/normal/ba97a77e-35a3-4b80-9f04-b81d6a48f42f/menus"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            패스오더에서 현재 메뉴 보기
+          </a>
+
+        </div>
+      </div>
+
+
+      <div class="menu-hero-live">
+
+        <p class="eyebrow">LIVE MENU</p>
+
+        <h2>
+          현재 판매 메뉴와 가격은<br>
+          패스오더에서 확인하세요
+        </h2>
+
+        <p>
+          시즌 메뉴, 할인 가격, 품절 여부는<br>
+          매장 운영 상황에 따라 달라질 수 있습니다.
+        </p>
+
+        <a
+          class="btn btn-blue"
+          href="https://app.passorder.co.kr/normal/ba97a77e-35a3-4b80-9f04-b81d6a48f42f/menus"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          패스오더 메뉴 열기 →
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       MENU CATEGORY
+       클릭 시 같은 자리에서 내용 변경
+  ========================= -->
+
+  <nav class="menu-category-nav" aria-label="메뉴 카테고리">
+
+    <div class="container menu-category-inner">
+
+      <button class="menu-tab active" type="button" data-menu-tab="signature">
+        SIGNATURE DRINK
+      </button>
+
+      <button class="menu-tab" type="button" data-menu-tab="new">
+        NEW
+      </button>
+
+      <button class="menu-tab" type="button" data-menu-tab="set">
+        SET MENU
+      </button>
+
+      <button class="menu-tab" type="button" data-menu-tab="bread">
+        BREAD
+      </button>
+
+      <button class="menu-tab" type="button" data-menu-tab="coffee">
+        COFFEE
+      </button>
+
+      <button class="menu-tab" type="button" data-menu-tab="tea">
+        TEA
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================
+       MENU BROWSER
+  ========================= -->
+
+  <section id="menu-browser" class="section menu-browser-section">
+
+    <div class="container">
+
+
+      <div class="menu-panel active" data-menu-panel="signature">
+        <div class="section-head menu-slider-head">
+          <div>
+            <p class="eyebrow blue">SIGNATURE DRINK</p>
+            <h2>시그니처 음료</h2>
+            <p>아덴만의 개성을 담은 대표 음료입니다.</p>
+          </div>
+          <div class="menu-slider-buttons">
+            <button class="menu-slider-prev" type="button" aria-label="이전 메뉴">←</button>
+            <button class="menu-slider-next" type="button" aria-label="다음 메뉴">→</button>
+          </div>
+        </div>
+        <div class="menu-slider">
+          <div class="menu-slider-track">
+
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder"><img src="./assets/경주커피.png" alt="경주커피"></div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">SIGNATURE</span>
+                <h3>경주 커피</h3>
+                <p>아덴의 시그니처 커피</p>
+                <div class="menu-price"><strong>3,500원</strong><del>4,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder"><img src="./assets/첨성대커피.png" alt="첨성대커피"></div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">SIGNATURE</span>
+                <h3>첨성대 커피</h3>
+                <p>콜드브루 라떼 위에 부드러운 아덴 크림</p>
+                <div class="menu-price"><strong>3,500원</strong><del>4,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder"><img src="./assets/썸타는베리.png" alt=""></div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">SIGNATURE</span>
+                <h3>썸타는 베리</h3>
+                <p>딸기와 부드러운 크림이 어우러진 라떼</p>
+                <div class="menu-price"><strong>3,500원</strong><del>4,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">SIGNATURE</span>
+                <h3>초코 퍼지</h3>
+                <p>수제 버터크림이 올라간 진한 초코 라떼</p>
+                <div class="menu-price"><strong>3,500원</strong><del>4,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">SIGNATURE</span>
+                <h3>그린슈페너</h3>
+                <p>유기농 제주 녹차를 이용한 진한 크림 라떼</p>
+                <div class="menu-price"><strong>3,500원</strong><del>4,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">SIGNATURE</span>
+                <h3>카라멜 프리잔떼</h3>
+                <p>카라멜과 에스프레소 조합의 프라페</p>
+                <div class="menu-price"><strong>3,500원</strong><del>4,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">SIGNATURE</span>
+                <h3>하와이안 선셋</h3>
+                <p>레몬·자몽·라임이 들어간 상큼한 에이드</p>
+                <div class="menu-price"><strong>4,000원</strong><del>5,000원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">SIGNATURE</span>
+                <h3>망고코코 아이스티</h3>
+                <p>시원하게 즐기는 망고코코 아이스티</p>
+                <div class="menu-price"><strong>3,000원</strong><del>4,000원</del></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="menu-panel" data-menu-panel="new">
+        <div class="section-head menu-slider-head">
+          <div>
+            <p class="eyebrow blue">NEW MENU</p>
+            <h2>신메뉴</h2>
+            <p>시즌에 따라 새롭게 선보이는 아덴의 메뉴입니다.</p>
+          </div>
+          <div class="menu-slider-buttons">
+            <button class="menu-slider-prev" type="button" aria-label="이전 메뉴">←</button>
+            <button class="menu-slider-next" type="button" aria-label="다음 메뉴">→</button>
+          </div>
+        </div>
+        <div class="menu-slider">
+          <div class="menu-slider-track">
+
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">NEW</span>
+                <h3>국내산 수박쥬스</h3>
+                <p>국내산 수박으로 만든 시즌 주스</p>
+                <div class="menu-price"><strong>4,300원</strong><del>5,300원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">NEW</span>
+                <h3>국내산 수박쥬스 (1리터)</h3>
+                <p>넉넉하게 즐기는 대용량 수박주스</p>
+                <div class="menu-price"><strong>8,000원</strong><del>9,000원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">NEW</span>
+                <h3>우베라떼</h3>
+                <p>부드럽고 고소한 우베의 매력</p>
+                <div class="menu-price"><strong>4,800원</strong><del>5,800원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">NEW</span>
+                <h3>우베 콜드브루라떼</h3>
+                <p>우베와 콜드브루의 깊은 조합</p>
+                <div class="menu-price"><strong>5,500원</strong><del>6,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">NEW</span>
+                <h3>우베 캐모마일 라떼</h3>
+                <p>향긋한 캐모마일과 우베의 조합</p>
+                <div class="menu-price"><strong>4,800원</strong><del>5,800원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">NEW</span>
+                <h3>우베 밀크쉐이크</h3>
+                <p>진하고 부드럽게 즐기는 우베 쉐이크</p>
+                <div class="menu-price"><strong>5,300원</strong><del>6,300원</del></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="menu-panel" data-menu-panel="set">
+        <div class="section-head menu-slider-head">
+          <div>
+            <p class="eyebrow blue">SET MENU</p>
+            <h2>세트 메뉴</h2>
+            <p>빵과 커피를 함께 가볍게 즐기는 세트입니다.</p>
+          </div>
+          <div class="menu-slider-buttons">
+            <button class="menu-slider-prev" type="button" aria-label="이전 메뉴">←</button>
+            <button class="menu-slider-next" type="button" aria-label="다음 메뉴">→</button>
+          </div>
+        </div>
+        <div class="menu-slider">
+          <div class="menu-slider-track">
+
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label set-label">SET</span>
+                <h3>시오빵 + 아메리카노 SET</h3>
+                <p>바쁜 아침에 간편하게 즐기는 세트</p>
+                <div class="menu-price"><strong>4,300원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label set-label">SET</span>
+                <h3>에그마요SW + 아메리카노 SET</h3>
+                <p>에그마요 샌드위치와 아메리카노 세트</p>
+                <div class="menu-price"><strong>4,400원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label set-label">SET</span>
+                <h3>크로와상 샌드위치 + 아메리카노</h3>
+                <p>크로와상 샌드위치와 아메리카노 구성</p>
+                <div class="menu-price"><strong>4,200원</strong></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="menu-panel" data-menu-panel="bread">
+        <div class="section-head menu-slider-head">
+          <div>
+            <p class="eyebrow blue">BREAD & BRUNCH</p>
+            <h2>베이커리 & 브런치</h2>
+            <p>아덴의 빵과 매장에서만 즐길 수 있는 브런치 메뉴를 함께 만나보세요.</p>
+          </div>
+          <div class="menu-slider-buttons">
+            <button class="menu-slider-prev" type="button" aria-label="이전 메뉴">←</button>
+            <button class="menu-slider-next" type="button" aria-label="다음 메뉴">→</button>
+          </div>
+        </div>
+        <div class="menu-slider">
+          <div class="menu-slider-track">
+
+            <article class="menu-book-card">
+              <img src="./assets/menu-01.jpg" alt="버터 크루아상">
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BEST</span>
+                <h3>버터 크루아상</h3>
+                <p>아덴 블랑제리의 대표 메뉴</p>
+                <div class="menu-price"><strong>3,000원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <img src="./assets/menu-05.jpg" alt="매콤 핫소시지 브레드">
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BEST</span>
+                <h3>매콤 핫소시지 브레드</h3>
+                <p>기존 프로젝트에서 사용한 아덴 베이커리 메뉴</p>
+                <div class="menu-price"><strong>가격 확인</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <img src="./assets/menu-03.jpg" alt="초코 바게트">
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BEST</span>
+                <h3>초코 바게트</h3>
+                <p>진한 초콜릿을 담은 프리미엄 바게트</p>
+                <div class="menu-price"><strong>5,300원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <img src="./assets/menu-04.jpg" alt="아보카도 에그 샌드">
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BEST</span>
+                <h3>아보카도 에그 샌드</h3>
+                <p>기존 프로젝트에서 사용한 브런치 샌드</p>
+                <div class="menu-price"><strong>6,800원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <img src="./assets/brunch-croffle.png" alt="프루츠 크로플 플레이트">
+              <div class="menu-book-card-body">
+                <span class="menu-label set-label">BRUNCH</span>
+                <h3>프루츠 크로플 플레이트</h3>
+                <p>매장에서 즐기는 브런치 전용 메뉴</p>
+                <div class="menu-price"><strong>매장 확인</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <img src="./assets/brunch-montblanc.png" alt="몽블랑 프렌치 토스트">
+              <div class="menu-book-card-body">
+                <span class="menu-label set-label">BRUNCH</span>
+                <h3>몽블랑 프렌치 토스트</h3>
+                <p>매장에서 즐기는 브런치 전용 메뉴</p>
+                <div class="menu-price"><strong>매장 확인</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <img src="./assets/brunch-avocado.png" alt="아보카도 시오빵 브런치">
+              <div class="menu-book-card-body">
+                <span class="menu-label set-label">BRUNCH</span>
+                <h3>아보카도 시오빵 브런치</h3>
+                <p>매장에서 즐기는 브런치 전용 메뉴</p>
+                <div class="menu-price"><strong>매장 확인</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>시오빵</h3>
+                <p></p>
+                <div class="menu-price"><strong>2,900원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>크로와상</h3>
+                <p>아덴 블랑제리의 대표메뉴</p>
+                <div class="menu-price"><strong>3,000원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>미니크로플 3개입</h3>
+                <p>1인분</p>
+                <div class="menu-price"><strong>3,300원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>미니 시나몬 크로플 3개입</h3>
+                <p></p>
+                <div class="menu-price"><strong>4,200원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>미니 초코 크로플 3개입</h3>
+                <p></p>
+                <div class="menu-price"><strong>4,200원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>휘낭시에</h3>
+                <p>수제 헤이즐넛 버터로 만든 휘낭시에</p>
+                <div class="menu-price"><strong>2,500원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>무화과 휘낭시에</h3>
+                <p>무화과가 들어간 휘낭시에</p>
+                <div class="menu-price"><strong>2,700원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>초코 마들렌</h3>
+                <p></p>
+                <div class="menu-price"><strong>2,500원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>크로와상 샌드위치</h3>
+                <p></p>
+                <div class="menu-price"><strong>5,500원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>에그마요 샌드위치 (1개입)</h3>
+                <p></p>
+                <div class="menu-price"><strong>3,000원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>모닝빵 (6개입)</h3>
+                <p></p>
+                <div class="menu-price"><strong>4,800원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>크룽지</h3>
+                <p></p>
+                <div class="menu-price"><strong>3,900원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>햄치즈롤빵</h3>
+                <p></p>
+                <div class="menu-price"><strong>4,000원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>단팥소보로빵</h3>
+                <p></p>
+                <div class="menu-price"><strong>3,500원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>완두앙금빵</h3>
+                <p></p>
+                <div class="menu-price"><strong>3,000원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">BREAD</span>
+                <h3>아룽지</h3>
+                <p>아룽지 메뉴는 BREAD에서 함께 소개합니다.</p>
+                <div class="menu-price"><strong>가격 확인</strong></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="menu-panel" data-menu-panel="coffee">
+        <div class="section-head menu-slider-head">
+          <div>
+            <p class="eyebrow blue">COFFEE</p>
+            <h2>커피</h2>
+            <p>아덴의 베이커리와 잘 어울리는 커피 메뉴입니다.</p>
+          </div>
+          <div class="menu-slider-buttons">
+            <button class="menu-slider-prev" type="button" aria-label="이전 메뉴">←</button>
+            <button class="menu-slider-next" type="button" aria-label="다음 메뉴">→</button>
+          </div>
+        </div>
+        <div class="menu-slider">
+          <div class="menu-slider-track">
+
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label new-label">EVENT</span>
+                <h3>♥100원 아메리카노♥</h3>
+                <p>선착순 한정 이벤트 · 테이크아웃 전용</p>
+                <div class="menu-price"><strong>100원</strong></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>아메리카노</h3>
+                <p>깔끔하고 균형 잡힌 아덴 커피</p>
+                <div class="menu-price"><strong>1,900원</strong><del>2,900원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>디카페인 아메리카노</h3>
+                <p></p>
+                <div class="menu-price"><strong>2,700원</strong><del>3,700원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>카페 라떼</h3>
+                <p></p>
+                <div class="menu-price"><strong>3,300원</strong><del>4,300원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>스페셜 아메리카노</h3>
+                <p>에티오피아 G1등급 스페셜티 블렌드</p>
+                <div class="menu-price"><strong>2,500원</strong><del>3,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>수제 바닐라 라떼</h3>
+                <p>마다가스카르산 바닐라빈을 이용한 수제 바닐라 커피</p>
+                <div class="menu-price"><strong>3,800원</strong><del>4,800원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>카페 모카</h3>
+                <p>수제 초콜릿 베이스의 달콤쌉쌀한 커피</p>
+                <div class="menu-price"><strong>3,800원</strong><del>4,800원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>돌체 라떼</h3>
+                <p>진한 연유와 아덴 에스프레소의 조화</p>
+                <div class="menu-price"><strong>3,800원</strong><del>4,800원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>카라멜 라떼</h3>
+                <p>부드럽고 달콤한 카라멜 커피</p>
+                <div class="menu-price"><strong>3,800원</strong><del>4,800원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>헤이즐넛 라떼</h3>
+                <p>헤이즐넛 향이 풍부한 커피</p>
+                <div class="menu-price"><strong>3,800원</strong><del>4,800원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>코코넛 라떼</h3>
+                <p></p>
+                <div class="menu-price"><strong>3,800원</strong><del>4,800원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>카푸치노</h3>
+                <p>ONLY HOT</p>
+                <div class="menu-price"><strong>3,300원</strong><del>4,300원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>플랫 화이트</h3>
+                <p>ONLY ICE</p>
+                <div class="menu-price"><strong>3,000원</strong><del>4,000원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>콜드 브루</h3>
+                <p>12시간 정성스럽게 추출한 커피</p>
+                <div class="menu-price"><strong>3,800원</strong><del>4,800원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>콜드 브루 라떼</h3>
+                <p>콜드브루와 우유의 부드러운 조합</p>
+                <div class="menu-price"><strong>4,000원</strong><del>5,000원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">COFFEE</span>
+                <h3>유기농 제주녹차 콜드브루</h3>
+                <p>유기농 제주 녹차와 콜드브루의 조화</p>
+                <div class="menu-price"><strong>4,500원</strong><del>5,500원</del></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="menu-panel" data-menu-panel="tea">
+        <div class="section-head menu-slider-head">
+          <div>
+            <p class="eyebrow blue">TEA</p>
+            <h2>티</h2>
+            <p>편안하게 즐기는 아덴의 다양한 티 메뉴입니다.</p>
+          </div>
+          <div class="menu-slider-buttons">
+            <button class="menu-slider-prev" type="button" aria-label="이전 메뉴">←</button>
+            <button class="menu-slider-next" type="button" aria-label="다음 메뉴">→</button>
+          </div>
+        </div>
+        <div class="menu-slider">
+          <div class="menu-slider-track">
+
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>애플시나몬티</h3>
+                <p>ONLY HOT · 시나몬, 꿀, 사과, 레몬</p>
+                <div class="menu-price"><strong>3,500원</strong><del>4,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>레몬티</h3>
+                <p>상큼하게 즐기는 과일티</p>
+                <div class="menu-price"><strong>3,500원</strong><del>4,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>자몽티</h3>
+                <p>상큼하게 즐기는 과일티</p>
+                <div class="menu-price"><strong>3,500원</strong><del>4,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>유자티</h3>
+                <p>상큼하게 즐기는 과일티</p>
+                <div class="menu-price"><strong>3,500원</strong><del>4,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>밀크티</h3>
+                <p>최고급 홍차를 추출한 진한 밀크티</p>
+                <div class="menu-price"><strong>3,500원</strong><del>4,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>복숭아 아이스티</h3>
+                <p>달콤한 과일맛 아이스티</p>
+                <div class="menu-price"><strong>2,500원</strong><del>3,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>아덴 캐모마일</h3>
+                <p></p>
+                <div class="menu-price"><strong>3,000원</strong><del>4,000원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>사과 아이스티</h3>
+                <p>달콤한 과일맛 아이스티</p>
+                <div class="menu-price"><strong>2,500원</strong><del>3,500원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>아덴 페퍼민트</h3>
+                <p></p>
+                <div class="menu-price"><strong>3,000원</strong><del>4,000원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>아덴 로즈마리</h3>
+                <p></p>
+                <div class="menu-price"><strong>3,000원</strong><del>4,000원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>아덴 제주녹차</h3>
+                <p></p>
+                <div class="menu-price"><strong>3,000원</strong><del>4,000원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>아덴 에브리데이 크리스마스</h3>
+                <p></p>
+                <div class="menu-price"><strong>3,000원</strong><del>4,000원</del></div>
+              </div>
+            </article>
+            <article class="menu-book-card">
+              <div class="menu-card-placeholder">IMAGE</div>
+              <div class="menu-book-card-body">
+                <span class="menu-label best-label">TEA</span>
+                <h3>아샷추</h3>
+                <p></p>
+                <div class="menu-price"><strong>3,000원</strong><del>4,000원</del></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="./assets/logo-white.png" alt="ADEN 로고">
+      <p>빵과 커피가 있는 하루</p>
+    </div>
+    <div class="footer-links">
+      <div><h3>HOME</h3><a href="index.html#home">메인 화면</a></div>
+      <div><h3>MENU</h3><a href="#new-menu">신메뉴</a><a href="#coffee">커피</a></div>
+      <div><h3>PASSORDER</h3><a href="https://app.passorder.co.kr/normal/ba97a77e-35a3-4b80-9f04-b81d6a48f42f/menus" target="_blank" rel="noopener noreferrer">실시간 메뉴 보기</a></div>
+      <div><h3>STORE</h3><a href="store.html" target="_blank" rel="noopener noreferrer">매장 안내</a></div>
+    </div>
+  </div>
+  <div class="container footer-bottom"><p>© 2026 ADEN Boulangerie. All rights reserved.</p></div>
+</footer>
+
+<script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+이 폴더에 아래 4개 MP4를 정확한 파일명으로 넣어주세요.
+
+1) 260820_state of confusion_2차_황인오(1).mp4
+   → 01-state-of-confusion.mp4
+
+2) 260802_브랜드 페스타_황인오 (1)(1).mp4
+   → 02-brand-festa.mp4
+
+3) 260909_학원홍보_황인오 (1)(1).mp4
+   → 03-academy-promo.mp4
+
+4) 260828_아덴블랑제리_황인오(1).mp4
+   → 04-aden-boulangerie.mp4
+
+최종 위치:
+assets/video/projects/01-state-of-confusion.mp4
+assets/video/projects/02-brand-festa.mp4
+assets/video/projects/03-academy-promo.mp4
+assets/video/projects/04-aden-boulangerie.mp4
+
+※ Hero 배경용 inoy-hero.mp4는 이미 assets/video/에 포함되어 있습니다.

@@ -1,0 +1,36 @@
+ADEN 홈페이지 템플릿 사용법
+
+1. index.html을 브라우저에서 열면 됩니다.
+2. assets 폴더 안의 이미지 파일명을 아래와 같이 맞춰 넣으세요.
+
+필수 이미지 파일명
+- logo.png
+- logo-white.png
+- hero.jpg
+- deny-hero.png
+- menu-01.jpg
+- menu-02.jpg
+- menu-03.jpg
+- menu-04.jpg
+- promo-food.png
+- deny-promo.png
+- logo-deny.png
+- logo-croissant.png
+- deny-main.png
+- news-01.jpg
+- news-02.jpg
+- news-03.jpg
+- news-04.jpg
+- map.jpg
+- set-menu.png
+
+3. 문구와 가격은 index.html에서 직접 수정할 수 있습니다.
+4. 색상은 css/style.css 맨 위 :root 부분에서 바꿀 수 있습니다.
+5. 실제 배포 전에는 주소, 전화번호, 운영시간을 실제 정보로 수정하세요.
+
+추천 이미지 비율
+- hero.jpg: 1920x1080 또는 1920x1200
+- 메뉴 이미지: 4:3
+- 뉴스 카드: 4:5 또는 1:1
+- map.jpg: 16:9
+- 캐릭터 PNG: 투명 배경

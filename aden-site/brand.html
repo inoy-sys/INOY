@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ADEN Boulangerie 브랜드 스토리와 리브랜딩 아이덴티티">
+  <title>BRAND | ADEN</title>
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- BRAND 상세 페이지만 간격/배치 정리 -->
+  <style>
+    .brand-page .brand-detail-hero{
+      min-height: 520px;
+    }
+
+    .brand-page .brand-detail-section{
+      padding: 78px 0;
+    }
+
+    .brand-page .brand-detail-section + .brand-detail-section{
+      border-top: 1px solid rgba(8,47,97,.08);
+    }
+
+    .brand-page .brand-block-head{
+      margin-bottom: 42px;
+    }
+
+    .brand-page .brand-block-head h2{
+      margin-bottom: 14px;
+    }
+
+    /* ABOUT + VALUES */
+    .brand-page .brand-about-wrap{
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .brand-page .brand-about-copy p{
+      max-width: 520px;
+    }
+
+    .brand-page .brand-about-image{
+      min-height: 360px;
+    }
+
+    .brand-page .brand-values-inline{
+      margin-top: 54px;
+      padding-top: 44px;
+      border-top: 1px solid rgba(8,47,97,.10);
+    }
+
+    .brand-page .brand-values-inline .brand-value-grid{
+      margin-top: 28px;
+    }
+
+    /* LOGO + COLOR 한 섹션 안에서 연결 */
+    .brand-page .brand-identity-wrap{
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 44px;
+      align-items: stretch;
+    }
+
+    .brand-page .identity-card{
+      background: #fff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 42px;
+    }
+
+    .brand-page .identity-card .logo-equation{
+      margin-top: 32px;
+    }
+
+    .brand-page .identity-desc{
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .brand-page .brand-color-grid{
+      margin-top: 28px;
+    }
+
+    .brand-page .color-intro{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    /* DENY는 너무 큰 독립 섹션처럼 보이지 않게 */
+    .brand-page .deny-compact{
+      padding-top: 68px;
+      padding-bottom: 68px;
+    }
+
+    .brand-page .deny-detail-card{
+      min-height: auto;
+    }
+
+    /* 마지막 CTA */
+    .brand-page .brand-message-section{
+      padding: 58px 0 74px;
+    }
+
+    .brand-page .brand-message-card{
+      padding-top: 54px;
+      padding-bottom: 54px;
+    }
+
+    @media (max-width: 900px){
+      .brand-page .brand-about-wrap,
+      .brand-page .brand-identity-wrap{
+        grid-template-columns: 1fr;
+      }
+
+      .brand-page .brand-about-image{
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 768px){
+      .brand-page .brand-detail-hero{
+        min-height: auto;
+      }
+
+      .brand-page .brand-detail-section{
+        padding: 56px 0;
+      }
+
+      .brand-page .brand-values-inline{
+        margin-top: 38px;
+        padding-top: 34px;
+      }
+
+      .brand-page .identity-card{
+        padding: 30px;
+      }
+
+      .brand-page .brand-message-section{
+        padding: 42px 0 58px;
+      }
+    }
+/* BRAND 내부 여백 조금 더 촘촘하게 */
+
+.brand-page .brand-block-head{
+  margin-bottom: 26px;
+}
+
+.brand-page .brand-block-head .eyebrow{
+  margin-bottom: 8px;
+}
+
+.brand-page .brand-block-head h2{
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.brand-page .brand-block-head > p:last-child{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+/* BRAND VALUES */
+.brand-page .brand-values-inline{
+  margin-top: 38px;
+  padding-top: 32px;
+}
+
+.brand-page .brand-values-inline .brand-value-grid{
+  margin-top: 20px;
+}
+
+.brand-page .brand-value-card{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.brand-page .brand-value-card span{
+  margin-bottom: 10px;
+}
+
+.brand-page .brand-value-card h3{
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.brand-page .brand-value-card p{
+  margin-top: 0;
+}
+
+
+/* BRAND IDENTITY */
+.brand-page .brand-identity-wrap{
+  gap: 28px;
+}
+
+.brand-page .identity-card{
+  padding: 34px;
+}
+
+.brand-page .identity-card .eyebrow{
+  margin-bottom: 8px;
+}
+
+.brand-page .identity-card h3{
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.brand-page .identity-card .logo-equation{
+  margin-top: 22px;
+}
+
+.brand-page .identity-desc{
+  margin-top: 20px;
+}
+
+.brand-page .color-intro{
+  margin-top: 0;
+}
+
+.brand-page .brand-color-grid{
+  margin-top: 20px;
+}
+
+  </style>
+</head>
+
+<body class="detail-page brand-page">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html#home" aria-label="ADEN 메인 홈으로 이동">
+      <img src="./assets/logo.png" alt="ADEN Boulangerie 로고">
+    </a>
+
+    <nav class="desktop-nav" aria-label="주요 메뉴">
+      <a href="menu.html">MENU</a>
+      <a href="brand.html" class="active">BRAND</a>
+      <a href="news.html">EVENT</a>
+      <a href="store.html">STORE</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-yellow" href="index.html#event">카카오 채널</a>
+
+      <button class="menu-toggle" type="button" aria-label="모바일 메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" aria-label="모바일 메뉴">
+    <a href="menu.html">MENU</a>
+    <a href="brand.html" class="active">BRAND</a>
+    <a href="news.html">NEWS</a>
+    <a href="store.html">STORE</a>
+  </nav>
+</header>
+
+
+<main>
+
+  <!-- BRAND HERO -->
+  <section class="page-hero brand-detail-hero">
+    <div class="container page-hero-grid">
+
+      <div class="reveal">
+        <p class="eyebrow blue">BRAND STORY</p>
+
+        <h1>
+          빵과 커피가 있는<br>
+          따뜻한 하루
+        </h1>
+
+        <p>
+          갓 구운 빵의 따뜻함과 한 잔의 커피가 주는 여유.<br>
+          ADEN은 일상 속 작은 행복을 전하는 베이커리 브랜드입니다.
+        </p>
+
+        <a class="text-link" href="#about-aden">
+          브랜드 이야기 보기 ↓
+        </a>
+      </div>
+
+      <img
+        class="reveal delay"
+        src="./assets/deny-main.png"
+        alt="ADEN 마스코트 데니"
+      >
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT + BRAND VALUES -->
+  <section class="brand-detail-section" id="about-aden">
+    <div class="container">
+
+      <div class="brand-about-wrap">
+
+        <div class="brand-about-copy reveal">
+          <p class="eyebrow blue">ABOUT ADEN</p>
+
+          <h2>
+            매일의 일상에<br>
+            따뜻함을 굽습니다
+          </h2>
+
+          <p>
+            ADEN Boulangerie는 매일 아침 신선한 빵과
+            향긋한 커피를 준비합니다.
+          </p>
+
+          <p>
+            단순히 빵을 판매하는 공간을 넘어,
+            사람들이 잠시 머물며 편안함과 여유를 느낄 수 있는
+            일상의 베이커리를 지향합니다.
+          </p>
+        </div>
+
+        <div class="placeholder brand-about-image reveal delay">
+          BRAND IMAGE
+        </div>
+
+      </div>
+
+
+      <div class="brand-values-inline">
+        <div class="brand-block-head">
+          <p class="eyebrow blue">BRAND VALUES</p>
+          <h2>ADEN이 중요하게 생각하는 것</h2>
+        </div>
+
+        <div class="brand-value-grid">
+
+          <article class="brand-value-card reveal">
+            <span>01</span>
+            <h3>FRESH</h3>
+            <p>
+              매일 아침 갓 구운 빵처럼
+              신선하고 정직한 경험을 제공합니다.
+            </p>
+          </article>
+
+          <article class="brand-value-card reveal delay">
+            <span>02</span>
+            <h3>WARM</h3>
+            <p>
+              따뜻한 빵과 커피가 주는
+              편안하고 친근한 분위기를 담습니다.
+            </p>
+          </article>
+
+          <article class="brand-value-card reveal">
+            <span>03</span>
+            <h3>FRIENDLY</h3>
+            <p>
+              누구나 편하게 방문하고
+              즐길 수 있는 브랜드를 지향합니다.
+            </p>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- LOGO STORY + BRAND COLOR -->
+  <section class="brand-detail-section detail-alt">
+    <div class="container">
+
+      <div class="brand-block-head">
+        <p class="eyebrow blue">BRAND IDENTITY</p>
+        <h2>ADEN을 이루는 로고와 컬러</h2>
+        <p>
+          캐릭터와 베이커리의 이미지를 하나의 로고로 연결하고,
+          센텀 매장의 컬러를 브랜드 아이덴티티에 담았습니다.
+        </p>
+      </div>
+
+      <div class="brand-identity-wrap">
+
+        <div class="identity-card reveal">
+          <p class="eyebrow blue">LOGO STORY</p>
+          <h3>ADEN의 상징</h3>
+
+          <div class="logo-equation">
+            <div>
+              <img src="./assets/logo-deny.png" alt="데니 심볼">
+              <span>DENY</span>
+            </div>
+
+            <b>+</b>
+
+            <div>
+              <img src="./assets/logo-croissant.png" alt="크루아상 심볼">
+              <span>CROISSANT</span>
+            </div>
+
+            <b>=</b>
+
+            <div>
+              <img src="./assets/logo.png" alt="ADEN 로고">
+              <span>ADEN</span>
+            </div>
+          </div>
+
+          <p class="identity-desc">
+            데니와 크루아상 심볼을 하나의 형태로 결합한 뒤,
+            센텀 매장의 깊은 블루를 로고 전체에 적용해
+            서로 다른 요소가 하나의 ADEN으로 보이도록 통일했습니다.
+          </p>
+        </div>
+
+
+        <div class="identity-card reveal delay">
+          <p class="eyebrow blue">BRAND COLOR</p>
+          <h3>따뜻함과 신선함을 담은 컬러</h3>
+
+          <p class="color-intro">
+            깊은 네이비와 부드러운 크림을 중심으로,
+            버터 옐로우와 소프트 블루를 더해
+            ADEN의 편안하고 친근한 분위기를 표현합니다.
+          </p>
+
+          <div class="brand-color-grid">
+
+            <div class="brand-color-card navy">
+              <span>ADEN NAVY</span>
+              <strong>#082F61</strong>
+            </div>
+
+            <div class="brand-color-card cream">
+              <span>WARM CREAM</span>
+              <strong>#FFFAF2</strong>
+            </div>
+
+            <div class="brand-color-card butter">
+              <span>BUTTER YELLOW</span>
+              <strong>#F6CD55</strong>
+            </div>
+
+            <div class="brand-color-card sky">
+              <span>SOFT BLUE</span>
+              <strong>#A5CDFA</strong>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- MEET DENY -->
+  <section class="brand-detail-section deny-compact">
+    <div class="container deny-detail-card reveal">
+
+      <div>
+        <p class="eyebrow blue">MEET DENY</p>
+
+        <h2>
+          아덴의<br>
+          귀여운 베이커
+        </h2>
+
+        <p>
+          데니는 따뜻한 빵과 커피로
+          사람들에게 작은 행복을 전하는
+          ADEN의 마스코트입니다.
+        </p>
+      </div>
+
+      <img
+        src="./assets/deny-main.png"
+        alt="ADEN 캐릭터 데니"
+      >
+
+      <div class="deny-points">
+        <p>
+          🥐 <strong>BREAD</strong><br>
+          갓 구운 빵을 좋아해요
+        </p>
+
+        <p>
+          ☕ <strong>COFFEE</strong><br>
+          향긋한 커피도 좋아해요
+        </p>
+
+        <p>
+          ♡ <strong>HAPPINESS</strong><br>
+          모두에게 행복을 전해요
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- BRAND MESSAGE -->
+  <section class="detail-alt brand-message-section">
+    <div class="container">
+
+      <div class="brand-message-card reveal">
+        <p class="eyebrow blue">ADEN BOULANGERIE</p>
+
+        <h2>
+          Freshly Baked<br>
+          Every Morning
+        </h2>
+
+        <p>
+          오늘도 ADEN에서
+          갓 구운 빵과 따뜻한 하루를 만나보세요.
+        </p>
+
+        <div class="hero-actions">
+          <a href="menu.html" class="btn btn-blue">
+            메뉴 보기
+          </a>
+
+          <a href="store.html" class="btn btn-light border-blue">
+            매장 안내
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+
+    <div class="footer-brand">
+      <img src="./assets/logo-white.png" alt="ADEN 로고">
+      <p>빵과 커피가 있는 하루</p>
+
+      <div class="socials">
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="index.html#event" aria-label="Kakao">●</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+
+      <div>
+        <h3>BRAND</h3>
+        <a href="index.html#brand">브랜드 소개</a>
+        <a href="brand.html">브랜드 상세</a>
+      </div>
+
+      <div>
+        <h3>MENU</h3>
+        <a href="index.html#menu">대표 메뉴</a>
+        <a href="menu.html#all-menu">전체 메뉴</a>
+      </div>
+
+      <div>
+        <h3>NEWS</h3>
+        <a href="index.html#event">이벤트 미리보기</a>
+        <a href="news.html">소식 전체보기</a>
+      </div>
+
+      <div>
+        <h3>STORE</h3>
+        <a href="index.html#store">매장 정보</a>
+        <a href="store.html">매장 상세</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 ADEN Boulangerie. All rights reserved.</p>
+
+    <div>
+      <a href="#">이용약관</a>
+      <a href="#">개인정보처리방침</a>
+    </div>
+  </div>
+</footer>
+
+<script src="./js/main.js"></script>
+</body>
+</html>

@@ -202,3 +202,117 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+/* INOY portfolio preview carousel + in-modal long detail */
+document.addEventListener('DOMContentLoaded', () => {
+  const modalEl = document.getElementById('projectShowcaseModal');
+  if (!modalEl) return;
+  const previewView = modalEl.querySelector('.project-preview-view');
+  const detailView = modalEl.querySelector('.project-detail-view');
+  const backBtns = modalEl.querySelectorAll('.project-detail-back');
+  const detailPages = modalEl.querySelectorAll('.project-detail-page');
+  let requestedIndex = 0;
+  let projectSwiper;
+
+  document.querySelectorAll('.project-modal-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      requestedIndex = Number(link.dataset.projectIndex || 0);
+      bootstrap.Modal.getOrCreateInstance(modalEl).show();
+    });
+  });
+
+  modalEl.addEventListener('shown.bs.modal', () => {
+    if (!projectSwiper) {
+      projectSwiper = new Swiper('.project-preview-swiper', {
+        speed: 520,
+        grabCursor: true,
+        keyboard: { enabled: true },
+        navigation: { nextEl: '.project-swiper-next', prevEl: '.project-swiper-prev' },
+        pagination: { el: '.project-swiper-pagination', type: 'fraction' }
+      });
+    }
+    projectSwiper.slideTo(requestedIndex, 0);
+  });
+
+  modalEl.querySelectorAll('.project-preview-media.is-clickable').forEach(media => {
+    media.addEventListener('click', () => {
+      const detailKey = media.closest('.project-preview-slide')?.dataset.detail;
+      detailPages.forEach(page => page.classList.toggle('is-current', page.dataset.detailPage === detailKey));
+      previewView.classList.add('is-hidden');
+      detailView.classList.add('is-active');
+      detailView.setAttribute('aria-hidden','false');
+      detailView.scrollTop = 0;
+    });
+  });
+
+  backBtns.forEach(backBtn => backBtn.addEventListener('click', () => {
+    detailView.classList.remove('is-active');
+    detailView.setAttribute('aria-hidden','true');
+    detailPages.forEach(page => page.classList.remove('is-current'));
+    previewView.classList.remove('is-hidden');
+    projectSwiper?.update();
+  }));
+
+  modalEl.addEventListener('hidden.bs.modal', () => {
+    detailView.classList.remove('is-active');
+    detailView.setAttribute('aria-hidden','true');
+    previewView.classList.remove('is-hidden');
+    detailPages.forEach(page => page.classList.remove('is-current'));
+  });
+});
+
+/* INOY VIDEO showcase */
+document.addEventListener('DOMContentLoaded', () => {
+  const modalEl = document.getElementById('videoShowcaseModal');
+  if (!modalEl) return;
+  let videoSwiper;
+  const stopAllVideos = () => modalEl.querySelectorAll('video').forEach(video => { video.pause(); });
+  const openVideoModal = (event) => {
+    event?.preventDefault();
+    bootstrap.Modal.getOrCreateInstance(modalEl).show();
+  };
+  document.querySelectorAll('.video-modal-link').forEach(link => link.addEventListener('click', openVideoModal));
+  const videoCard = document.querySelector('.portfolio-item.filter-product .portfolio-category-card');
+  if (videoCard) videoCard.addEventListener('click', e => { if (!e.target.closest('.video-modal-link')) openVideoModal(e); });
+  modalEl.addEventListener('shown.bs.modal', () => {
+    if (!videoSwiper) {
+      videoSwiper = new Swiper('.video-project-swiper', {
+        speed: 520,
+        grabCursor: true,
+        loop: true,
+        keyboard: { enabled: true },
+        navigation: { nextEl: modalEl.querySelector('.video-swiper-next'), prevEl: modalEl.querySelector('.video-swiper-prev') },
+        pagination: { el: modalEl.querySelector('.video-swiper-pagination'), type: 'fraction' },
+        on: { slideChangeTransitionStart: stopAllVideos }
+      });
+    }
+    videoSwiper.update();
+  });
+  modalEl.addEventListener('hidden.bs.modal', stopAllVideos);
+});
+
+
+/* INOY WEB showcase */
+document.addEventListener('DOMContentLoaded', () => {
+  const modalEl = document.getElementById('webShowcaseModal');
+  const card = document.querySelector('.web-modal-link');
+  if (!modalEl || !card) return;
+  const openWeb = (e) => { e?.preventDefault(); bootstrap.Modal.getOrCreateInstance(modalEl).show(); };
+  card.addEventListener('click', openWeb);
+  card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openWeb(e); });
+
+});
+
+/* INOY DESIGN direct card click */
+document.addEventListener('DOMContentLoaded', () => {
+  const directDesignCard = document.querySelector('.portfolio-direct-design');
+  const modal = document.getElementById('projectShowcaseModal');
+  if (!directDesignCard || !modal) return;
+
+  directDesignCard.style.cursor = 'pointer';
+  directDesignCard.addEventListener('click', (event) => {
+    event.preventDefault();
+    bootstrap.Modal.getOrCreateInstance(modal).show();
+  });
+});

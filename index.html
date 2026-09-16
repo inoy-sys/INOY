@@ -1,58 +1,804 @@
 <!DOCTYPE html>
+
 <html lang="kr">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta name="author" content="황인오">
-  <meta name="description" content="안녕하세요.센텀직업전문학교 수료생 황인오 포트폴리오입니다....">
-  <meta name="keywords" content="포트폴리오, html, css, js, 영상">
-  <meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="황인오" name="author"/>
+<meta content="안녕하세요.센텀직업전문학교 수료생 황인오 포트폴리오입니다...." name="description"/>
+<meta content="포트폴리오, html, css, js, 영상" name="keywords"/>
+<meta content="noindex, nofollow" name="robots"/>
+<title>인오의 Portfolio</title>
+<!-- Favicons -->
+<link href="assets/img/inoy-symbol.png" rel="icon"/>
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;family=Quicksand:wght@300;400;500;600;700&amp;family=Domine:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Vendor CSS Files -->
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+<link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+<!-- Main CSS File -->
+<link href="assets/css/main.css" rel="stylesheet"/>
+<style>
+/* Culture Mate — Behance-style case study inside DESIGN modal */
+.project-detail-page.culture-mate-modal-page { background:#fff; }
+.project-detail-page.culture-mate-modal-page .project-detail-topbar {
+  position: sticky; top: 0; z-index: 30;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed { width:100%; overflow:hidden; }
+.project-detail-page.culture-mate-modal-page .cm-embed .hero { min-height:680px; }
+@media (max-width:820px){
+  .project-detail-page.culture-mate-modal-page .cm-embed .hero { min-height:auto; }
+}
+</style>
+<style>
+/* Culture Mate modal — keep the Behance layout inside the visible popup width */
+.project-detail-page.culture-mate-modal-page .cm-embed {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .hero,
+.project-detail-page.culture-mate-modal-page .cm-embed .inner,
+.project-detail-page.culture-mate-modal-page .cm-embed .statement,
+.project-detail-page.culture-mate-modal-page .cm-embed .problem,
+.project-detail-page.culture-mate-modal-page .cm-embed .solution,
+.project-detail-page.culture-mate-modal-page .cm-embed .flow,
+.project-detail-page.culture-mate-modal-page .cm-embed .prototype,
+.project-detail-page.culture-mate-modal-page .cm-embed .final {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .hero {
+  min-height: clamp(560px, 66vw, 760px);
+  padding-left: clamp(28px, 5vw, 76px);
+  padding-right: clamp(28px, 5vw, 76px);
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .hero h1 {
+  font-size: clamp(54px, 7.2vw, 112px) !important;
+  line-height: .92 !important;
+  max-width: 7.2em;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .hero p {
+  max-width: 620px;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .logo-stage {
+  transform: scale(.88);
+  transform-origin: center;
+}
+@media (max-width: 1050px) {
+  .project-detail-page.culture-mate-modal-page .cm-embed .hero {
+    min-height: 620px;
+  }
+  .project-detail-page.culture-mate-modal-page .cm-embed .hero h1 {
+    font-size: clamp(50px, 8vw, 84px) !important;
+  }
+  .project-detail-page.culture-mate-modal-page .cm-embed .logo-stage {
+    transform: scale(.76);
+  }
+}
+@media (max-width: 760px) {
+  .project-detail-page.culture-mate-modal-page .cm-embed .hero {
+    min-height: auto;
+    padding: 56px 24px;
+  }
+  .project-detail-page.culture-mate-modal-page .cm-embed .hero h1 {
+    font-size: clamp(44px, 14vw, 70px) !important;
+  }
+  .project-detail-page.culture-mate-modal-page .cm-embed .logo-stage {
+    transform: none;
+  }
+}
+</style>
+<style>
+/* Culture Mate Figma: hide bottom Figma chrome */
+.project-detail-page.culture-mate-modal-page .cm-embed .device {
+  position: relative;
+  overflow: hidden;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .device iframe {
+  height: calc(100% + 110px) !important;
+  margin-bottom: -110px !important;
+}
+</style>
+<style>
+/* ===== Culture Mate soft-blue refinement ===== */
+.project-detail-page.culture-mate-modal-page .cm-embed {
+  --cm-blue:#2f73df;
+  --cm-blue-deep:#173f78;
+  --cm-ink:#17243a;
+  --cm-muted:#607089;
+  --cm-line:#d9e6f7;
+  --cm-soft:#eef5fd;
+  --cm-soft-2:#f7faff;
+}
 
-  <title>INO의 Portfolio</title>
- 
+/* Hero: PDF-like pale blue + white, no strong glow */
+.project-detail-page.culture-mate-modal-page .cm-embed .hero {
+  background:linear-gradient(135deg,#e7f1fc 0%,#f7faff 44%,#ffffff 70%,#edf5fd 100%) !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .hero:before {
+  width:500px;height:500px;left:-190px;top:-170px;
+  background:rgba(82,145,224,.10) !important;
+  filter:none !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .hero:after {
+  width:390px;height:390px;right:-135px;bottom:-150px;
+  background:rgba(126,171,226,.10) !important;
+  filter:none !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .hero h1 {
+  background:linear-gradient(100deg,#245fae 0%,#4b83cf 52%,#759bd0 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:#2f73df;
+  text-shadow:none !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .kicker,
+.project-detail-page.culture-mate-modal-page .cm-embed .num {
+  color:#3e78bd !important;
+}
 
-  <!-- Favicons -->
-  <link href="assets/img/인오로고symbol.svg" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+/* Middle sections: subtle alternating paper-like blue tones */
+.project-detail-page.culture-mate-modal-page .cm-embed .statement {
+  background:#17365f !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .problem {
+  background:linear-gradient(180deg,#fbfdff 0%,#f3f7fc 100%) !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .problem-card {
+  border-color:#dce7f4 !important;
+  box-shadow:0 12px 32px rgba(43,88,145,.055);
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .solution {
+  background:#eaf2fb !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .feature {
+  background:rgba(255,255,255,.86) !important;
+  border:1px solid #dbe7f5;
+  box-shadow:0 12px 34px rgba(43,88,145,.05);
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .flow {
+  background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%) !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .final {
+  background:linear-gradient(180deg,#f5f9fe 0%,#eaf3fc 100%) !important;
+}
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Quicksand:wght@300;400;500;600;700&family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">
+/* Prototype: blue-black instead of pure black */
+.project-detail-page.culture-mate-modal-page .cm-embed .prototype {
+  background:linear-gradient(135deg,#0d1c31 0%,#102641 58%,#173456 100%) !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .proto-grid {
+  grid-template-columns:minmax(420px,500px) minmax(360px,1fr) !important;
+  gap:clamp(54px,7vw,105px) !important;
+  align-items:center;
+}
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+/* Hand-held phone mockup.
+   The Figma iframe itself stays large (up to ~470px wide), so it remains easy to click. */
+.project-detail-page.culture-mate-modal-page .cm-embed .prototype-hand-stage {
+  position:relative;
+  width:min(100%,500px);
+  min-height:900px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  padding:20px 0 30px 8px;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .device {
+  position:relative;
+  z-index:3;
+  width:min(100%,470px);
+  padding:10px !important;
+  border-radius:48px !important;
+  background:#05080d !important;
+  border:1px solid rgba(255,255,255,.16) !important;
+  box-shadow:0 42px 90px rgba(0,0,0,.38),0 0 0 5px rgba(255,255,255,.025);
+  transform:rotate(-1.2deg);
+  overflow:hidden;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .screen {
+  aspect-ratio:375/812;
+  border-radius:34px !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .device-top {
+  height:34px !important;
+  color:#9aa8ba !important;
+}
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+/* CSS hand silhouette behind the actual interactive phone */
+.project-detail-page.culture-mate-modal-page .cm-embed .hand-mockup {
+  position:absolute;
+  z-index:2;
+  left:300px;
+  top:265px;
+  width:245px;
+  height:560px;
+  transform:rotate(-8deg);
+  pointer-events:none;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .hand-palm {
+  position:absolute;
+  width:190px;height:360px;
+  left:24px;top:145px;
+  border-radius:90px 80px 105px 100px;
+  background:linear-gradient(145deg,#f3d5c3 0%,#e9bea8 60%,#dca58e 100%);
+  box-shadow:inset 12px 0 24px rgba(255,255,255,.22),0 25px 55px rgba(0,0,0,.18);
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .hand-thumb {
+  position:absolute;
+  width:78px;height:235px;
+  left:-8px;top:130px;
+  border-radius:50px;
+  background:linear-gradient(145deg,#f5d8c7,#dfaa93);
+  transform:rotate(20deg);
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .hand-finger {
+  position:absolute;
+  width:48px;
+  border-radius:30px;
+  background:linear-gradient(145deg,#f4d6c5,#dda78f);
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .hand-finger-1 {height:210px;left:48px;top:2px;transform:rotate(-7deg);}
+.project-detail-page.culture-mate-modal-page .cm-embed .hand-finger-2 {height:230px;left:100px;top:-8px;transform:rotate(-2deg);}
+.project-detail-page.culture-mate-modal-page .cm-embed .hand-finger-3 {height:205px;left:151px;top:12px;transform:rotate(5deg);}
 
- 
+/* Keep the Figma footer/chrome hidden as requested */
+.project-detail-page.culture-mate-modal-page .cm-embed .device iframe {
+  height:calc(100% + 110px) !important;
+  margin-bottom:-110px !important;
+}
+
+/* Text remains secondary; phone stays the main interactive target */
+.project-detail-page.culture-mate-modal-page .cm-embed .proto-copy {
+  position:relative;
+  z-index:4;
+  max-width:600px;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .proto-copy h2 {
+  color:#f4f8ff !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .proto-copy p {
+  color:#c2cfdf !important;
+}
+
+@media(max-width:980px){
+  .project-detail-page.culture-mate-modal-page .cm-embed .proto-grid {
+    grid-template-columns:1fr !important;
+  }
+  .project-detail-page.culture-mate-modal-page .cm-embed .prototype-hand-stage {
+    margin:0 auto;
+    min-height:880px;
+  }
+  .project-detail-page.culture-mate-modal-page .cm-embed .proto-copy {
+    max-width:650px;
+    margin:0 auto;
+  }
+}
+@media(max-width:620px){
+  .project-detail-page.culture-mate-modal-page .cm-embed .prototype-hand-stage {
+    min-height:760px;
+    width:100%;
+  }
+  .project-detail-page.culture-mate-modal-page .cm-embed .device {
+    width:min(88vw,430px);
+  }
+  .project-detail-page.culture-mate-modal-page .cm-embed .hand-mockup {
+    left:58%;
+    transform:translateX(-10%) rotate(-8deg) scale(.84);
+    transform-origin:top left;
+  }
+}
+</style>
+<style>
+/* Culture Mate — Project Idea tone fix */
+.project-detail-page.culture-mate-modal-page .cm-embed .statement{
+  background:linear-gradient(135deg,#edf5fd 0%,#f8fbff 58%,#e7f1fb 100%) !important;
+  color:#233a59 !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .statement h2{
+  color:#254f82 !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .statement p{
+  color:#526b88 !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .statement .num{
+  color:#4d83c3 !important;
+}
+
+/* Prototype preview: compact, straight, easy-to-understand clickable phone */
+.project-detail-page.culture-mate-modal-page .cm-embed .prototype-hand-stage{
+  min-height:720px !important;
+  width:min(100%,430px) !important;
+  padding:20px 0 !important;
+  cursor:zoom-in;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .prototype-hand-stage .hand-mockup{
+  display:none !important;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .prototype-hand-stage .device{
+  width:min(100%,390px) !important;
+  transform:none !important;
+  margin:0 auto;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .prototype-hand-stage:hover .device{
+  transform:translateY(-5px) !important;
+  box-shadow:0 48px 95px rgba(0,0,0,.44),0 0 0 5px rgba(255,255,255,.035);
+}
+.project-detail-page.culture-mate-modal-page .cm-embed .prototype-hand-stage:after{
+  content:"클릭해서 크게 사용해보기";
+  position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  color:#cbd9ea;font-size:13px;font-weight:700;letter-spacing:.08em;white-space:nowrap;
+}
+
+/* Full interactive prototype overlay */
+#cultureProtoZoom{
+  position:fixed;inset:0;z-index:10050;
+  display:none;align-items:center;justify-content:center;
+  background:rgba(5,12,22,.92);backdrop-filter:blur(8px);
+  padding:34px;
+}
+#cultureProtoZoom.is-open{display:flex}
+#cultureProtoZoom .culture-proto-zoom-device{
+  position:relative;width:min(92vw,520px);height:min(90vh,920px);
+  background:#05080d;border-radius:48px;padding:10px;
+  box-shadow:0 40px 120px rgba(0,0,0,.55);
+  overflow:hidden;
+}
+#cultureProtoZoom iframe{
+  width:100%;height:calc(100% + 110px);margin-bottom:-110px;
+  border:0;border-radius:38px;background:#fff;
+}
+#cultureProtoZoom .culture-proto-close{
+  position:absolute;right:24px;top:20px;z-index:3;
+  width:48px;height:48px;border:0;border-radius:50%;
+  background:#fff;color:#111;font-size:27px;line-height:1;cursor:pointer;
+  box-shadow:0 8px 28px rgba(0,0,0,.22);
+}
+#cultureProtoZoom .culture-proto-label{
+  position:absolute;left:28px;top:25px;color:#fff;
+  font-size:12px;font-weight:800;letter-spacing:.14em;
+}
+
+/* Water Festival leaflet presentation */
+.water-leaflet-showcase{
+  padding:70px clamp(24px,5vw,80px) 90px;
+  background:linear-gradient(145deg,#061a39 0%,#073e72 48%,#0c6fa8 100%);
+  color:#fff;
+}
+.water-leaflet-showcase .water-leaflet-head{
+  max-width:1050px;margin:0 auto 36px;
+}
+.water-leaflet-showcase .water-leaflet-head span{
+  font-size:12px;font-weight:800;letter-spacing:.18em;color:#6fd2ff;
+}
+.water-leaflet-showcase .water-leaflet-head h3{
+  color:#fff;margin:10px 0 8px;font-size:clamp(30px,4vw,54px);
+}
+.water-leaflet-showcase .water-leaflet-head p{
+  color:rgba(255,255,255,.72);margin:0;max-width:720px;
+}
+.water-leaflet-showcase .water-leaflet-frame{
+  max-width:1220px;margin:auto;padding:18px;
+  border:1px solid rgba(255,255,255,.18);border-radius:24px;
+  background:rgba(255,255,255,.08);
+  box-shadow:0 28px 70px rgba(0,0,0,.24);
+}
+.water-leaflet-showcase img{display:block;width:100%;height:auto;border-radius:14px}
+</style>
+<style>
+/* ===== LUNA Behance-style case study ===== */
+.luna-case{background:#fff}
+.luna-case .project-detail-topbar{position:sticky;top:0;z-index:8}
+.luna-hero{
+  min-height:760px;padding:80px clamp(42px,7vw,110px);
+  display:grid;grid-template-columns:.82fr 1.18fr;align-items:center;gap:60px;
+  background:linear-gradient(135deg,#101025 0%,#201542 52%,#5b245d 100%);
+  overflow:hidden;position:relative;
+}
+.luna-hero:after{
+  content:"";position:absolute;width:460px;height:460px;border-radius:50%;
+  right:-130px;top:-160px;background:rgba(255,119,201,.13);
+}
+.luna-hero-copy{position:relative;z-index:2;color:#fff}
+.luna-hero-copy p,.luna-eyebrow,.luna-section-title span,.luna-poses-copy>span{
+  font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+}
+.luna-hero-copy p{color:#ff9bd9}
+.luna-hero-copy h2{font-size:clamp(82px,10vw,160px);line-height:.82;margin:22px 0 12px;color:#fff;letter-spacing:-.06em}
+.luna-hero-copy h3{font-size:clamp(24px,3vw,42px);color:#f7c9ff;margin:0 0 28px}
+.luna-hero-copy span{display:block;max-width:520px;color:#ddd8ec;font-size:17px;line-height:1.8}
+.luna-hero-art{position:relative;z-index:2}
+.luna-hero-art img{width:100%;display:block;border-radius:28px;box-shadow:0 40px 100px rgba(0,0,0,.38);transform:rotate(1.5deg)}
+
+.luna-intro{
+  padding:120px clamp(42px,8vw,130px);display:grid;grid-template-columns:1fr 1fr;gap:90px;
+  background:#fbf8ff;color:#201d2c;
+}
+.luna-eyebrow{color:#8b55bb}
+.luna-intro h3{font-size:clamp(38px,5vw,70px);line-height:1.1;margin:18px 0 0;letter-spacing:-.045em}
+.luna-intro p{font-size:18px;line-height:2;color:#665f70;margin:30px 0 0}
+
+.luna-board{padding:110px clamp(34px,6vw,100px)}
+.luna-board-light{background:#f1eafb}
+.luna-section-title{max-width:1150px;margin:0 auto 42px}
+.luna-section-title span{color:#8c55ba}
+.luna-section-title h3{font-size:clamp(42px,6vw,78px);margin:10px 0 0;color:#241d31;letter-spacing:-.05em}
+.luna-two-grid{max-width:1280px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.luna-two-grid figure{margin:0;background:#fff;padding:12px;border-radius:24px;box-shadow:0 20px 55px rgba(62,32,91,.11)}
+.luna-two-grid img{display:block;width:100%;height:auto;border-radius:16px}
+
+.luna-sheet{padding:120px clamp(34px,7vw,110px);background:#151323;color:#fff}
+.luna-sheet .luna-section-title h3{color:#fff}
+.luna-sheet .luna-section-title span{color:#ff8fd4}
+.luna-sheet-card{max-width:1180px;margin:auto;background:#fff;border-radius:30px;padding:18px;box-shadow:0 34px 90px rgba(0,0,0,.32)}
+.luna-sheet-card img{display:block;width:100%;border-radius:18px}
+
+.luna-poses{
+  padding:120px clamp(42px,8vw,130px);display:grid;grid-template-columns:.72fr 1.28fr;
+  gap:65px;align-items:center;background:linear-gradient(135deg,#fff 0%,#f7efff 100%);
+}
+.luna-poses-copy>span{color:#8c55ba}
+.luna-poses-copy h3{font-size:clamp(42px,5vw,72px);line-height:1.12;margin:18px 0;color:#241d31;letter-spacing:-.05em}
+.luna-poses-copy p{font-size:17px;line-height:1.9;color:#71687b}
+.luna-poses-art{padding:18px;background:#fff;border-radius:30px;box-shadow:0 24px 70px rgba(72,39,98,.12)}
+.luna-poses-art img{display:block;width:100%;border-radius:18px}
+
+.luna-finale{text-align:center;padding:110px clamp(28px,6vw,90px) 130px;background:#21153c;color:#fff}
+.luna-finale>span{font-size:11px;letter-spacing:.22em;color:#f0a5df}
+.luna-finale h3{font-size:clamp(70px,11vw,150px);margin:12px 0 0;line-height:1;color:#fff}
+.luna-finale p{letter-spacing:.18em;color:#cbbdda}
+.luna-finale img{display:block;width:min(1100px,100%);margin:55px auto 0;border-radius:28px;box-shadow:0 35px 90px rgba(0,0,0,.35)}
+
+@media(max-width:900px){
+ .luna-hero,.luna-intro,.luna-poses{grid-template-columns:1fr}
+ .luna-hero{padding-top:60px}
+ .luna-two-grid{grid-template-columns:1fr}
+ .luna-hero-art img{transform:none}
+}
+</style>
+<style>
+.denny-case{--dg:#005e3f;--cream:#f7f0df;background:#fff}
+.denny-hero{min-height:760px;padding:85px clamp(42px,7vw,110px);display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center;background:linear-gradient(135deg,#f7f0df,#fffaf0);overflow:hidden}
+.denny-copy>span,.denny-title span,.denny-intro>span{font-size:12px;font-weight:800;letter-spacing:.2em;color:#8b6b39}
+.denny-copy h2{font-size:clamp(90px,12vw,175px);line-height:.8;margin:25px 0;color:#005e3f;letter-spacing:-.07em}
+.denny-copy p{max-width:500px;font-size:17px;line-height:1.9;color:#655e51}
+.denny-motion-card{position:relative;max-width:650px;margin:auto;background:#005e3f;border-radius:42px;padding:38px;cursor:pointer;box-shadow:0 35px 80px rgba(0,94,63,.2)}
+.denny-motion-stage{height:520px;border-radius:30px;background:#fff8e9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.denny-motion-stage img{max-width:82%;max-height:86%;object-fit:contain;animation:dennyHello 4.2s ease-in-out infinite;transform-origin:50% 90%}
+.denny-spark{position:absolute;color:#e5b84d;font-size:30px;z-index:2;animation:spark 1.5s ease-in-out infinite}.s1{left:16%;top:20%}.s2{right:16%;top:30%;animation-delay:.5s}
+.denny-motion-caption{display:flex;justify-content:space-between;gap:20px;color:#fff;padding:24px 4px 0}.denny-motion-caption span{font-size:12px;opacity:.72}
+@keyframes dennyHello{0%,100%{transform:translateY(0) rotate(0)}18%{transform:translateY(-15px) rotate(-3deg)}34%{transform:translateY(0) rotate(3deg)}52%{transform:translateY(-9px) rotate(-2deg)}70%{transform:translateY(0) rotate(0)}}
+@keyframes spark{0%,100%{opacity:.2;transform:scale(.7) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(30deg)}}
+.denny-motion-card.replay .denny-motion-stage img{animation:none}.denny-motion-card.replay.play .denny-motion-stage img{animation:dennyHello 1.8s ease-in-out 1}
+.denny-intro{padding:120px clamp(42px,8vw,130px);background:#005e3f;color:#fff}.denny-intro h3{font-size:clamp(52px,7vw,96px);line-height:.95;margin:18px 0 32px;color:#fff}.denny-intro p{max-width:760px;font-size:18px;line-height:1.9;color:#d7e7df}
+.denny-gallery{padding:110px clamp(34px,6vw,100px)}.denny-gallery.cream{background:#f8f2e5}.denny-gallery.green{background:#e8f0e9}.denny-title{max-width:1200px;margin:0 auto 40px}.denny-title h3{font-size:clamp(40px,5vw,72px);color:#143c30;margin:10px 0}.denny-grid{max-width:1250px;margin:auto;display:grid;gap:24px}.denny-grid.two{grid-template-columns:1fr 1fr}.denny-grid.three{grid-template-columns:repeat(3,1fr)}.denny-grid img{width:100%;height:100%;max-height:680px;object-fit:contain;background:#fff;border-radius:24px;padding:10px;box-shadow:0 18px 50px rgba(36,66,52,.1)}
+.denny-end{padding:100px 40px 120px;text-align:center;background:#063f2d;color:#fff}.denny-end>span{font-size:11px;letter-spacing:.2em;color:#e8c979}.denny-end h3{font-size:clamp(70px,11vw,155px);line-height:.8;color:#fff;margin:28px 0}.denny-end img{display:block;max-width:650px;width:75%;max-height:600px;object-fit:contain;margin:50px auto 0}
+@media(max-width:900px){.denny-hero{grid-template-columns:1fr}.denny-grid.two,.denny-grid.three{grid-template-columns:1fr}.denny-motion-stage{height:440px}}
+</style>
+<style>
+/* DENNY preview: force the same large-left visual layout as the other DESIGN slides */
+.project-preview-slide[data-detail="denny"]{
+  grid-template-columns:minmax(0,1fr) 320px !important;
+}
+.project-preview-slide[data-detail="denny"] .project-preview-media{
+  grid-column:1 !important;grid-row:1 !important;
+  width:100% !important;height:100% !important;min-height:650px !important;
+  display:flex !important;align-items:center !important;justify-content:center !important;
+  background:#f6f0df !important;overflow:hidden !important;
+}
+.project-preview-slide[data-detail="denny"] .project-preview-media img{
+  width:100% !important;height:100% !important;max-width:none !important;
+  object-fit:contain !important;
+}
+.project-preview-slide[data-detail="denny"] .project-preview-copy{
+  grid-column:2 !important;grid-row:1 !important;
+  align-self:end !important;padding:55px 42px !important;
+}
+
+/* DENNY detail: each supplied finished board is intentionally large and readable */
+.denny-case-large{background:#fff;--denny:#005e3f;--cream:#f7f0df}
+.denny-large-hero{
+  padding:80px clamp(35px,6vw,100px);min-height:760px;
+  display:grid;grid-template-columns:.72fr 1.28fr;gap:60px;align-items:center;
+  background:linear-gradient(135deg,#f7f0df 0%,#fffaf0 100%);
+}
+.denny-large-copy>span,.denny-art-heading span{
+  font-size:12px;font-weight:800;letter-spacing:.2em;color:#927143;
+}
+.denny-large-copy h2{font-size:clamp(88px,11vw,165px);line-height:.82;margin:24px 0;color:#005e3f;letter-spacing:-.07em}
+.denny-large-copy p{font-size:17px;line-height:1.9;color:#655e51;max-width:520px}
+.denny-large-motion{position:relative;cursor:pointer;background:#005e3f;border-radius:34px;padding:20px;box-shadow:0 30px 75px rgba(0,94,63,.18);overflow:hidden}
+.denny-large-motion img{display:block;width:100%;max-height:650px;object-fit:contain;background:#fff8e9;border-radius:22px;animation:dennyBoardHello 4.2s ease-in-out infinite;transform-origin:50% 88%}
+.denny-large-motion>span{display:block;color:#fff;font-size:11px;font-weight:800;letter-spacing:.16em;padding:18px 4px 2px}
+@keyframes dennyBoardHello{0%,100%{transform:translateY(0) rotate(0)}22%{transform:translateY(-10px) rotate(-1.5deg)}42%{transform:translateY(0) rotate(1.5deg)}62%{transform:translateY(-6px) rotate(-1deg)}}
+.denny-large-motion.replay img{animation:none}.denny-large-motion.replay.play img{animation:dennyBoardHello 1.8s ease-in-out 1}
+
+.denny-art-section{padding:105px clamp(32px,6vw,95px) 120px}
+.denny-art-section.denny-cream{background:#f7f0df}
+.denny-art-section.denny-white{background:#fff}
+.denny-art-section.denny-green{background:#e7f0e9}
+.denny-art-heading{max-width:1320px;margin:0 auto 38px}
+.denny-art-heading h3{font-size:clamp(38px,5vw,70px);line-height:1;margin:12px 0 0;color:#173e31;letter-spacing:-.045em}
+.denny-art-section>img{
+  display:block;width:min(1320px,100%);height:auto;max-height:none;
+  margin:0 auto;border-radius:22px;object-fit:contain;
+  box-shadow:0 24px 65px rgba(42,65,53,.10);
+  background:#fff;
+}
+.denny-green .denny-art-section>img{box-shadow:0 24px 65px rgba(24,73,52,.12)}
+.denny-large-end{text-align:center;padding:110px 40px 125px;background:#063f2d;color:#fff}
+.denny-large-end>span{font-size:11px;letter-spacing:.2em;color:#e8c979}
+.denny-large-end h3{font-size:clamp(62px,9vw,125px);margin:22px 0;color:#fff;letter-spacing:-.05em}
+.denny-large-end img{display:block;width:min(900px,82%);max-height:700px;object-fit:contain;margin:45px auto 0}
+
+@media(max-width:900px){
+ .project-preview-slide[data-detail="denny"]{grid-template-columns:1fr !important}
+ .project-preview-slide[data-detail="denny"] .project-preview-media{grid-column:1 !important;grid-row:1 !important;min-height:420px !important}
+ .project-preview-slide[data-detail="denny"] .project-preview-copy{grid-column:1 !important;grid-row:2 !important}
+ .denny-large-hero{grid-template-columns:1fr}
+ .denny-art-section{padding-left:22px;padding-right:22px}
+}
+</style>
+<style>
+/* DENNY v2 — first board is full width; no framed/TV hero */
+.denny-v2 .denny-board-full{background:#f7f0df;padding:0}
+.denny-v2 .denny-board-full img{
+  display:block;width:100%;height:auto;max-height:none;object-fit:contain;margin:0;
+}
+
+/* Interactive DENNY section */
+.denny-playground{
+  min-height:760px;padding:100px clamp(38px,7vw,110px);
+  display:grid;grid-template-columns:.78fr 1.22fr;gap:70px;align-items:center;
+  background:linear-gradient(135deg,#063f2d 0%,#005e3f 62%,#0a7050 100%);
+  color:#fff;
+}
+.denny-play-copy>span{font-size:11px;font-weight:800;letter-spacing:.19em;color:#efd283}
+.denny-play-copy h3{font-size:clamp(58px,7vw,104px);line-height:.88;letter-spacing:-.055em;color:#fff;margin:22px 0 30px}
+.denny-play-copy p{font-size:17px;line-height:1.9;color:#dceae4;max-width:560px}
+.denny-play-guide{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.denny-play-guide span{border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:10px 14px;font-size:11px;font-weight:700;color:#fff}
+
+.denny-web-stage{
+  min-height:650px;border-radius:42px;background:#fff6df;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;box-shadow:0 35px 90px rgba(0,0,0,.22);
+}
+.denny-web-stage:before{
+  content:"";position:absolute;width:430px;height:430px;border-radius:50%;
+  background:#f2dfad;opacity:.34;right:-100px;top:-120px;
+}
+.denny-web-stage>p{position:absolute;bottom:24px;margin:0;font-size:11px;font-weight:800;letter-spacing:.14em;color:#856d3d}
+.denny-web-character{
+  position:relative;width:min(92%,590px);z-index:2;
+  transform-origin:50% 90%;
+}
+.denny-web-character>img{display:block;width:100%;height:auto;filter:drop-shadow(0 22px 26px rgba(31,57,43,.15));user-select:none;pointer-events:none}
+
+/* same relative clickable zones as the Aden website */
+.denny-body-hitbox,.denny-coffee-hitbox,.denny-bread-hitbox{
+  position:absolute;border:0;background:transparent;padding:0;cursor:pointer;z-index:6;
+}
+.denny-body-hitbox{left:35%;top:10%;width:31%;height:42%;z-index:4}
+.denny-coffee-hitbox{left:7%;top:48%;width:31%;height:43%}
+.denny-bread-hitbox{left:63%;top:49%;width:32%;height:42%}
+.denny-body-hitbox:focus-visible,.denny-coffee-hitbox:focus-visible,.denny-bread-hitbox:focus-visible{outline:3px solid #e5b84d;outline-offset:2px;border-radius:24px}
+.denny-web-character.denny-shake{animation:portfolioDennyShake .62s cubic-bezier(.36,.07,.19,.97)}
+@keyframes portfolioDennyShake{
+  0%,100%{transform:translateX(0) rotate(0)}
+  15%{transform:translateX(-12px) rotate(-3deg)}
+  30%{transform:translateX(10px) rotate(3deg)}
+  45%{transform:translateX(-8px) rotate(-2deg)}
+  60%{transform:translateX(7px) rotate(2deg)}
+  75%{transform:translateX(-4px) rotate(-1deg)}
+}
+@media(max-width:900px){
+ .denny-playground{grid-template-columns:1fr}
+ .denny-web-stage{min-height:520px}
+}
+</style>
+<style>
+/* WATER FESTIVAL — concise Behance-like process section */
+.water-process{
+  padding:105px clamp(30px,6vw,95px) 115px;
+  background:linear-gradient(150deg,#061b38 0%,#073f73 55%,#0878ae 100%);
+  color:#fff;
+}
+.water-process-head{max-width:1240px;margin:0 auto 52px}
+.water-process-head>span{font-size:11px;font-weight:800;letter-spacing:.2em;color:#73d9ff}
+.water-process-head h3{margin:12px 0 0;color:#fff;font-size:clamp(46px,6vw,82px);line-height:.94;letter-spacing:-.045em}
+.water-process-flow{
+  max-width:1240px;margin:auto;display:grid;
+  grid-template-columns:1fr 52px 1fr 52px 1fr;gap:18px;align-items:center;
+}
+.water-process-flow article{min-width:0}
+.water-process-flow article>b{display:block;font-size:12px;letter-spacing:.18em;color:#76dfff;margin-bottom:13px}
+.water-process-flow h4{font-size:17px;color:#fff;letter-spacing:.08em;margin:22px 0 8px}
+.water-process-flow p{font-size:13px;line-height:1.75;color:rgba(255,255,255,.68);margin:0;max-width:330px}
+.water-process-arrow{text-align:center;font-size:35px;color:rgba(255,255,255,.38)}
+.water-process-thumb{
+  height:330px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);
+  border-radius:22px;padding:13px;display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.water-process-thumb img{width:100%;height:100%;object-fit:contain;border-radius:12px}
+.water-process-palette{
+  height:330px;border-radius:22px;background:#e8f7ff;padding:28px;
+  display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr auto;gap:9px;overflow:hidden;
+}
+.water-process-palette i:nth-child(1){background:#071d42}.water-process-palette i:nth-child(2){background:#0969b8}.water-process-palette i:nth-child(3){background:#20b7df}.water-process-palette i:nth-child(4){background:#b9ecff}
+.water-process-palette i{border-radius:999px}
+.water-process-palette strong{grid-column:1/-1;color:#0874b7;font-size:clamp(27px,3vw,43px);line-height:.86;letter-spacing:-.04em;margin-top:16px}
+.water-process-strip{
+  max-width:1240px;margin:72px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  color:rgba(255,255,255,.72);font-size:10px;font-weight:800;letter-spacing:.12em;
+}
+.water-process-strip i{height:1px;flex:1;background:rgba(255,255,255,.18)}
+@media(max-width:900px){
+ .water-process-flow{grid-template-columns:1fr}
+ .water-process-arrow{transform:rotate(90deg)}
+ .water-process-thumb,.water-process-palette{height:290px}
+ .water-process-strip{flex-wrap:wrap}
+ .water-process-strip i{min-width:20px}
+}
+</style>
+<style>
+.luna-v2{background:#fff}
+.luna-v2-hero{min-height:760px;padding:75px clamp(35px,7vw,115px);display:grid;grid-template-columns:.65fr 1.35fr;gap:45px;align-items:center;background:linear-gradient(135deg,#17102e,#281547 58%,#51245e);overflow:hidden;position:relative}
+.luna-v2-hero:after{content:"";position:absolute;width:500px;height:500px;border-radius:50%;right:-180px;top:-190px;background:rgba(210,104,220,.12)}
+.luna-v2-title,.luna-v2-character{position:relative;z-index:2}
+.luna-v2-title>span,.luna-v2-heading>span{font-size:11px;font-weight:800;letter-spacing:.2em;color:#ff8fd4}
+.luna-v2-title h2{font-size:clamp(100px,13vw,190px);line-height:.78;margin:25px 0 18px;color:#fff;letter-spacing:-.07em}
+.luna-v2-title p{font-family:Georgia,serif;font-size:clamp(28px,3.4vw,52px);color:#f0b3ed;margin:0}
+.luna-v2-character{height:650px;display:flex;align-items:center;justify-content:center}
+.luna-v2-character img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 35px 45px rgba(0,0,0,.25))}
+.luna-v2-board{padding:105px clamp(28px,6vw,95px) 120px}
+.luna-v2-light{background:#f8f5fb}.luna-v2-purple{background:#eee4f7}.luna-v2-dark{background:#171227}
+.luna-v2-heading{max-width:1320px;margin:0 auto 38px}
+.luna-v2-heading h3{font-size:clamp(42px,5.5vw,76px);line-height:1;margin:12px 0 0;color:#282032;letter-spacing:-.05em}
+.luna-v2-dark .luna-v2-heading h3{color:#fff}
+.luna-v2-board>img{display:block;width:min(1320px,100%);height:auto;max-height:none;object-fit:contain;margin:0 auto;border-radius:24px;background:#fff;box-shadow:0 25px 70px rgba(56,35,73,.12)}
+.luna-v2-dark>img{box-shadow:0 30px 80px rgba(0,0,0,.3)}
+@media(max-width:900px){.luna-v2-hero{grid-template-columns:1fr;min-height:auto}.luna-v2-character{height:500px}.luna-v2-board{padding-left:20px;padding-right:20px}}
+</style><style>
+/* LUNA interactive hero */
+.luna-playground{position:relative;touch-action:none;cursor:grab;user-select:none}
+.luna-playground.is-dragging{cursor:grabbing}
+.luna-float-wrap{position:relative;width:min(600px,95%);height:620px;display:flex;align-items:center;justify-content:center;animation:lunaHover 3.2s ease-in-out infinite}
+.luna-live{width:min(560px,94%);max-height:590px;object-fit:contain;pointer-events:none;transform-origin:50% 35%;filter:drop-shadow(0 32px 35px rgba(0,0,0,.28));will-change:transform}
+.luna-shadow{position:absolute;left:50%;bottom:15px;width:52%;height:28px;transform:translateX(-50%);border-radius:50%;background:rgba(5,0,20,.32);filter:blur(15px);animation:lunaShadow 3.2s ease-in-out infinite}
+.luna-hint{position:absolute;right:4%;bottom:2%;display:flex;flex-direction:column;gap:3px;color:#fff;text-align:right;opacity:.7;pointer-events:none}
+.luna-hint span{font-size:10px;font-weight:800;letter-spacing:.2em;color:#ff9ddd}.luna-hint small{font-size:11px}
+.luna-playground:not(.is-dragging):hover .luna-live{animation:lunaFlutter .46s ease-in-out infinite alternate}
+.luna-playground.is-dragging .luna-float-wrap{animation:none}
+.luna-playground.is-dragging .luna-live{animation:lunaCaught .24s ease-in-out infinite alternate;filter:drop-shadow(0 42px 38px rgba(0,0,0,.34))}
+.luna-playground.is-returning .luna-float-wrap{transition:transform .58s cubic-bezier(.2,1.35,.35,1)}
+@keyframes lunaHover{0%,100%{transform:translateY(4px) rotate(-1deg)}50%{transform:translateY(-15px) rotate(1deg)}}
+@keyframes lunaShadow{0%,100%{transform:translateX(-50%) scale(1);opacity:.7}50%{transform:translateX(-50%) scale(.84);opacity:.4}}
+@keyframes lunaFlutter{from{transform:rotate(-1.6deg) scale(1)}to{transform:rotate(1.6deg) scale(1.015)}}
+@keyframes lunaCaught{from{transform:rotate(-3deg) translateY(2px)}to{transform:rotate(3deg) translateY(-3px)}}
+@media(max-width:900px){.luna-float-wrap{height:480px}.luna-live{max-height:455px}.luna-hint{right:2%;bottom:0}}
+</style>
+<style>
+/* ===== INOY main page atmosphere: RESUME + PORTFOLIO only ===== */
+#resume, #portfolio{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+}
+
+/* RESUME — warm, quiet paper-like background */
+#resume{
+  background:
+    radial-gradient(circle at 88% 15%, rgba(185,164,135,.13) 0 12%, transparent 34%),
+    radial-gradient(circle at 8% 78%, rgba(210,199,181,.16) 0 9%, transparent 30%),
+    linear-gradient(145deg,#fbfaf7 0%,#f4f1eb 48%,#faf9f6 100%);
+}
+
+#resume::after{
+  content:"";
+  position:absolute;
+  left:-140px;
+  bottom:-180px;
+  width:430px;height:430px;
+  border:1px solid rgba(100,87,68,.075);
+  border-radius:50%;
+  box-shadow:
+    0 0 0 65px rgba(100,87,68,.022),
+    0 0 0 130px rgba(100,87,68,.014);
+  z-index:-1;
+  pointer-events:none;
+}
+#resume .container{position:relative;z-index:1}
+
+/* PORTFOLIO — cool gallery background; cards remain the focus */
+#portfolio{
+  background:
+    radial-gradient(circle at 82% 12%, rgba(118,151,180,.13) 0 10%, transparent 31%),
+    radial-gradient(circle at 12% 88%, rgba(158,174,187,.12) 0 8%, transparent 28%),
+    linear-gradient(150deg,#f7f9fa 0%,#eef2f4 47%,#fafafa 100%);
+}
+#portfolio::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:.42;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(69,87,102,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(69,87,102,.045) 1px,transparent 1px);
+  background-size:72px 72px;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 18%,#000 82%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 18%,#000 82%,transparent 100%);
+}
+
+#portfolio .container{position:relative;z-index:1}
+
+/* subtle depth without changing project-card behavior */
+#resume .resume-item,
+#portfolio .portfolio-content{
+  position:relative;
+}
+@media(max-width:768px){
+  #resume::before{font-size:42vw;top:.12em}
+  #portfolio::after{font-size:25vw}
+  #portfolio::before{background-size:48px 48px}
+}
+</style>
+
+
+<style>
+/* LUNA clean case-study gallery — supplied final artwork only */
+.luna-clean-gallery{
+  background:#fff;
+}
+.luna-clean-gallery img{
+  display:block;
+  width:100%;
+  height:auto;
+  margin:0;
+  padding:0;
+  object-fit:contain;
+  background:#fff;
+}
+.luna-clean-gallery img + img{
+  border-top:1px solid rgba(28,20,48,.06);
+}
+@media(max-width:900px){
+  .luna-clean-gallery img{width:100%}
+}
+</style>
+
 </head>
-
 <body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/인오로고심볼타입-2.png" alt=""> -->
-        <h1 class="sitename ballet-ino"><img src="./assets/img/인오로고타입-1.png" alt=""></h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero"class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <!-- <li><a href="#services">Services</a></li> -->
-          <li><a href="#portfolio" class="">Portfolio</a></li>
-          <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+<header class="header d-flex align-items-center fixed-top" id="header">
+<div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+<a class="logo d-flex align-items-center me-auto me-xl-0" href="index.html">
+<!-- Uncomment the line below if you also wish to use an image logo -->
+<!-- <img src="assets/img/인오로고심볼타입-2.png" alt=""> -->
+<h1 class="sitename ballet-ino"><img alt="" src="assets/img/inoy-logo.png"/></h1>
+</a>
+<nav class="navmenu" id="navmenu">
+<ul>
+<li><a class="active" href="#hero">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#resume">Resume</a></li>
+<!-- <li><a href="#services">Services</a></li> -->
+<li><a class="" href="#portfolio">Portfolio</a></li>
+<!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Dropdown 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -69,447 +815,754 @@
               <li><a href="#">Dropdown 4</a></li>
             </ul>
           </li> -->
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-view-list"></i>
-      </nav>
-
-      <div class="header-social-links">
-        <!-- <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<i class="mobile-nav-toggle d-xl-none bi bi-view-list"></i>
+</nav>
+<div class="header-social-links">
+<!-- <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a> -->
-        <!-- <a href="https://www.instagram.com/" class="instagram"><i class="bi bi-instagram"></i></a> -->
-        <!-- <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a> -->
-      </div>
-
-    </div>
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/로고심볼.png" alt="" data-aos="fade-in">
-
-      <div class="container text-center" data-aos="flip-left" data-aos-delay="300">
-        <h2>IN O HWANG</h2>
-        <p>I'M A PROFESSIONAL PHOTOGRAPHER IN BUSAN</p>
-        <a href="#portfolio" class="btn-scroll" title="Scroll Down"><i class="bi bi-chevron-down"></i></a>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">About me</span>
-        <h2>About Me</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-2 justify-content-center">
-          <div class="col-lg-2">
-            <img src="assets/img/이노.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 content">
-            <h2>UI/UX Designer &amp; Web Developer.</h2>
-            <p class="fst-italic py-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+<!-- <a href="https://www.instagram.com/" class="instagram"><i class="bi bi-instagram"></i></a> -->
+<!-- <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a> -->
+</div>
+</div>
+</header>
+<main class="main">
+<!-- Hero Section -->
+<section class="hero section dark-background" id="hero">
+<video aria-hidden="true" autoplay="" class="hero-bg-video" loop="" muted="" playsinline="" poster="assets/img/로고심볼.png" preload="metadata">
+<source src="assets/video/inoy-hero.mp4" type="video/mp4"/>
+</video>
+<div class="container hero-content" data-aos="fade-up" data-aos-delay="180">
+<div class="hero-kicker">SHOWREEL · MULTIMEDIA DESIGNER</div>
+<h1>INOY <span>DESIGN</span></h1>
+<p class="hero-lead hero-personal-intro">
+  안녕하세요, 디자이너<span>황인오</span>입니다.<br/>
+  그래픽 · 영상 · 웹을 통해 아이디어를 다양한 경험으로 확장합니다.
+</p>
+<p class="hero-role">Graphic Design · AI Video · Motion · Web Publishing</p>
+<div class="hero-actions">
+<a class="hero-btn hero-btn-primary" href="#portfolio">포트폴리오 보기</a>
+<a class="hero-btn hero-btn-outline" href="#contact">연락하기</a>
+</div>
+<div class="hero-meta">BUSAN, KR · 2026 · DESIGN / MOTION / WEB</div>
+<a aria-label="프로필로 이동" class="btn-scroll" href="#about" title="Scroll Down"><i class="bi bi-chevron-down"></i></a>
+</div>
+</section><!-- /Hero Section -->
+<!-- About Section -->
+<section class="about section about-motion" id="about">
+<div class="container section-title" data-aos="fade-up">
+<span class="description-title">ABOUT ME</span>
+<h2>프로필</h2>
+</div>
+<div class="container" data-aos="fade-up" data-aos-delay="100">
+<div class="about-v2-wrap">
+<div class="about-v2-visual-row">
+<div class="about-v2-profile">
+<img alt="황인오 프로필" src="assets/img/이노.jpg"/>
+</div>
+<div class="about-v2-identity-images">
+<button aria-label="INOY 로고 확대" class="about-brand-zoom about-v2-logo" data-brand-alt="INOY 컬러 로고" data-brand-image="assets/img/inoy-logo-color.png" type="button">
+<img alt="INOY 컬러 로고" src="assets/img/inoy-logo-color.png"/>
+</button>
+<button aria-label="INOY 심볼 확대" class="about-brand-zoom about-v2-symbol" data-brand-alt="INOY 심볼" data-brand-image="assets/img/inoy-symbol-color.png" type="button">
+<img alt="INOY 심볼" src="assets/img/inoy-symbol-color.png"/>
+</button>
+</div>
+</div>
+<div class="about-v2-main">
+<div class="about-v2-copy content">
+<h2>Multimedia Designer &amp; Creative Developer</h2>
+<p class="fst-italic py-3">
+              'late start, still growing'이라는 로고의 신념을 바탕으로, 의미있는 디지털 콘텐츠를 만들기 위해 끊임없이 최적의 결과물을 도출하도록 고민하겠습니다.
             </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-dot"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
-                  <li><i class="bi bi-bi-dot"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                  <li><i class="bi bi-dot"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
-                  <li><i class="bi bi-dot"></i> <strong>City:</strong> <span>New York, USA</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>email@example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
-            </div>
-            <p class="py-3">
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Muy Resume</span>
-        <h2>My Resume</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title ballet-ino">Sumary</h3>
-
-            <div class="resume-item pb-0">
-              <h4>IN O HWANG</h4>
-              <p><em>A creative designer and multimedia creator passionate about branding, web design, and video editing. I enjoy turning ideas into engaging digital experiences while continuously learning and growing through every project.</em></p>
-              <ul>
-                <li>Busan, South Korea</li>
-                <li>(051) 781-5152</li>
-                <li>dlsdh71951@gmail.com</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Busan Centum Vocational Training Institute<br> </h4>
-              <h5>2026.5 - 2026.11</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-              <p>Studying graphic design, web publishing, UI/UX design, and multimedia content production.</p>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
-              <h5>2010 - 2014</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-              <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
-            </div><!-- Edn Resume Item -->
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>Multimedia Design Projects</h4>
-              <h5>2026 - Present</h5>
-              <p><em>Personal Portfolio & Academic Projects </em></p>
-              <ul>
-                <li>Designed branding identities, logos, and marketing materials using Adobe Illustrator and Photoshop.</li>
-                <li>Produced promotional videos and motion graphics using Premiere Pro and After Effects. </li>
-                <li>Designed UI/UX prototypes with Figma and developed interactive user experiences.</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>Creative Content Creator</h4>
-              <h5>2017 - 2018</h5>
-              <p><em>Personal Projects</em></p>
-              <ul>
-                <li>Produced branding concepts, social media content, and promotional designs.</li>
-                <li>Designed visual identities for portfolio projects, including logo systems, posters, banners, and digital assets.</li>
-                <li>Continuously improving creative and technical skills through personal learning and hands-on projects.</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Resume Section -->
-
-   
-
-   
-
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Portfolio</span>
-        <h2>Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container-fluid">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">전체</li>
-            <li data-filter=".filter-app">디자인</li>
-            <li data-filter=".filter-product">영 상</li>
-            <li data-filter=".filter-branding">피그마</li>
-            <!-- <li data-filter=".filter-books">상세디자인</li> -->
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-app m-2">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/로고심볼.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-
-
-                  <a href="assets/img/로고심볼.png" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-
-
-                  <a href="portfolio-details-1.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="assets/img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-
-                  
-                  <a href="portfolio-details-2.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="assets/img/portfolio/branding-1.jpg" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="assets/img/portfolio/books-1.jpg" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="assets/img/portfolio/app-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-
-
-                <img src="assets/img/이노.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-
-
-                  <a href="assets/img/portfolio/product-2.jpg" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-
-
-                  <a href="portfolio-details-3.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="assets/img/portfolio/branding-2.jpg" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="assets/img/portfolio/books-2.jpg" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="assets/img/portfolio/app-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/유튜브 썸네일1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="assets/img/portfolio/product-3.jpg" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details-3.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="assets/img/portfolio/branding-3.jpg" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="assets/img/portfolio/books-3.jpg" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-   
-
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Contact</span>
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-geo-alt"></i>
-              <h3>Address</h3>
-              <p>부산광역시 해운대구</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex flex-column justify-content-center align-items-center info-item-borders">
-              <i class="bi bi-telephone"></i>
-              <h3>Call Us</h3>
-              <p>+82 10-xxxx-xxxx</p>
-            </div>
-          </div><!-- End Info Item -->
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-envelope"></i>
-              <h3>Email Us</h3>
-              <p>info@example.com</p>
-            </div>
-          </div><!-- End Info Item -->
-
-        </div>
-
-        <form  method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-            </div>
-
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-            </div>
-
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-            </div>
-
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
+<div class="row">
+<div class="col-lg-6">
+<ul>
+<li><i class="bi bi-dot"></i> <strong>이름</strong> <span>황인오</span></li>
+<li><i class="bi bi-dot"></i> <strong>Website:</strong> <span>https://inoy-sys.github.io</span></li>
+<li><i class="bi bi-dot"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
+<li><i class="bi bi-dot"></i> <strong>City:</strong> <span>부산광역시 해운대구</span></li>
+</ul>
+</div>
+<div class="col-lg-6">
+<ul>
+<li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>27</span></li>
+<li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor of Music</span></li>
+<li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>inoy@gmail.com</span></li>
+<li><i class="bi bi-chevron-right"></i> <strong>Status:</strong> <span>Open to Opportunities</span></li>
+</ul>
+</div>
+</div>
+<p class="py-3">
+              음악을 전공한 후 멀티미디어 디자인 및 영상 편집을 배워 보다 풍부한 문화예술 창작을 준비하고있습니다. 현재는 로고 및 캐릭터 브랜딩, 웹디자인, Ai영상 제작 및 편집을 중심으로 꾸준히 역량을 키우고 있습니다. 풍부하고 다양한 경험만큼 값진 무기는 없다고 생각하며, 이를 토대로 빠르게 변화하는 Ai산업에 맞는 최신 기술과 원하시는 구성대로 결과물을 만들어 드리겠습니다.
               
+           
+           <br/>
+<br/>
+<br>
+<br/>
+<br/>
+<br/>
+</br></p>
+</div>
+</div>
+</div>
+</div>
+</section><!-- /About Section -->
+<!-- Resume Section -->
+<section class="resume section" id="resume">
+<!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
+<span class="description-title">Profile</span>
+<h2>소개</h2>
+</div><!-- End Section Title -->
+<div class="container">
+<div class="row">
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+<!-- <h3 class="resume-title">Summary</h3> -->
+<h3 class="resume-title">학력 및 교육</h3>
+<hr/><br/>
+<div class="resume-item">
+<h4>부산 센텀직업전문학교</h4>
+<h5>2026.5 ~</h5>
+<p><em>부산, 대한민국</em></p>
+<p>그래픽 디자인, 웹 퍼블리싱, UI/UX 디자인 및 멀티미디어 콘텐츠 제작 과정을 이수하며 다양한 디자인·영상 프로젝트를 진행하고 있습니다.</p>
+</div><!-- Edn Resume Item -->
+<div class="resume-item">
+<h4>고신대학교 음악과 졸업</h4>
+<h5>플루트 전공</h5>
+<p>플루트 연주를 전공하며 음악적 표현력과 창의성, 협업 능력을 길렀으며, 이러한 경험을 현재의 멀티미디어 디자인 작업에도 활용하고 있습니다.</p>
+</div><!-- Edn Resume Item -->
+<div class="resume-item">
+<h4>부산공업고등학교 기계설비과 졸업</h4>
+<h5>기계설비 전공</h5>
+<p>기계설비 분야의 기술 교육을 통해 분석력과 정밀함, 문제 해결 능력을 익혔으며, 이를 디자인 작업에서도 활용하고 있습니다.</p>
+</div><!-- Edn Resume Item -->
+</div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+<h3 class="resume-title">주요 프로젝트</h3>
+<hr/>
+<div class="resume-item">
+<br/>
+<h4>1. PRE:BUSAN XR</h4>
+<h5>AI 영상 · 모션그래픽 프로젝트</h5>
+<ul>
+<li>AI 기반 영상 콘텐츠 기획 및 제작</li>
+<li>콘셉트 구성, 스토리보드 및 화면 연출 설계</li>
+<li>생성형 AI와 모션그래픽을 활용한 영상 제작 및 편집</li>
+</ul>
+<h4>2. Culture Mate</h4>
+<h5>UI/UX 앱 디자인 프로젝트</h5>
+<p>문화생활을 함께 즐길 사람을 연결하는 일정 기반 동행 매칭 플랫폼 UX/UI 프로젝트</p>
+<ul>
+<li>서비스 콘셉트 및 브랜드 아이덴티티 기획</li>
+<li>사용자 흐름과 주요 화면 UI/UX 설계</li>
+<li>Figma를 활용한 프로토타입 및 인터랙션 구현</li>
+</ul>
+</div><!-- End Resume Item -->
+<div class="resume-item">
+<h4>3. ADEN BOULANGERIE</h4>
+<h5>브랜드 리뉴얼 프로젝트</h5>
+<p>아덴 블랑제리 센텀점을 대상으로 진행한 브랜드 콘텐츠 및 마케팅 디자인 프로젝트</p>
+<ul>
+<li>브랜드 분석을 바탕으로 캐릭터 ‘데니’ 및 비주얼 콘텐츠 제작</li>
+<li>카드뉴스, 포스터, 배너, 현수막 등 온·오프라인 홍보물 디자인</li>
+<li>웹 콘텐츠 및 AI 기반 캐릭터 애니메이션 제작</li>
+</ul>
+</div><!-- End Resume Item -->
+</div>
+</div>
+</div>
+</section><!-- /Resume Section -->
+<!-- Portfolio Section -->
+<section class="portfolio section" id="portfolio">
+<!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
+<span class="description-title">Portfolio</span>
+<h2>Portfolio</h2>
+<p></p>
+</div><!-- End Section Title -->
+<div class="container-fluid">
+<div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+<ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+<li class="filter-active" data-filter="*">전체</li>
+<li data-filter=".filter-app">디자인</li>
+<li data-filter=".filter-product">영 상</li>
+<li data-filter=".filter-branding">웹</li>
+<!-- <li data-filter=".filter-books">상세디자인</li> -->
+</ul><!-- End Portfolio Filters -->
+<div class="row g-4 isotope-container portfolio-category-grid" data-aos="fade-up" data-aos-delay="200">
+<div class="col-xl-4 col-lg-4 col-md-4 portfolio-item isotope-item filter-app portfolio-direct-design"><div class="portfolio-content portfolio-category-card"><img alt="디자인 프로젝트" class="img-fluid" src="assets/img/portfolio/designsome.png"/><div class="portfolio-category-label"><span>GRAPHIC · DETAIL PAGE</span><h3>DESIGN</h3><p>상세페이지 · 브랜딩 · 그래픽 작업</p></div></div></div>
+<div class="col-xl-4 col-lg-4 col-md-4 portfolio-item isotope-item filter-product"><div class="portfolio-content portfolio-category-card"><img alt="학원 홍보영상 프로젝트" class="img-fluid" src="assets/img/portfolio/video/03-academy-promo.jpg"/><div class="portfolio-category-label"><span>VIDEO · MOTION</span><h3>VIDEO</h3><p>모션그래픽 · 브랜드 · 홍보영상</p></div><div aria-hidden="true" class="video-card-play"><i class="bi bi-play-fill"></i></div><div class="portfolio-info"><a class="details-link video-modal-link" href="#" title="영상 작업 보기"><i class="bi bi-play-fill"></i></a></div></div></div>
+<div class="col-xl-4 col-lg-4 col-md-4 portfolio-item isotope-item filter-branding"><div aria-label="아덴 블랑제리 웹 프로젝트 보기" class="portfolio-content portfolio-category-card web-modal-link" role="button" tabindex="0"><img alt="아덴 블랑제리 웹 프로젝트" class="img-fluid" src="aden-site/assets/hero.jpg"/><div class="portfolio-category-label"><span>WEB · PUBLISHING</span><h3>WEB</h3><p>ADEN BOULANGERIE · HTML · CSS · JavaScript</p></div><div class="web-card-badge"><i class="bi bi-window"></i> WEBSITE</div></div></div>
+</div><!-- End Portfolio Container -->
+</div>
+</div>
+</section><!-- /Portfolio Section -->
+<!-- Contact Section -->
+<section class="contact section contact-clean" id="contact">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Contact</h2>
+  </div>
 
-              <button type="submit">Send Message</button>
-              <button type="reset">Reset Message</button>
-            </div>
-
-          </div>
-        </form><!-- End Contact Form -->
-
+  <div class="container contact-clean-inner" data-aos="fade-up" data-aos-delay="100">
+    <div class="contact-clean-row">
+      <div class="contact-clean-item">
+        <span>LOCATION</span>
+        <strong>부산광역시 해운대구</strong>
       </div>
-
-    </section><!-- /Contact Section -->
-
-  </main>
-
-  <footer id="footer" class="footer position-relative dark-background">
-    <div class="container">
-      
-      
-      <div class="container">
-        <div class="copyright">
-          <span>Copyright</span> <strong class="px-1 sitename">INOY</strong> <span>All Rights Reserved</span>
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          Designed by  | INOY</a>
-        </div>
+      <div class="contact-clean-item">
+        <span>PHONE</span>
+        <strong>+82 10-xxxx-xxxx</strong>
+      </div>
+      <div class="contact-clean-item">
+        <span>EMAIL</span>
+        <strong>info@example.com</strong>
       </div>
     </div>
-  </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-bar-up-short"></i></a>
+    <!-- <form class="php-email-form contact-clean-form" data-aos="fade-up" data-aos-delay="180" method="post">
+      <div class="row gy-3">
+        <div class="col-md-6">
+          <input class="form-control" name="name" placeholder="Name" required type="text">
+        </div>
+        <div class="col-md-6">
+          <input class="form-control" name="email" placeholder="Email" required type="email">
+        </div>
+        <div class="col-md-12">
+          <input class="form-control" name="subject" placeholder="Subject" required type="text">
+        </div>
+        <div class="col-md-12">
+          <textarea class="form-control" name="message" placeholder="Message" required rows="5"></textarea>
+        </div>
+        <div class="col-md-12 contact-clean-actions">
+          <button type="submit">Send Message</button>
+          <button class="contact-reset" type="reset">Reset</button>
+        </div>
+      </div>
+    </form> -->
+  </div>
+</section><!-- /Contact Section -->
+</main>
+<div aria-hidden="true" class="modal fade project-showcase-modal" id="projectShowcaseModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<button aria-label="닫기" class="project-modal-close" data-bs-dismiss="modal" type="button"><i class="bi bi-x-lg"></i></button>
+<div class="project-preview-view">
+<div class="swiper project-preview-swiper">
+<div class="swiper-wrapper"><div class="swiper-slide project-preview-slide" data-detail="tumbler"><div class="project-preview-media is-clickable"><img alt="NOMAD TUMBLER" src="assets/img/portfolio/tumbler/preview-new.png"/></div><div class="project-preview-copy"><span>01 · GRAPHIC DESIGN</span><h3>NOMAD TUMBLER</h3><p>이미지를 클릭하면 세로 상세페이지가 열립니다.</p></div></div><div class="swiper-slide project-preview-slide" data-detail="culture"><div class="project-preview-media is-clickable"><img alt="CULTURE MATE" src="assets/img/portfolio/culture-mate/logo.png"/></div><div class="project-preview-copy"><span>02 · APP PLANNING</span><h3>CULTURE MATE</h3><p>문화생활 동행의 불편을 분석하고 안전한 동행 매칭 경험을 설계한 앱 기획 프로젝트입니다.</p></div></div><div class="swiper-slide project-preview-slide" data-detail="denny">
+<div class="project-preview-media is-clickable">
+<img alt="DENNY 브랜드 캐릭터" src="assets/img/portfolio/denny/denny-01.png"/>
+</div>
+<div class="project-preview-copy">
+<span>03 · BRAND CHARACTER</span>
+<h3>DENNY</h3>
+<p>ADEN BOULANGERIE · CHARACTER &amp; MOTION</p>
+</div>
+</div><div class="swiper-slide project-preview-slide" data-detail="luna"><div class="project-preview-media is-clickable"><img alt="LOTTE WORLD · LUNA" src="assets/img/portfolio/lotte-luna/preview-new.png"/></div><div class="project-preview-copy"><span>04 · ILLUSTRATION</span><h3>LOTTE WORLD · LUNA</h3><p>부산 롯데월드의 밤축제를 모티브로 갈매기 퍼레이드 리더 캐릭터 LUNA를 디자인했습니다.</p></div></div><div class="swiper-slide project-preview-slide" data-detail="velden"><div class="project-preview-media is-clickable"><img alt="VELDEN BRAND IDENTITY" src="assets/img/portfolio/velden/veldensome.png"/></div><div class="project-preview-copy"><span>05 · LOGO &amp; BUSINESS CARD</span><h3></h3><p>향수 브랜드 VELDEN의 로고 시스템과 명함까지 확장한 브랜드 아이덴티티 작업입니다.</p></div></div><div class="swiper-slide project-preview-slide" data-detail="poster"><div class="project-preview-media is-clickable"><img alt="WATER FESTIVAL LEAFLET" src="assets/img/portfolio/poster/leaflet.png"/></div><div class="project-preview-copy"><span>06 · GRAPHIC DESIGN</span><h3>WATER FESTIVAL POSTER</h3><p>포스터부터 현수막·팔찌·티켓까지 확장한 페스티벌 비주얼 작업입니다.</p></div></div></div>
+<button aria-label="이전 작품" class="project-swiper-prev" type="button"><i class="bi bi-chevron-left"></i></button>
+<button aria-label="다음 작품" class="project-swiper-next" type="button"><i class="bi bi-chevron-right"></i></button>
+<div class="project-swiper-pagination"></div>
+</div>
+</div>
+<div aria-hidden="true" class="project-detail-view"><section class="project-detail-page" data-detail-page="tumbler"><div class="project-detail-topbar"><button class="project-detail-back" type="button"><i class="bi bi-arrow-left"></i> 작품 미리보기</button><span>NOMAD TUMBLER</span></div><header class="project-detail-hero"><p>PRODUCT DETAIL · GRAPHIC DESIGN</p><h2>NOMAD TUMBLER</h2><span>일상과 아웃도어 라이프스타일을 위한 텀블러 상세페이지 디자인</span></header><div class="project-detail-long"><img alt="노마드 텀블러 상세페이지 1" src="assets/img/portfolio/tumbler/detail-01.png"/><img alt="노마드 텀블러 상세페이지 2" src="assets/img/portfolio/tumbler/detail-02.png"/><img alt="노마드 텀블러 상세페이지 3" src="assets/img/portfolio/tumbler/detail-03.png"/></div></section></section><section class="project-detail-page" data-detail-page="poster"><div class="project-detail-topbar"><button class="project-detail-back" type="button"><i class="bi bi-arrow-left"></i> 작품 미리보기</button><span>WATER FESTIVAL POSTER</span></div>
+<div class="water-process">
+<div class="water-process-head">
+<span>DESIGN PROCESS</span>
+<h3>From Poster<br/>to Festival Guide.</h3>
+</div>
+<div class="water-process-flow">
+<article>
+<b>01</b>
+<div class="water-process-thumb poster-source"><img alt="워터 페스티벌 포스터" src="assets/img/portfolio/poster/01-story.png"/></div>
+<h4>KEY VISUAL</h4>
+<p>메인 포스터의 컬러와 에너지를 기준으로 비주얼 톤을 설정했습니다.</p>
+</article>
+<div class="water-process-arrow">→</div>
+<article>
+<b>02</b>
+<div class="water-process-palette">
+<i></i><i></i><i></i><i></i>
+<strong>WATER<br/>FESTIVAL</strong>
+</div>
+<h4>VISUAL SYSTEM</h4>
+<p>블루 톤, 물결 형태, 공연 이미지를 안내물 전체에 반복 적용했습니다.</p>
+</article>
+<div class="water-process-arrow">→</div>
+<article>
+<b>03</b>
+<div class="water-process-thumb"><img alt="워터 페스티벌 리플렛" src="assets/img/portfolio/poster/leaflet.png"/></div>
+<h4>LEAFLET</h4>
+<p>공간·프로그램·라인업 정보를 한눈에 읽을 수 있는 리플렛으로 확장했습니다.</p>
+</article>
+</div>
+<div class="water-process-strip">
+<span>POSTER</span><i></i><span>COLOR</span><i></i><span>WAVE</span><i></i><span>MAP</span><i></i><span>PROGRAM</span><i></i><span>LEAFLET</span>
+</div>
+</div>
+<div class="water-leaflet-showcase">
+<div class="water-leaflet-head">
+<span>EDITORIAL · EVENT GUIDE</span>
+<h3>WATER FESTIVAL LEAFLET</h3>
+<p>포스터의 워터 페스티벌 비주얼을 행사 안내 리플렛으로 확장한 편집 디자인입니다.</p>
+</div>
+<div class="water-leaflet-frame">
+<img alt="부산 워터 페스티벌 리플렛 디자인" src="assets/img/portfolio/poster/leaflet.png"/>
+</div>
+</div><header class="project-detail-hero"><p>POSTER · VISUAL SYSTEM</p><h2>WATER FESTIVAL IN BUSAN</h2><span>여름 EDM 페스티벌의 에너지를 포스터와 다양한 응용 매체로 확장한 그래픽 디자인</span></header><div class="project-detail-long poster-detail-long"><img alt="프로젝트 스토리와 포스터" src="assets/img/portfolio/poster/01-story.png"/><img alt="버스정류장 광고 목업" src="assets/img/portfolio/poster/02-mockup-1.png"/><img alt="현수막과 팔찌 응용 디자인" src="assets/img/portfolio/poster/03-mockup-2.png"/><img alt="티켓 응용 디자인" src="assets/img/portfolio/poster/04-ticket.png"/></div>
+</section>
+<section class="project-detail-page culture-mate-modal-page" data-detail-page="culture">
+<div class="project-detail-topbar">
+<button class="project-detail-back" type="button"><i class="bi bi-arrow-left"></i> 작품 미리보기</button>
+<span>CULTURE MATE</span>
+</div>
+<div class="cm-embed">
+<style>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+   
+.nav{height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(22px,5vw,72px);position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border-bottom:1px solid #eef1f5}
+.nav b{font-size:13px;letter-spacing:.18em} .nav 
+.cm-embed .hero{min-height:760px;display:grid;place-items:center;overflow:hidden;position:relative;background:linear-gradient(135deg,#eef6ff 0%,#fff 52%,#eaf4ff 100%);padding:90px 24px}
+.cm-embed .hero:before,.cm-embed .hero:after{content:"";position:absolute;border-radius:50%;filter:blur(2px)} .cm-embed .hero:before{width:520px;height:520px;background:rgba(24,119,242,.11);left:-180px;top:-120px} .cm-embed .hero:after{width:420px;height:420px;background:rgba(64,164,255,.13);right:-120px;bottom:-120px}
+.cm-embed .hero-inner{width:min(1160px,100%);position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:70px}
+.cm-embed .kicker{font-size:10px;font-weight:900;letter-spacing:.22em;color:var(--blue)} .cm-embed h1{font-size:clamp(64px,9vw,126px);line-height:.82;letter-spacing:-.075em;margin:15px 0 27px}
+.cm-embed .hero p{max-width:570px;font-size:17px;line-height:1.75;color:#526071;word-break:keep-all} .cm-embed .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:27px} .cm-embed .chips span{border:1px solid #d9e5f5;background:rgba(255,255,255,.75);border-radius:999px;padding:8px 11px;font-size:9px;font-weight:900;letter-spacing:.06em}
+.cm-embed .logo-stage{position:relative;min-height:510px;display:grid;place-items:center} .cm-embed .logo-orbit{position:absolute;width:470px;height:470px;border:1px solid rgba(24,119,242,.14);border-radius:50%} .cm-embed .logo-orbit:before{content:"";position:absolute;inset:54px;border:1px dashed rgba(24,119,242,.18);border-radius:50%}
+.cm-embed .logo-card{width:260px;height:260px;border-radius:58px;background:#fff;display:grid;place-items:center;box-shadow:0 35px 100px rgba(20,86,166,.18);transform:rotate(-5deg)} .cm-embed .logo-card img{width:72%;height:72%;object-fit:contain}
+.cm-embed .statement{background:var(--deep);color:#fff;padding:120px 24px} .cm-embed .inner{width:min(1160px,100%);margin:auto} .cm-embed .statement .cm-embed .inner{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px;align-items:start} .cm-embed .num{font-size:11px;color:#78b8ff;font-weight:900;letter-spacing:.2em} .cm-embed .statement h2,.cm-embed .section h2{font-size:clamp(42px,6vw,78px);line-height:1.02;letter-spacing:-.06em;margin:12px 0 25px} .cm-embed .statement p{font-size:clamp(18px,2vw,26px);line-height:1.65;color:#c8d5e7;word-break:keep-all;margin:0}
+.cm-embed .problem{padding:120px 24px;background:#fff} .cm-embed .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:55px} .cm-embed .problem-card{min-height:270px;padding:32px;border:1px solid var(--line);border-radius:25px;background:#fff} .cm-embed .problem-card b{display:block;color:var(--blue);font-size:11px;letter-spacing:.13em;margin-bottom:50px} .cm-embed .problem-card h3{font-size:27px;letter-spacing:-.045em;margin:0 0 14px} .cm-embed .problem-card p{font-size:13px;line-height:1.75;color:var(--muted);word-break:keep-all}
+.cm-embed .solution{padding:120px 24px;background:var(--soft)} .cm-embed .solution-head{max-width:800px} .cm-embed .feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:55px} .cm-embed .feature{padding:42px;border-radius:28px;background:#fff;min-height:300px;position:relative;overflow:hidden} .cm-embed .feature i{font-style:normal;font-size:68px;font-weight:900;color:#e7f1ff;position:absolute;right:26px;top:18px} .cm-embed .feature small{color:var(--blue);font-size:10px;font-weight:900;letter-spacing:.14em} .cm-embed .feature h3{font-size:31px;margin:60px 0 13px;letter-spacing:-.05em} .cm-embed .feature p{max-width:420px;font-size:13px;line-height:1.8;color:var(--muted);word-break:keep-all}
+.cm-embed .flow{padding:120px 24px;background:#fff} .cm-embed .flow-line{margin-top:60px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px} .cm-embed .flow-step{padding:24px 18px;border-top:3px solid #dceaff} .cm-embed .flow-step.active{border-color:var(--blue)} .cm-embed .flow-step span{font-size:10px;color:var(--blue);font-weight:900} .cm-embed .flow-step b{display:block;margin-top:15px;font-size:17px} .cm-embed .flow-step p{font-size:11px;line-height:1.6;color:#7b8490}
+.cm-embed .prototype{padding:120px 24px;background:#0b0e13;color:#fff} .cm-embed .proto-grid{display:grid;grid-template-columns:minmax(330px,430px) 1fr;gap:clamp(60px,9vw,125px);align-items:center} .cm-embed .device{padding:10px;border-radius:40px;background:#020305;border:1px solid #262a31;box-shadow:0 40px 110px rgba(0,0,0,.45)} .cm-embed .device-top{height:38px;display:grid;place-items:center;font-size:8px;font-weight:900;letter-spacing:.18em;color:#777e89} .cm-embed .screen{position:relative;aspect-ratio:375/812;border-radius:27px;overflow:hidden;background:#fff} .cm-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0} .cm-embed .proto-copy small{color:#72b3ff;font-size:10px;font-weight:900;letter-spacing:.18em} .cm-embed .proto-copy h2{font-size:clamp(45px,6vw,78px);line-height:.98;letter-spacing:-.06em;margin:14px 0 24px} .cm-embed .proto-copy p{max-width:520px;color:#adb4bf;font-size:15px;line-height:1.8;word-break:keep-all}
+.cm-embed .final{padding:130px 24px;text-align:center;background:linear-gradient(180deg,#fff,#edf6ff)} .cm-embed .final img{width:110px;height:110px;object-fit:contain;margin-bottom:26px} .cm-embed .final h2{font-size:clamp(48px,7vw,90px);letter-spacing:-.065em;margin:0} .cm-embed .final p{font-size:14px;color:#687384;line-height:1.7} 
+@media(max-width:820px){.cm-embed .hero-inner,.cm-embed .statement .cm-embed .inner,.cm-embed .proto-grid{grid-template-columns:1fr} .cm-embed .logo-stage{min-height:360px} .cm-embed .logo-orbit{width:330px;height:330px} .cm-embed .logo-card{width:200px;height:200px;border-radius:45px} .cm-embed .problem-grid,.cm-embed .feature-grid{grid-template-columns:1fr} .cm-embed .flow-line{grid-template-columns:1fr} .cm-embed .statement{padding:90px 24px}}
+</style>
+<section class="hero">
+<div class="hero-inner">
+<div><div class="kicker">UX/UI · APP DESIGN</div><h1>CULTURE<br/>MATE</h1>
+<p>공연·전시·축제 같은 문화생활을 혼자가 아닌 ‘함께’ 즐길 수 있도록, 일정과 취향을 중심으로 안전하게 동행을 연결하는 문화 매칭 서비스입니다.</p>
+<div class="chips"><span>UX RESEARCH</span><span>UI DESIGN</span><span>FIGMA</span><span>PROTOTYPE</span></div>
+</div>
+<div class="logo-stage"><div class="logo-orbit"></div><div class="logo-card"><img alt="Culture Mate logo" src="assets/img/portfolio/culture-mate/logo.png"/></div></div>
+</div>
+</section>
+<section class="statement"><div class="inner">
+<div><div class="num">01 · PROJECT IDEA</div></div>
+<div><h2>함께하는 문화생활,<br/>왜 어려울까요?</h2><p>취미는 같은데 함께할 사람이 없고, 아무나 만나기에는 불안합니다. Culture Mate는 이 간극을 문화생활에 특화된 동행 경험으로 해결합니다.</p></div>
+</div></section>
+<section class="problem section"><div class="inner">
+<div class="num">02 · CORE PROBLEM</div><h2>혼자라서 망설였던<br/>순간에서 시작했습니다.</h2>
+<div class="problem-grid">
+<div class="problem-card"><b>01 · COMPANION</b><h3>동행자 부재</h3><p>가고 싶은 공연이나 전시는 있지만 일정과 취향이 맞는 사람을 찾기 어렵습니다.</p></div>
+<div class="problem-card"><b>02 · SAFETY</b><h3>낯선 만남의 부담</h3><p>온라인에서 처음 만나는 사람과의 동행에는 신뢰와 안전에 대한 걱정이 따라옵니다.</p></div>
+<div class="problem-card"><b>03 · DISCOVERY</b><h3>흩어진 문화 정보</h3><p>관심 있는 문화 일정과 함께할 사람을 각각 찾아야 하는 번거로움을 줄이고자 했습니다.</p></div>
+</div>
+</div></section>
+<section class="solution section"><div class="inner">
+<div class="solution-head"><div class="num">03 · KEY EXPERIENCE</div><h2>Culture Mate만의<br/>4가지 핵심 경험</h2></div>
+<div class="feature-grid">
+<div class="feature"><i>01</i><small>AI MATCHING</small><h3>AI 자동 그룹 매칭</h3><p>사용자의 일정과 조건을 바탕으로 문화생활을 함께할 그룹을 보다 가볍게 연결합니다.</p></div>
+<div class="feature"><i>02</i><small>SCHEDULE FIRST</small><h3>문화 일정 중심 모집</h3><p>관계 형성 자체보다 ‘함께 갈 일정’을 중심에 두어 만남의 목적을 명확하게 설계했습니다.</p></div>
+<div class="feature"><i>03</i><small>SAFE MODE</small><h3>안전 모드</h3><p>동성·연령대·공개 장소 등 사용자가 원하는 조건을 선택해 낯선 동행의 부담을 낮춥니다.</p></div>
+<div class="feature"><i>04</i><small>AI RECOMMEND</small><h3>문화 큐레이션</h3><p>관심사와 활동 흐름을 바탕으로 새로운 공연·전시·축제 경험까지 자연스럽게 확장합니다.</p></div>
+</div>
+</div></section>
+<section class="flow section"><div class="inner">
+<div class="num">04 · USER FLOW</div><h2>찾고, 매칭하고,<br/>함께 경험합니다.</h2>
+<div class="flow-line">
+<div class="flow-step active"><span>STEP 01</span><b>인지</b><p>문화 일정과 추천 콘텐츠 탐색</p></div>
+<div class="flow-step active"><span>STEP 02</span><b>탐색</b><p>모집과 관심 조건 확인</p></div>
+<div class="flow-step active"><span>STEP 03</span><b>매칭</b><p>AI 자동 매칭 또는 모집 참여</p></div>
+<div class="flow-step active"><span>STEP 04</span><b>경험</b><p>안전한 동행과 문화생활</p></div>
+<div class="flow-step"><span>STEP 05</span><b>리뷰</b><p>경험을 기록하고 다음 추천으로 연결</p></div>
+</div>
+</div></section>
+<section class="prototype"><div class="inner proto-grid">
+<div aria-label="Culture Mate 프로토타입 크게 열기" class="prototype-hand-stage" id="cultureProtoTrigger" role="button" tabindex="0">
+<div aria-hidden="true" class="hand-mockup">
+<span class="hand-palm"></span>
+<span class="hand-thumb"></span>
+<span class="hand-finger hand-finger-1"></span>
+<span class="hand-finger hand-finger-2"></span>
+<span class="hand-finger hand-finger-3"></span>
+</div>
+<div class="device"><div class="device-top">LIVE PROTOTYPE</div><div class="screen"><iframe allowfullscreen="" src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fproto%2FuT3OseN2rFLlvOnUszSTl5%2F%25EC%258A%25A4%25EB%25A7%2588%25ED%258A%25B8%25EB%25AC%25B8%25ED%2599%2594%25EC%2595%25B1-UX%25EC%2584%25A4%25EA%25B3%2584_%25ED%2599%25A9%25EC%259D%25B8%25EC%2598%25A4%3Fnode-id%3D123-3037%26t%3DcHIld8qdRV0TBvd4-0%26scaling%3Dscale-down-width%26content-scaling%3Dfixed%26page-id%3D1%253A3%26starting-point-node-id%3D123%253A3255%26show-proto-sidebar%3D0" title="Culture Mate prototype"></iframe></div></div></div>
+<div class="proto-copy"><small>05 · INTERACTIVE PROTOTYPE</small><h2>직접 사용해보세요.</h2><p>정적인 기획서 대신 실제 프로토타입을 포트폴리오 안에 배치했습니다. 홈과 주요 메뉴, AI 매칭 흐름 등 연결된 화면을 직접 눌러볼 수 있습니다.</p></div>
+</div></section>
+<section class="final"><img alt="" src="assets/img/portfolio/culture-mate/logo.png"/><h2>CULTURE MATE</h2><p>문화생활을 함께하는 더 가볍고 안전한 방법.</p></section>
+</div>
+</section>
+<section class="project-detail-page" data-detail-page="velden"><div class="project-detail-topbar"><button class="project-detail-back" type="button"><i class="bi bi-arrow-left"></i> 작품 미리보기</button><span>VELDEN</span></div><header class="project-detail-hero"><p>BRANDING · VISUAL IDENTITY</p><h2>VELDEN BRAND IDENTITY</h2><span></span></header><div class="project-detail-long"><img alt="VELDEN BRAND IDENTITY 1" src="assets/img/portfolio/velden/mockup-2.png"/><img alt="VELDEN BRAND IDENTITY 2" src="assets/img/portfolio/velden/mockup-3.png"/><img alt="VELDEN BRAND IDENTITY 3" src="assets/img/portfolio/velden/mockup-1.png"/><img alt="VELDEN BRAND IDENTITY 4" src="assets/img/portfolio/velden/mockup-4.png"/><img alt="VELDEN BRAND IDENTITY 5" src="assets/img/portfolio/velden/mockup-5.png"/><img alt="VELDEN BRAND IDENTITY 6" src="assets/img/portfolio/velden/logo.png"><img alt="VELDEN BRAND IDENTITY 7" src="assets/img/portfolio/velden/business-card.png"/></img></div></section>
+<section class="project-detail-page denny-case denny-case-large denny-v2" data-detail-page="denny">
+<div class="project-detail-topbar">
+<button class="project-detail-back" type="button"><i class="bi bi-arrow-left"></i> 작품 미리보기</button>
+<span>ADEN · DENNY</span>
+</div>
+<!-- First finished board: full-size, no TV/card frame -->
+<section class="denny-board-full denny-board-first">
+<img alt="DENNY 캐릭터 프로젝트 메인 보드" src="assets/img/portfolio/denny/denny-01.png"/>
+</section>
+<!-- Actual Aden web interaction rebuilt with the same frame assets -->
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<section class="denny-art-section denny-cream">
+<div class="denny-art-heading"><span>06 · CHARACTER DESIGN</span><h3>BIRTH STORY</h3></div>
+<img alt="DENNY 캐릭터 디자인 보드" src="assets/img/portfolio/denny/denny-02.png"/>
+</section>
+<section class="denny-art-section denny-white">
+<div class="denny-art-heading"><span>02 · CHARACTER SYSTEM</span><h3>TURN AROUND</h3></div>
+<img alt="DENNY 캐릭터 시스템" src="assets/img/portfolio/denny/denny-03.png"/>
+</section>
+<section class="denny-art-section denny-green">
+<div class="denny-art-heading"><span>03 · POSE &amp; MOMENT</span><h3>3D POSE</h3></div>
+<img alt="DENNY 포즈 및 응용" src="assets/img/portfolio/denny/denny-04.png"/>
+</section>
+<section class="denny-art-section denny-cream">
+<div class="denny-art-heading"><span>04 · BRAND APPLICATION</span><h3>EXPRESSION</h3></div>
+<img alt="DENNY 브랜드 응용" src="assets/img/portfolio/denny/denny-05.png"/>
+</section>
+<section class="denny-art-section denny-white">
+<div class="denny-art-heading"><span>05 · GOODS</span><h3>MOCKUP 1.</h3></div>
+<img alt="DENNY 굿즈 디자인" src="assets/img/portfolio/denny/denny-06.png"/>
+</section>
+<section class="denny-art-section denny-green">
+<div class="denny-art-heading"><span>06 · APPLICATION</span><h3>MOCKUP 2</h3></div>
+<img alt="DENNY 응용 디자인" src="assets/img/portfolio/denny/denny-07.png"/>
+</section>
+<section class="denny-art-section denny-cream">
+<div class="denny-art-heading"><span>07 · BRAND EXPERIENCE</span><h3>MASCOTT VERSION.</h3></div>
+<img alt="DENNY 브랜드 경험 디자인" src="assets/img/portfolio/denny/denny-08.png"/>
+</section>
+</section>
+<section class="project-detail-page luna-case luna-v2" data-detail-page="luna">
+<div class="project-detail-topbar">
+<button class="project-detail-back" type="button"><i class="bi bi-arrow-left"></i> 작품 미리보기</button>
+<span>LOTTE WORLD · LUNA</span>
+</div>
+<section class="luna-v2-hero">
+<div class="luna-v2-title"><span>CHARACTER · ILLUSTRATION</span><h2>LUNA</h2><p>Night Parade Leader</p></div>
+<div class="luna-v2-character luna-playground">
+<div class="luna-float-wrap">
+<img alt="LUNA interactive character" class="luna-live" draggable="false" src="assets/img/portfolio/lotte-luna/luna-interactive.png"/>
+<div class="luna-shadow"></div>
+</div>
+<div class="luna-hint"><span>DRAG LUNA</span><small>잡아서 움직여보세요</small></div>
+</div>
+</section>
+<section class="luna-clean-gallery">
+<img alt="LUNA 캐릭터 소개" src="assets/img/portfolio/lotte-luna/luna-intro-clean.png"/>
+<img alt="LUNA 턴어라운드" src="assets/img/portfolio/lotte-luna/luna-turnaround-clean.png"/>
+<img alt="LUNA 포즈 디자인" src="assets/img/portfolio/lotte-luna/luna-poses-clean.png"/>
+<img alt="LUNA 표정 디자인" src="assets/img/portfolio/lotte-luna/luna-expression-clean.png"/>
+</section>
+</section>
+</div>
+</div>
+</div>
+</div><div aria-hidden="true" class="modal fade video-showcase-modal" id="videoShowcaseModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<button aria-label="닫기" class="project-modal-close" data-bs-dismiss="modal" type="button"><i class="bi bi-x-lg"></i></button>
+<div class="swiper video-project-swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide video-project-slide">
+<div class="video-project-stage"><video controls="" playsinline="" poster="assets/img/portfolio/video/03-academy-promo.jpg" preload="metadata"><source src="assets/video/projects/03-academy-promo.mp4" type="video/mp4"/></video></div>
+<div class="video-project-copy"><span>PROMOTIONAL VIDEO · 2026</span><h3>ACADEMY PROMOTION</h3><p>학원 홍보영상 프로젝트. 촬영 소스와 AI 생성 컷을 활용해 홍보 목적의 영상으로 구성한 작업입니다.</p><div class="video-project-meta"><b>01 / 04</b><em>Promotion · Editing</em></div></div>
+</div>
+<div class="swiper-slide video-project-slide">
+<div class="video-project-stage"><video controls="" playsinline="" poster="assets/img/portfolio/video/01-state-of-confusion.jpg" preload="metadata"><source src="assets/video/projects/01-state-of-confusion.mp4" type="video/mp4"/></video></div>
+<div class="video-project-copy"><span>MOTION GRAPHIC · 2026</span><h3>STATE OF CONFUSION</h3><p>모션그래픽 영상 프로젝트. 영상 재생 후 좌우로 넘기면 다음 작업을 바로 확인할 수 있습니다.</p><div class="video-project-meta"><b>02 / 04</b><em>Motion Graphic</em></div></div>
+</div>
+<div class="swiper-slide video-project-slide">
+<div class="video-project-stage"><video controls="" playsinline="" poster="assets/img/portfolio/video/02-brand-festa.jpg" preload="metadata"><source src="assets/video/projects/02-brand-festa.mp4" type="video/mp4"/></video></div>
+<div class="video-project-copy"><span>BRAND CONTENT · 2026</span><h3>BRAND FESTA</h3><p>브랜드 페스타 영상 프로젝트. 영상과 설명을 하나의 슬라이드로 구성해 작품별로 빠르게 탐색할 수 있습니다.</p><div class="video-project-meta"><b>03 / 04</b><em>Brand Video</em></div></div>
+</div>
+<div class="swiper-slide video-project-slide">
+<div class="video-project-stage"><video controls="" playsinline="" poster="assets/img/portfolio/video/04-aden-boulangerie.jpg" preload="metadata"><source src="assets/video/projects/04-aden-boulangerie.mp4" type="video/mp4"/></video></div>
+<div class="video-project-copy"><span>BRAND VIDEO · 2026</span><h3>ADEN BOULANGERIE</h3><p>아덴 블랑제리 브랜드 영상 프로젝트. 브랜드 비주얼을 영상 콘텐츠로 확장한 작업입니다.</p><div class="video-project-meta"><b>04 / 04</b><em>Branding · Video</em></div></div>
+</div>
+</div>
+<div class="video-swiper-pagination"></div>
+</div>
+<button aria-label="이전 영상" class="video-swiper-prev" type="button"><i class="bi bi-chevron-left"></i></button>
+<button aria-label="다음 영상" class="video-swiper-next" type="button"><i class="bi bi-chevron-right"></i></button>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="modal fade web-showcase-modal" id="webShowcaseModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<button aria-label="닫기" class="project-modal-close" data-bs-dismiss="modal" type="button"><i class="bi bi-x-lg"></i></button>
+<div class="web-project-layout">
+<div class="web-browser-wrap">
+<div class="web-browser-bar"><span></span><span></span><span></span><div>ADEN BOULANGERIE / BRAND WEBSITE</div></div>
+<iframe class="web-project-frame" loading="lazy" src="aden-site/index.html" title="아덴 블랑제리 웹사이트 미리보기"></iframe>
+</div>
+<div class="web-project-copy">
+<span>WEB PUBLISHING · BRAND WEBSITE · 2026</span>
+<h3>ADEN<br/>BOULANGERIE</h3>
+<p>아덴 블랑제리 브랜드 비주얼을 웹으로 확장한 멀티페이지 사이트입니다. 메인부터 BRAND, MENU, NEWS, STORE 페이지까지 직접 둘러볼 수 있습니다.</p>
+<div class="web-project-tags"><b>HTML</b><b>CSS</b><b>JavaScript</b><b>Multi-page</b></div>
+<a class="web-live-button" href="aden-site/index.html" rel="noopener" target="_blank">웹사이트 둘러보기 <i class="bi bi-arrow-up-right"></i></a>
+<small>왼쪽 화면에서도 메뉴를 직접 눌러볼 수 있습니다.</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer position-relative dark-background" id="footer">
+<div class="container">
+<div class="container">
+<div class="copyright">
+<span>Copyright</span> <strong class="px-1 sitename">INOY</strong> <span>All Rights Reserved</span>
+</div>
+<div class="credits">
+<!-- All the links in the footer should remain intact. -->
+<!-- You can delete the links only if you've purchased the pro version. -->
+<!-- Licensing information: https://bootstrapmade.com/license/ -->
+<!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+          Designed by  | INOY
+</div>
+</div>
+</div>
+</footer>
+<!-- Scroll Top -->
+<a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-bar-up-short"></i></a>
+<!-- Preloader -->
+<div id="preloader"></div>
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+<div aria-hidden="true" class="about-brand-lightbox" id="aboutBrandLightbox">
+<button aria-label="닫기" class="about-brand-lightbox-close" type="button">×</button>
+<div class="about-brand-lightbox-panel">
+<img alt="" id="aboutBrandLightboxImage" src=""/>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const lightbox = document.getElementById('aboutBrandLightbox');
+  const lightboxImage = document.getElementById('aboutBrandLightboxImage');
+  const closeBtn = lightbox ? lightbox.querySelector('.about-brand-lightbox-close') : null;
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  document.querySelectorAll('.about-brand-zoom').forEach(function (button) {
+    button.addEventListener('click', function () {
+      lightboxImage.src = button.dataset.brandImage;
+      lightboxImage.alt = button.dataset.brandAlt || '';
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
 
-</body>
+  function closeBrandLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImage.src = '';
+    document.body.style.overflow = '';
+  }
 
+  if (closeBtn) closeBtn.addEventListener('click', closeBrandLightbox);
+  if (lightbox) {
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeBrandLightbox();
+    });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeBrandLightbox();
+  });
+});
+</script>
+<div aria-hidden="true" class="culture-lightbox" id="cultureLightbox">
+<button aria-label="닫기" class="culture-lightbox-close" type="button">×</button>
+<div class="culture-lightbox-panel"><img alt="" id="cultureLightboxImage" src=""/></div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const box = document.getElementById('cultureLightbox');
+  const image = document.getElementById('cultureLightboxImage');
+  const close = box ? box.querySelector('.culture-lightbox-close') : null;
+
+  document.querySelectorAll('.culture-gallery-item').forEach(function (item) {
+    item.addEventListener('click', function () {
+      if (!box || !image) return;
+      image.src = item.dataset.cultureImage;
+      image.alt = item.querySelector('img')?.alt || 'CULTURE MATE';
+      box.classList.add('is-open');
+      box.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeCultureLightbox() {
+    if (!box) return;
+    box.classList.remove('is-open');
+    box.setAttribute('aria-hidden', 'true');
+    if (image) image.src = '';
+    document.body.style.overflow = '';
+  }
+
+  if (close) close.addEventListener('click', closeCultureLightbox);
+  if (box) box.addEventListener('click', function (e) {
+    if (e.target === box) closeCultureLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && box?.classList.contains('is-open')) closeCultureLightbox();
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const cultureCard = document.querySelector('[data-detail-target="culture"]');
+  if (cultureCard) {
+    cultureCard.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      window.location.href = 'culture-mate.html';
+    }, true);
+  }
+});
+</script>
+<div aria-hidden="true" id="cultureProtoZoom">
+<div class="culture-proto-label">CULTURE MATE · INTERACTIVE PROTOTYPE</div>
+<button aria-label="프로토타입 닫기" class="culture-proto-close" type="button">×</button>
+<div class="culture-proto-zoom-device">
+<iframe allowfullscreen="" src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fproto%2FuT3OseN2rFLlvOnUszSTl5%2F%25EC%258A%25A4%25EB%25A7%2588%25ED%258A%25B8%25EB%25AC%25B8%25ED%2599%2594%25EC%2595%25B1-UX%25EC%2584%25A4%25EA%25B3%2584_%25ED%2599%25A9%25EC%259D%25B8%25EC%2598%25A4%3Fnode-id%3D123-3037%26t%3DcHIld8qdRV0TBvd4-0%26scaling%3Dscale-down-width%26content-scaling%3Dfixed%26page-id%3D1%253A3%26starting-point-node-id%3D123%253A3255%26show-proto-sidebar%3D0"></iframe>
+</div>
+</div>
+<script>
+(function(){
+ const trigger=document.getElementById('cultureProtoTrigger');
+ const zoom=document.getElementById('cultureProtoZoom');
+ if(!trigger||!zoom) return;
+ const close=zoom.querySelector('.culture-proto-close');
+ const openZoom=()=>{zoom.classList.add('is-open');zoom.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';};
+ const closeZoom=()=>{zoom.classList.remove('is-open');zoom.setAttribute('aria-hidden','true');document.body.style.overflow='';};
+ trigger.addEventListener('click',openZoom);
+ trigger.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openZoom();}});
+ close.addEventListener('click',e=>{e.stopPropagation();closeZoom();});
+ zoom.addEventListener('click',e=>{if(e.target===zoom)closeZoom();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&zoom.classList.contains('is-open'))closeZoom();});
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+ const card=document.getElementById('dennyMotionCard');
+ if(!card)return;
+ function replay(){card.classList.add('replay');card.classList.remove('play');void card.offsetWidth;card.classList.add('play');setTimeout(()=>{card.classList.remove('replay','play')},1900);}
+ card.addEventListener('click',replay);
+ card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();replay();}});
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  const mascot=document.getElementById('portfolioDennyMascot');
+  const wrap=document.getElementById('portfolioDennyCharacter');
+  if(!mascot||!wrap)return;
+
+  const body=wrap.querySelector('.denny-body-hitbox');
+  const coffee=wrap.querySelector('.denny-coffee-hitbox');
+  const bread=wrap.querySelector('.denny-bread-hitbox');
+
+  const normal='assets/img/portfolio/denny/interactive/deny-hero.png';
+  const blink='assets/img/portfolio/denny/interactive/deny-hero-blink.png';
+  const drink1='assets/img/portfolio/denny/interactive/deny-drink-step1.png';
+  const drink2='assets/img/portfolio/denny/interactive/deny-drink-step2.png';
+  const drinkFinal='assets/img/portfolio/denny/interactive/deny-drink-01.png';
+  const bread1='assets/img/portfolio/denny/interactive/deny-bread-step1.png';
+  const bread2='assets/img/portfolio/denny/interactive/deny-bread-step2.png';
+  const breadFinal='assets/img/portfolio/denny/interactive/deny-bread-02.png';
+
+  [blink,drink1,drink2,drinkFinal,bread1,bread2,breadFinal].forEach(src=>{const i=new Image();i.src=src;});
+  let acting=false,blinkTimer=null;
+
+  function scheduleBlink(){
+    clearTimeout(blinkTimer);
+    blinkTimer=setTimeout(()=>{
+      if(!acting){
+        mascot.src=blink;
+        setTimeout(()=>{if(!acting)mascot.src=normal;},160);
+      }
+      scheduleBlink();
+    },4500+Math.random()*5000);
+  }
+  function finish(){mascot.src=normal;acting=false;scheduleBlink();}
+  scheduleBlink();
+
+  body?.addEventListener('click',e=>{
+    e.stopPropagation();
+    if(acting)return;
+    wrap.classList.remove('denny-shake'); void wrap.offsetWidth; wrap.classList.add('denny-shake');
+    setTimeout(()=>wrap.classList.remove('denny-shake'),700);
+  });
+
+  coffee?.addEventListener('click',e=>{
+    e.stopPropagation(); if(acting)return;
+    acting=true;clearTimeout(blinkTimer);mascot.src=drink1;
+    setTimeout(()=>{mascot.src=drink2;
+      setTimeout(()=>{mascot.src=drinkFinal;
+        setTimeout(finish,950);
+      },500);
+    },450);
+  });
+
+  bread?.addEventListener('click',e=>{
+    e.stopPropagation(); if(acting)return;
+    acting=true;clearTimeout(blinkTimer);mascot.src=bread1;
+    setTimeout(()=>{mascot.src=bread2;
+      setTimeout(()=>{mascot.src=breadFinal;
+        setTimeout(finish,1200);
+      },550);
+    },450);
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const area = document.querySelector('.luna-playground');
+  if (!area) return;
+  const floater = area.querySelector('.luna-float-wrap');
+  let dragging=false, startX=0, startY=0, dx=0, dy=0;
+
+  const move = (e) => {
+    if (!dragging) return;
+    dx = e.clientX - startX;
+    dy = e.clientY - startY;
+    const rect = area.getBoundingClientRect();
+    dx = Math.max(-rect.width*.32, Math.min(rect.width*.32, dx));
+    dy = Math.max(-rect.height*.30, Math.min(rect.height*.30, dy));
+    floater.style.transform = `translate(${dx}px, ${dy}px) rotate(${dx/55}deg)`;
+  };
+  const release = () => {
+    if (!dragging) return;
+    dragging=false;
+    area.classList.remove('is-dragging');
+    area.classList.add('is-returning');
+    floater.style.transform='translate(0,0) rotate(0deg)';
+    setTimeout(() => {
+      area.classList.remove('is-returning');
+      floater.style.transform='';
+    }, 600);
+  };
+
+  area.addEventListener('pointerdown', e => {
+    dragging=true;
+    startX=e.clientX; startY=e.clientY;
+    area.classList.remove('is-returning');
+    area.classList.add('is-dragging');
+    area.setPointerCapture?.(e.pointerId);
+  });
+  area.addEventListener('pointermove', move);
+  area.addEventListener('pointerup', release);
+  area.addEventListener('pointercancel', release);
+});
+</script></body>
 </html>
