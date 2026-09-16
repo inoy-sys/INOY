@@ -2806,3 +2806,11 @@ body.modal-open { padding-right:0!important; }
 .contact-clean-item + .contact-clean-item {
   border-left: none;
 }
+
+#resume {
+  background: #f1f5ff !important;
+}
+
+#portfolio {
+  background: #f8faff !important;
+}
