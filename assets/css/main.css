@@ -2814,3 +2814,15 @@ body.modal-open { padding-right:0!important; }
 #portfolio {
   background: #f8faff !important;
 }
+
+/* ===== Resume: Skills / Career & Certifications ===== */
+.resume .skill-list{display:grid;gap:14px}
+.resume .skill-item{position:relative;padding:18px 20px 16px 24px;border-left:3px solid var(--accent-color-ino);border-radius:0 14px 14px 0;background:rgba(255,255,255,.62);box-shadow:0 10px 28px rgba(1,18,66,.045)}
+.resume .skill-item::before{content:"";position:absolute;width:9px;height:9px;left:-6px;top:24px;border-radius:50%;background:var(--accent-color-ino);box-shadow:0 0 0 4px #f1f5ff}
+.resume .skill-item h4{margin:0 0 9px;color:var(--heading-color-ino3);font-size:18px;font-weight:800;text-transform:none;letter-spacing:.01em}
+.resume .skill-item p{margin:3px 0;color:color-mix(in srgb,var(--default-color),transparent 12%);font-size:14px;line-height:1.65}
+.resume .resume-secondary-block{margin-top:42px}
+.resume .resume-secondary-block .resume-title{margin-top:0}
+.resume .resume-secondary-block .resume-item p{margin-bottom:0}
+@media(max-width:991px){.resume .col-lg-6+.col-lg-6{margin-top:34px}.resume .resume-secondary-block{margin-top:36px}}
+@media(max-width:575px){.resume .skill-item{padding:16px 16px 14px 20px}.resume .skill-item h4{font-size:17px}.resume .skill-item p{font-size:13.5px}}
