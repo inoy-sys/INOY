@@ -3216,3 +3216,159 @@ body.modal-open { padding-right:0!important; }
     font-size: 16px !important;
   }
 }
+
+
+/* =========================================================
+   INOY desktop compact scale
+   Browser 100%에서 기존 90% 줌과 비슷한 시각 밀도
+   Mobile/tablet layout is intentionally untouched.
+   ========================================================= */
+@media (min-width: 1200px) {
+  /* Header */
+  .header {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .header .logo img {
+    max-height: 81px;
+  }
+
+  .header .logo h1 {
+    font-size: 27px;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    padding: 16px 14px;
+    font-size: 18px;
+  }
+
+  .scrolled .header {
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+
+  /* Hero: keep full viewport/video, compact only the content */
+  .hero {
+    padding-top: 126px;
+    padding-bottom: 63px;
+  }
+
+  .hero .hero-content {
+    max-width: 1060px;
+  }
+
+  .hero h1 {
+    font-size: clamp(56px, 8.1vw, 115px);
+  }
+
+  .hero .hero-kicker {
+    min-height: 29px;
+    padding: 6px 11px;
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  .hero .hero-lead {
+    margin-top: 27px;
+    max-width: 630px;
+    font-size: clamp(18px, 1.9vw, 27px);
+  }
+
+  .hero .hero-role {
+    margin-top: 9px;
+    font-size: 13px;
+  }
+
+  .hero .hero-actions {
+    gap: 11px;
+    margin-top: 30px;
+  }
+
+  .hero .hero-btn {
+    min-width: 139px;
+    padding: 12px 22px;
+    font-size: 13px;
+  }
+
+  .hero .hero-meta {
+    margin-top: 30px;
+    font-size: 10px;
+  }
+
+  /* Overall section rhythm */
+  main > section:not(.hero),
+  main > .section:not(.hero) {
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+
+  .section-title {
+    padding-top: 27px;
+    padding-bottom: 27px;
+    margin-bottom: 27px;
+  }
+
+  .section-title h2 {
+    font-size: 29px;
+    margin-bottom: 18px;
+  }
+
+  .section-title span {
+    font-size: 45px;
+  }
+
+  /* About */
+  .about .content h2 {
+    font-size: 22px;
+  }
+
+  .about .content ul li {
+    margin-bottom: 18px;
+  }
+
+  /* Resume */
+  .resume .resume-title,
+  #resume .resume-title {
+    font-size: 23px;
+  }
+
+  #resume .resume-clean-card,
+  #resume .resume-project-card,
+  #resume .skill-item {
+    font-size: 0.94em;
+  }
+
+  /* Portfolio overview cards */
+  .portfolio .portfolio-item {
+    height: 252px;
+  }
+
+  .portfolio .portfolio-filters {
+    margin-bottom: 18px;
+  }
+
+  .portfolio .portfolio-filters li {
+    font-size: 16px;
+    margin-left: 9px;
+    margin-right: 9px;
+  }
+
+  /* Contact + footer */
+  .contact .info-item h3 {
+    font-size: 22px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+
+  .footer {
+    padding-top: 27px;
+    padding-bottom: 27px;
+    font-size: 13px;
+  }
+
+  .footer h3 {
+    font-size: 32px;
+  }
+}
