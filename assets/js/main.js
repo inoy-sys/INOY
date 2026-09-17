@@ -63,8 +63,17 @@
    */
   const preloader = document.querySelector('#preloader');
   if (preloader) {
+    const loaderStartedAt = performance.now();
+    const minimumDisplayTime = 800;
+
     window.addEventListener('load', () => {
-      preloader.remove();
+      const elapsed = performance.now() - loaderStartedAt;
+      const wait = Math.max(0, minimumDisplayTime - elapsed);
+
+      window.setTimeout(() => {
+        preloader.classList.add('is-leaving');
+        window.setTimeout(() => preloader.remove(), 620);
+      }, wait);
     });
   }
 

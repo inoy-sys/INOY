@@ -538,37 +538,131 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Preloader
+# INOY Branded Preloader
 --------------------------------------------------------------*/
 #preloader {
   position: fixed;
   inset: 0;
   z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  background: var(--background-color);
-  transition: all 0.6s ease-out;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(78, 125, 255, 0.13), transparent 30%),
+    linear-gradient(145deg, #050812 0%, #081126 52%, #050812 100%);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .58s ease, visibility .58s ease;
 }
 
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
+#preloader.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
+#preloader .inoy-loader {
+  width: min(78vw, 300px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transform: translateY(-2vh);
+}
+
+#preloader .inoy-loader-mark {
+  width: clamp(82px, 9vw, 118px);
+  height: clamp(82px, 9vw, 118px);
+  display: grid;
+  place-items: center;
+  margin-bottom: 22px;
+  animation: inoy-loader-mark-in .8s cubic-bezier(.2,.75,.25,1) both;
+}
+
+#preloader .inoy-loader-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 30px rgba(78, 125, 255, .24));
+}
+
+#preloader .inoy-loader-name {
+  color: #ffffff;
+  font-family: var(--nav-font);
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: .22em;
+  padding-left: .22em;
+  animation: inoy-loader-copy-in .65s .18s ease both;
+}
+
+#preloader .inoy-loader-sub {
+  margin-top: 10px;
+  color: rgba(255,255,255,.48);
+  font-family: var(--nav-font);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .38em;
+  padding-left: .38em;
+  animation: inoy-loader-copy-in .65s .28s ease both;
+}
+
+#preloader .inoy-loader-line {
+  width: min(180px, 58vw);
+  height: 1px;
+  margin-top: 25px;
+  overflow: hidden;
+  background: rgba(255,255,255,.12);
+}
+
+#preloader .inoy-loader-line span {
+  display: block;
+  width: 48%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #7d9cff, #ffffff, transparent);
+  animation: inoy-loader-line 1.05s ease-in-out infinite;
+}
+
+@keyframes inoy-loader-mark-in {
+  0% { opacity: 0; transform: scale(.78); }
+  60% { opacity: 1; transform: scale(1.035); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes inoy-loader-copy-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes inoy-loader-line {
+  0% { transform: translateX(-120%); opacity: .2; }
+  45% { opacity: 1; }
+  100% { transform: translateX(220%); opacity: .2; }
+}
+
+@media (max-width: 575px) {
+  #preloader .inoy-loader {
+    width: min(82vw, 250px);
   }
+  #preloader .inoy-loader-mark {
+    width: 84px;
+    height: 84px;
+    margin-bottom: 18px;
+  }
+  #preloader .inoy-loader-name {
+    font-size: 30px;
+  }
+}
 
-  100% {
-    transform: rotate(360deg);
+@media (prefers-reduced-motion: reduce) {
+  #preloader .inoy-loader-mark,
+  #preloader .inoy-loader-name,
+  #preloader .inoy-loader-sub,
+  #preloader .inoy-loader-line span {
+    animation: none !important;
   }
 }
 
@@ -2990,4 +3084,135 @@ body.modal-open { padding-right:0!important; }
 
 #resume .resume-project-stack .resume-project-card h4 {
   margin-top: 0 !important;
+}
+
+
+/* ===== Resume responsive repair: desktop preserved, mobile stacked ===== */
+/* This block intentionally comes last so it wins over the earlier
+   desktop 3-column refinement that was overriding mobile rules. */
+
+@media (max-width: 1199px) {
+  #resume .container > .row {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 30px 24px !important;
+  }
+
+  #resume .resume-career-col {
+    grid-column: 1 / -1 !important;
+  }
+
+  #resume .resume-col {
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  #resume {
+    overflow: hidden;
+  }
+
+  #resume .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  #resume .container > .row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 34px !important;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #resume .resume-col,
+  #resume .resume-career-col,
+  #resume .resume-projects-col,
+  #resume .resume-skills-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-column: 1 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #resume .resume-title {
+    margin: 0 0 18px !important;
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+    writing-mode: horizontal-tb !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    white-space: normal !important;
+  }
+
+  #resume .resume-career-col .resume-title {
+    margin-top: 0 !important;
+  }
+
+  #resume .resume-career-col .resume-item,
+  #resume .resume-projects-col .resume-item,
+  #resume .resume-project-stack .resume-project-card,
+  #resume .resume-career-col .resume-clean-card,
+  #resume .skill-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  #resume .resume-career-col .resume-item,
+  #resume .resume-career-col .resume-clean-card {
+    padding: 16px 17px !important;
+  }
+
+  #resume .resume-project-stack .resume-project-card {
+    padding: 17px 18px !important;
+    margin: 0 0 14px !important;
+  }
+
+  #resume .resume-project-stack .resume-project-card + .resume-project-card {
+    margin-top: 0 !important;
+  }
+
+  #resume .resume-item h4,
+  #resume .resume-clean-card h4,
+  #resume .resume-project-card h4,
+  #resume .skill-item h4 {
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+
+  #resume .resume-project-card ul {
+    padding-left: 20px !important;
+  }
+
+  #resume .skill-list {
+    width: 100%;
+    grid-template-columns: 1fr !important;
+  }
+
+  #resume .skill-item {
+    padding: 16px 17px 15px 20px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  #resume .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  #resume .resume-title {
+    font-size: 22px !important;
+  }
+
+  #resume .resume-item h4,
+  #resume .resume-clean-card h4,
+  #resume .resume-project-card h4,
+  #resume .skill-item h4 {
+    font-size: 16px !important;
+  }
 }
