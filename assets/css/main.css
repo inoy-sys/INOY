@@ -2887,3 +2887,107 @@ body.modal-open { padding-right:0!important; }
     grid-column: auto;
   }
 }
+
+
+/* Resume column order refinement: Career | Projects | Skills */
+#resume .container > .row {
+  grid-template-columns: minmax(250px, .84fr) minmax(0, 1.08fr) minmax(0, 1.08fr);
+}
+
+
+/* ===== Resume: clean cards for Career/Qualifications + Projects ===== */
+#resume .resume-career-col .resume-clean-card,
+#resume .resume-projects-col .resume-project-card {
+  border-left: 0;
+  margin: 0 0 14px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.62);
+  box-shadow: 0 10px 28px rgba(1,18,66,.045);
+  position: relative;
+}
+
+#resume .resume-career-col .resume-clean-card::before,
+#resume .resume-projects-col .resume-project-card::before {
+  display: none;
+  content: none;
+}
+
+#resume .resume-career-col .resume-clean-card {
+  border-top: 3px solid var(--accent-color-ino);
+}
+
+#resume .resume-projects-col .resume-project-card {
+  border-left: 3px solid var(--accent-color-ino);
+  border-radius: 0 14px 14px 0;
+}
+
+#resume .resume-career-col .resume-clean-card h4,
+#resume .resume-projects-col .resume-project-card h4 {
+  margin: 0 0 9px;
+  font-size: 17px;
+  line-height: 1.4;
+  font-weight: 800;
+  text-transform: none;
+}
+
+#resume .resume-career-col .resume-clean-card h5,
+#resume .resume-projects-col .resume-project-card h5 {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 4px 9px;
+  border-radius: 7px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+#resume .resume-career-col .resume-clean-card p,
+#resume .resume-projects-col .resume-project-card p {
+  margin: 4px 0;
+  line-height: 1.6;
+}
+
+#resume .resume-projects-col .resume-project-card ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+#resume .resume-projects-col .resume-project-card li {
+  margin-bottom: 6px;
+  line-height: 1.55;
+}
+
+@media (max-width: 767px) {
+  #resume .resume-career-col .resume-clean-card,
+  #resume .resume-projects-col .resume-project-card {
+    padding: 16px 17px;
+  }
+}
+
+
+/* ===== Resume: clearly separated project cards ===== */
+#resume .resume-project-stack .resume-project-card {
+  display: block;
+  width: 100%;
+  margin: 0 0 16px !important;
+  padding: 18px 20px !important;
+  border: 0 !important;
+  border-left: 3px solid var(--accent-color-ino) !important;
+  border-radius: 0 14px 14px 0 !important;
+  background: rgba(255,255,255,.68) !important;
+  box-shadow: 0 10px 28px rgba(1,18,66,.05) !important;
+}
+
+#resume .resume-project-stack .resume-project-card + .resume-project-card {
+  margin-top: 16px !important;
+}
+
+#resume .resume-project-stack .resume-project-card::before,
+#resume .resume-project-stack .resume-project-card::after {
+  display: none !important;
+  content: none !important;
+}
+
+#resume .resume-project-stack .resume-project-card h4 {
+  margin-top: 0 !important;
+}
