@@ -2826,3 +2826,64 @@ body.modal-open { padding-right:0!important; }
 .resume .resume-secondary-block .resume-item p{margin-bottom:0}
 @media(max-width:991px){.resume .col-lg-6+.col-lg-6{margin-top:34px}.resume .resume-secondary-block{margin-top:36px}}
 @media(max-width:575px){.resume .skill-item{padding:16px 16px 14px 20px}.resume .skill-item h4{font-size:17px}.resume .skill-item p{font-size:13.5px}}
+
+
+/* ===== Resume three-column layout ===== */
+#resume .container > .row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1.08fr) minmax(250px, .84fr);
+  gap: 28px;
+  align-items: start;
+}
+
+#resume .resume-col {
+  width: 100%;
+  min-width: 0;
+}
+
+#resume .resume-career-col .resume-title {
+  margin-top: 20px;
+}
+
+#resume .resume-career-col .resume-item {
+  padding-left: 18px;
+}
+
+#resume .resume-career-col .resume-item h4 {
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+#resume .resume-career-col .resume-item h5 {
+  font-size: 14px;
+}
+
+#resume .resume-career-col .resume-item p {
+  font-size: 14px;
+}
+
+/* The old two-column helper is no longer needed in this 3-column layout */
+#resume .resume-secondary-block {
+  margin-top: 0;
+}
+
+@media (max-width: 1199px) {
+  #resume .container > .row {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 24px;
+  }
+
+  #resume .resume-career-col {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  #resume .container > .row {
+    grid-template-columns: 1fr;
+  }
+
+  #resume .resume-career-col {
+    grid-column: auto;
+  }
+}
