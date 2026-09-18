@@ -3633,3 +3633,61 @@ body.modal-open { padding-right:0!important; }
   .nomad-finale{padding:85px 20px 100px}
 }
 
+
+
+/* ==========================================================
+   INOY stable slide switching
+   기존 DESIGN 비율/레이아웃은 그대로 두고, 이동 방식만 변경
+   ========================================================== */
+
+/* VIDEO stable layout */
+.video-project-swiper {
+  width: 100%;
+  overflow: hidden;
+}
+.video-project-swiper > .swiper-wrapper {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  transform: none !important;
+}
+.video-project-swiper .video-project-slide {
+  display: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+.video-project-swiper .video-project-slide.is-video-active {
+  display: flex !important;
+  animation: inoySlideInRight .46s cubic-bezier(.22,.61,.36,1) both;
+}
+.video-project-swiper .video-project-slide.is-video-active.from-prev {
+  animation-name: inoySlideInLeft;
+}
+
+/* DESIGN: original project-preview-slide layout properties remain untouched */
+#projectShowcaseModal .project-preview-slide {
+  display: none !important;
+}
+#projectShowcaseModal .project-preview-slide.is-design-active {
+  display: grid !important;
+  animation: inoySlideInRight .46s cubic-bezier(.22,.61,.36,1) both;
+}
+#projectShowcaseModal .project-preview-slide.is-design-active.from-prev {
+  animation-name: inoySlideInLeft;
+}
+
+@keyframes inoySlideInRight {
+  from { opacity:.18; transform:translateX(42px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+@keyframes inoySlideInLeft {
+  from { opacity:.18; transform:translateX(-42px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .video-project-swiper .video-project-slide.is-video-active,
+  #projectShowcaseModal .project-preview-slide.is-design-active {
+    animation:none !important;
+  }
+}

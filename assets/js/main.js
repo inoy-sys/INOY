@@ -220,8 +220,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const detailView = modalEl.querySelector('.project-detail-view');
   const backBtns = modalEl.querySelectorAll('.project-detail-back');
   const detailPages = modalEl.querySelectorAll('.project-detail-page');
+  const slides = Array.from(modalEl.querySelectorAll('.project-preview-slide'));
+  const prevBtn = modalEl.querySelector('.project-swiper-prev');
+  const nextBtn = modalEl.querySelector('.project-swiper-next');
+  const pagination = modalEl.querySelector('.project-swiper-pagination');
   let requestedIndex = 0;
-  let projectSwiper;
+  let activeIndex = 0;
+
+  const renderDesignSlide = (index, direction = 'next') => {
+    if (!slides.length) return;
+    activeIndex = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      const active = i === activeIndex;
+      slide.classList.remove('is-design-active', 'from-prev');
+      if (active) {
+        if (direction === 'prev') slide.classList.add('from-prev');
+        void slide.offsetWidth;
+        slide.classList.add('is-design-active');
+      }
+      slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
+
+    if (pagination) pagination.textContent = `${activeIndex + 1} / ${slides.length}`;
+  };
 
   document.querySelectorAll('.project-modal-link').forEach(link => {
     link.addEventListener('click', e => {
@@ -231,18 +253,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  modalEl.addEventListener('shown.bs.modal', () => {
-    if (!projectSwiper) {
-      projectSwiper = new Swiper('.project-preview-swiper', {
-        speed: 520,
-        grabCursor: true,
-        keyboard: { enabled: true },
-        navigation: { nextEl: '.project-swiper-next', prevEl: '.project-swiper-prev' },
-        pagination: { el: '.project-swiper-pagination', type: 'fraction' }
-      });
-    }
-    projectSwiper.slideTo(requestedIndex, 0);
+  prevBtn?.addEventListener('click', () => renderDesignSlide(activeIndex - 1, 'prev'));
+  nextBtn?.addEventListener('click', () => renderDesignSlide(activeIndex + 1, 'next'));
+
+  modalEl.addEventListener('keydown', e => {
+    if (detailView.classList.contains('is-active')) return;
+    if (e.key === 'ArrowLeft') renderDesignSlide(activeIndex - 1, 'prev');
+    if (e.key === 'ArrowRight') renderDesignSlide(activeIndex + 1, 'next');
   });
+
+  modalEl.addEventListener('shown.bs.modal', () => renderDesignSlide(requestedIndex));
 
   modalEl.querySelectorAll('.project-preview-media.is-clickable').forEach(media => {
     media.addEventListener('click', () => {
@@ -260,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
     detailView.setAttribute('aria-hidden','true');
     detailPages.forEach(page => page.classList.remove('is-current'));
     previewView.classList.remove('is-hidden');
-    projectSwiper?.update();
+    renderDesignSlide(activeIndex);
   }));
 
   modalEl.addEventListener('hidden.bs.modal', () => {
@@ -269,36 +289,64 @@ document.addEventListener('DOMContentLoaded', () => {
     previewView.classList.remove('is-hidden');
     detailPages.forEach(page => page.classList.remove('is-current'));
   });
+
+  renderDesignSlide(0);
 });
+
 
 /* INOY VIDEO showcase */
 document.addEventListener('DOMContentLoaded', () => {
   const modalEl = document.getElementById('videoShowcaseModal');
   if (!modalEl) return;
-  let videoSwiper;
-  const stopAllVideos = () => modalEl.querySelectorAll('video').forEach(video => { video.pause(); });
+  const slides = Array.from(modalEl.querySelectorAll('.video-project-slide'));
+  const prevBtn = modalEl.querySelector('.video-swiper-prev');
+  const nextBtn = modalEl.querySelector('.video-swiper-next');
+  const pagination = modalEl.querySelector('.video-swiper-pagination');
+  let activeIndex = 0;
+
+  const stopAllVideos = () => modalEl.querySelectorAll('video').forEach(video => video.pause());
+
+  const renderSlide = (index, direction = 'next') => {
+    if (!slides.length) return;
+    activeIndex = (index + slides.length) % slides.length;
+    stopAllVideos();
+
+    slides.forEach((slide, i) => {
+      const active = i === activeIndex;
+      slide.classList.remove('is-video-active', 'from-prev');
+      if (active) {
+        if (direction === 'prev') slide.classList.add('from-prev');
+        void slide.offsetWidth;
+        slide.classList.add('is-video-active');
+      }
+      slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
+
+    if (pagination) pagination.textContent = `${activeIndex + 1} / ${slides.length}`;
+  };
+
   const openVideoModal = (event) => {
     event?.preventDefault();
     bootstrap.Modal.getOrCreateInstance(modalEl).show();
   };
+
   document.querySelectorAll('.video-modal-link').forEach(link => link.addEventListener('click', openVideoModal));
   const videoCard = document.querySelector('.portfolio-item.filter-product .portfolio-category-card');
-  if (videoCard) videoCard.addEventListener('click', e => { if (!e.target.closest('.video-modal-link')) openVideoModal(e); });
-  modalEl.addEventListener('shown.bs.modal', () => {
-    if (!videoSwiper) {
-      videoSwiper = new Swiper('.video-project-swiper', {
-        speed: 520,
-        grabCursor: true,
-        loop: true,
-        keyboard: { enabled: true },
-        navigation: { nextEl: modalEl.querySelector('.video-swiper-next'), prevEl: modalEl.querySelector('.video-swiper-prev') },
-        pagination: { el: modalEl.querySelector('.video-swiper-pagination'), type: 'fraction' },
-        on: { slideChangeTransitionStart: stopAllVideos }
-      });
-    }
-    videoSwiper.update();
+  if (videoCard) videoCard.addEventListener('click', e => {
+    if (!e.target.closest('.video-modal-link')) openVideoModal(e);
   });
+
+  prevBtn?.addEventListener('click', () => renderSlide(activeIndex - 1, 'prev'));
+  nextBtn?.addEventListener('click', () => renderSlide(activeIndex + 1, 'next'));
+
+  modalEl.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') renderSlide(activeIndex - 1, 'prev');
+    if (e.key === 'ArrowRight') renderSlide(activeIndex + 1, 'next');
+  });
+
+  modalEl.addEventListener('shown.bs.modal', () => renderSlide(activeIndex));
   modalEl.addEventListener('hidden.bs.modal', stopAllVideos);
+  renderSlide(0);
 });
 
 
