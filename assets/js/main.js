@@ -355,10 +355,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalEl = document.getElementById('webShowcaseModal');
   const card = document.querySelector('.web-modal-link');
   if (!modalEl || !card) return;
-  const openWeb = (e) => { e?.preventDefault(); bootstrap.Modal.getOrCreateInstance(modalEl).show(); };
-  card.addEventListener('click', openWeb);
-  card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openWeb(e); });
 
+  const slides = Array.from(modalEl.querySelectorAll('.web-project-slide'));
+  const prevBtn = modalEl.querySelector('.web-swiper-prev');
+  const nextBtn = modalEl.querySelector('.web-swiper-next');
+  const pagination = modalEl.querySelector('.web-swiper-pagination');
+  let activeIndex = 0;
+
+  const renderWebSlide = (index, direction = 'next') => {
+    if (!slides.length) return;
+    activeIndex = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      const active = i === activeIndex;
+      slide.classList.remove('is-web-active', 'from-prev');
+      if (active) {
+        if (direction === 'prev') slide.classList.add('from-prev');
+        void slide.offsetWidth;
+        slide.classList.add('is-web-active');
+      }
+      slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
+
+    if (pagination) pagination.textContent = `${activeIndex + 1} / ${slides.length}`;
+  };
+
+  const openWeb = (e) => {
+    e?.preventDefault();
+    activeIndex = 0;
+    bootstrap.Modal.getOrCreateInstance(modalEl).show();
+  };
+
+  card.addEventListener('click', openWeb);
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') openWeb(e);
+  });
+
+  prevBtn?.addEventListener('click', () => renderWebSlide(activeIndex - 1, 'prev'));
+  nextBtn?.addEventListener('click', () => renderWebSlide(activeIndex + 1, 'next'));
+
+  modalEl.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') renderWebSlide(activeIndex - 1, 'prev');
+    if (e.key === 'ArrowRight') renderWebSlide(activeIndex + 1, 'next');
+  });
+
+  modalEl.addEventListener('shown.bs.modal', () => renderWebSlide(activeIndex));
+  renderWebSlide(0);
 });
 
 /* INOY DESIGN direct card click */
@@ -369,6 +411,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   directDesignCard.style.cursor = 'pointer';
   directDesignCard.addEventListener('click', (event) => {
+    // 내부의 개별 작품 링크(.project-modal-link)를 눌렀을 때는
+    // 위의 DESIGN 슬라이드 코드가 data-project-index를 처리하도록 그대로 둔다.
+    if (event.target.closest('.project-modal-link')) return;
+
     event.preventDefault();
     bootstrap.Modal.getOrCreateInstance(modal).show();
   });

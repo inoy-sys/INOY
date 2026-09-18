@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#06101d">
+  <title>PRE:BUSAN — 떠나기 전에 먼저 만나는 부산</title>
+  <meta name="description" content="떠나기 전에 부산을 먼저 경험하는 XR 여행 브랜드, PRE:BUSAN.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .scene { cursor:pointer; }
+    .scene:focus-visible { outline:2px solid #5d8dff; outline-offset:4px; }
+    .scene-arrow { transition:transform .35s ease, background .35s ease, color .35s ease; }
+    .scene:hover .scene-arrow, .scene:focus-visible .scene-arrow { transform:translate(3px,-3px); }
+
+    .scene-modal { position:fixed; inset:0; z-index:1200; display:grid; place-items:center; padding:28px; opacity:0; visibility:hidden; transition:opacity .3s ease, visibility .3s ease; }
+    .scene-modal.is-open { opacity:1; visibility:visible; }
+    .scene-modal-backdrop { position:absolute; inset:0; background:rgba(2,8,18,.78); backdrop-filter:blur(14px); }
+    .scene-modal-panel { position:relative; width:min(1080px,94vw); max-height:88vh; overflow:auto; display:grid; grid-template-columns:1.15fr .85fr; background:#f4f7fb; color:#071321; box-shadow:0 30px 90px rgba(0,0,0,.4); transform:translateY(24px) scale(.985); transition:transform .35s cubic-bezier(.2,.8,.2,1); }
+    .scene-modal.is-open .scene-modal-panel { transform:none; }
+    .scene-modal-close { position:absolute; z-index:3; top:18px; right:18px; width:44px; height:44px; border:1px solid rgba(255,255,255,.45); border-radius:50%; background:rgba(5,15,29,.45); color:white; font-size:28px; line-height:1; cursor:pointer; backdrop-filter:blur(8px); }
+    .scene-modal-media { position:relative; min-height:540px; overflow:hidden; background:#071321; }
+    .scene-modal-media img { width:100%; height:100%; position:absolute; inset:0; object-fit:cover; }
+    .scene-modal-media::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(3,12,25,.05),rgba(3,12,25,.48)); }
+    .scene-modal-index { position:absolute; z-index:2; left:28px; bottom:25px; color:#fff; font:500 11px/1.4 Inter,sans-serif; letter-spacing:.2em; }
+    .scene-modal-content { padding:clamp(36px,5vw,72px); display:flex; flex-direction:column; justify-content:center; }
+    .scene-modal-kicker { margin:0 0 18px; font:500 10px/1.4 Inter,sans-serif; letter-spacing:.22em; color:#55708f; }
+    .scene-modal-content h2 { margin:0 0 24px; font:400 clamp(42px,5vw,70px)/1 'Noto Sans KR',sans-serif; letter-spacing:-.06em; }
+    .scene-modal-content>p:not(.scene-modal-kicker) { margin:0; max-width:390px; font:300 16px/1.9 'Noto Sans KR',sans-serif; color:#4c5a69; word-break:keep-all; }
+    .scene-modal-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:42px; }
+    .scene-modal-actions button { min-height:52px; padding:0 22px; border-radius:999px; font:500 13px 'Noto Sans KR',sans-serif; cursor:pointer; transition:.25s ease; }
+    .scene-preview-btn { border:0; background:#071a33; color:#fff; }
+    .scene-preview-btn:hover { transform:translateY(-2px); background:#12386d; }
+    .scene-preview-btn span { margin-left:18px; }
+    .scene-film-btn { border:1px solid #bac5d1; background:transparent; color:#071321; }
+    .scene-film-btn:hover { background:#e8edf4; }
+    body.scene-modal-open { overflow:hidden; }
+    @media (max-width:760px) {
+      .scene-modal { padding:14px; align-items:end; }
+      .scene-modal-panel { width:100%; max-height:92vh; grid-template-columns:1fr; }
+      .scene-modal-media { min-height:38vh; }
+      .scene-modal-content { padding:32px 24px 36px; }
+      .scene-modal-content h2 { font-size:42px; }
+      .scene-modal-actions { margin-top:28px; }
+      .scene-modal-actions button { flex:1 1 160px; }
+    }
+
+    /* PRE:BUSAN 360° XR viewer — seamless horizontal sphere-style view */
+    .vr-live{position:absolute;inset:0;z-index:1;background:#020914;overflow:hidden;cursor:grab;user-select:none;touch-action:none}
+    .vr-live.is-dragging{cursor:grabbing}
+    .pano-strip{position:absolute;inset:0;will-change:background-position;background-repeat:repeat-x;pointer-events:none}
+    .vr-live::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(circle at center,transparent 55%,rgba(1,8,18,.32) 100%)}
+    .vr-live-badge{position:absolute;left:18px;bottom:16px;z-index:8;padding:8px 12px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(3,12,25,.58);backdrop-filter:blur(10px);color:#fff;font:500 10px/1 Inter,sans-serif;letter-spacing:.12em;pointer-events:none}
+    .vr-hotspot{position:absolute;z-index:9;width:32px;height:32px;border:1px solid rgba(255,255,255,.8);border-radius:50%;background:rgba(5,25,55,.72);color:#fff;display:grid;place-items:center;font:500 18px/1 Inter,sans-serif;cursor:pointer;box-shadow:0 0 0 6px rgba(75,130,255,.12),0 8px 25px rgba(0,0,0,.3);transform:translate(-50%,-50%);transition:opacity .18s ease,transform .18s ease,background .18s ease}
+    .vr-hotspot:hover,.vr-hotspot:focus-visible{background:#fff;color:#071321;transform:translate(-50%,-50%) scale(1.12);outline:none}
+    .vr-popover{position:absolute;z-index:12;min-width:220px;max-width:280px;padding:16px 17px 15px;border:1px solid rgba(255,255,255,.25);border-radius:14px;background:rgba(4,16,34,.9);backdrop-filter:blur(16px);color:#fff;box-shadow:0 20px 50px rgba(0,0,0,.35);display:none}
+    .vr-popover.is-open{display:block}
+    .vr-popover small{display:block;margin-bottom:7px;font:500 9px/1.2 Inter,sans-serif;letter-spacing:.16em;color:#8fb5ff}
+    .vr-popover strong{display:block;margin-bottom:7px;font:500 16px/1.35 'Noto Sans KR',sans-serif}
+    .vr-popover p{margin:0 0 12px;font:300 12px/1.6 'Noto Sans KR',sans-serif;color:rgba(255,255,255,.72);word-break:keep-all}
+    .vr-popover a{display:inline-flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font:500 11px/1 'Noto Sans KR',sans-serif;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:4px}
+    .vr-controls{position:absolute;right:16px;bottom:14px;z-index:10;display:flex;gap:7px}
+    .vr-controls button{width:36px;height:36px;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:rgba(3,12,25,.58);backdrop-filter:blur(10px);color:#fff;cursor:pointer;font:400 16px/1 Inter,sans-serif}
+    .visor-screen .vr-live~.scanline,.visor-screen .vr-live~.focus-ring{pointer-events:none;z-index:3}
+    .visor-screen .vr-live~.hud{z-index:7;pointer-events:none}
+    .xr-hint{margin:14px 0 0;text-align:center;font:300 12px/1.6 'Noto Sans KR',sans-serif;opacity:.68}
+    .xr-credit{margin:6px 0 0;text-align:center;font:300 9px/1.5 'Noto Sans KR',sans-serif;opacity:.48}
+    @media(max-width:760px){.vr-hotspot{width:29px;height:29px}.vr-popover{min-width:190px;max-width:230px;padding:13px}.vr-live-badge{font-size:8px;left:12px;bottom:12px}.vr-controls{right:10px;bottom:10px}}
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="PRE:BUSAN 홈으로 이동">
+      <span class="brand-arc"></span>
+      <b>PRE:BUSAN</b>
+    </a>
+    <nav aria-label="주요 메뉴">
+      <a href="#experience">부산 체험</a>
+      <a href="#xr">XR 체험</a>
+      <a href="#film">브랜드 필름</a>
+    </nav>
+    <a class="header-index" href="#experience">01—04</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-noise"></div>
+      <div class="hero-orbit orbit-a"></div>
+      <div class="hero-orbit orbit-b"></div>
+
+      <div class="hero-copy">
+        <p class="micro">부산 사전 체험 · XR TRAVEL</p>
+        <h1><span>PRE:</span>BUSAN</h1>
+        <p class="hero-line">떠나기 전에, <i>먼저 만나는 부산.</i></p>
+        <a class="hero-cta" href="#experience"><span>미리 체험하기</span><b>↘</b></a>
+      </div>
+
+      <div class="hero-visual" data-parallax="0.12">
+        <div class="visual-frame">
+          <img src="assets/hero-bridge.jpg" alt="부산 야경과 광안대교를 모티브로 한 PRE:BUSAN 비주얼">
+          <div class="visual-tint"></div>
+          <div class="visual-label top">대한민국 · 부산</div>
+          <div class="visual-label bottom">PREVIEW MODE — 001</div>
+        </div>
+        <span class="halo"></span>
+      </div>
+
+      <div class="hero-foot">
+        <span>도착하기 전, 부산을 먼저 경험하세요.</span>
+        <span class="scroll-cue">아래로 <i></i></span>
+      </div>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="section-head reveal">
+        <span>01 / BUSAN EXPERIENCE</span>
+        <h2>어떤 부산을<br>먼저 만나볼까요?</h2>
+      </div>
+
+      <div class="scene-grid">
+        <article class="scene scene-a reveal" tabindex="0" role="button" aria-label="광안리 체험 상세 보기" data-scene="gwangalli">
+          <img src="assets/gwangalli.jpg" alt="광안리 이미지">
+          <div class="scene-glow"></div>
+          <span class="scene-num">01</span>
+          <div class="scene-copy"><small>GWANGALLI · NIGHT</small><h3>광안리</h3></div>
+          <span class="scene-arrow">↗</span>
+        </article>
+        <article class="scene scene-b reveal" tabindex="0" role="button" aria-label="송도 체험 상세 보기" data-scene="songdo">
+          <img src="https://www.visitbusan.net/archive/upload/2025/02/21/20250221095006225464_m.png" alt="부산 송도해수욕장과 해상케이블카 전경">
+          <div class="scene-glow"></div>
+          <span class="scene-num">02</span>
+          <div class="scene-copy"><small>SONGDO · OCEAN</small><h3>송도</h3></div>
+          <span class="scene-arrow">↗</span>
+        </article>
+        <article class="scene scene-c reveal" tabindex="0" role="button" aria-label="감천문화마을 체험 상세 보기" data-scene="gamcheon">
+          <img src="https://www.visitbusan.net/archive/upload/2025/02/20/20250220170806170847_m.png" alt="부산 감천문화마을 전경">
+          <div class="scene-glow"></div>
+          <span class="scene-num">03</span>
+          <div class="scene-copy"><small>GAMCHEON · VILLAGE</small><h3>감천문화마을</h3></div>
+          <span class="scene-arrow">↗</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="xr" id="xr">
+      <div class="xr-copy reveal">
+        <span>02 / XR EXPERIENCE</span>
+        <h2>부산 안으로.</h2>
+      </div>
+      <div class="xr-stage reveal">
+        <div class="visor">
+          <div class="visor-screen" id="visorScreen">
+            <div class="vr-live" id="vrLive" role="application" aria-label="PRE:BUSAN 360도 XR 뷰어">
+              <div class="pano-strip" id="panoStrip" aria-hidden="true"></div>
+              <div id="vrHotspots"></div>
+              <div class="vr-popover" id="vrPopover"></div>
+              <span class="vr-live-badge">DRAG 360° · WHEEL TO ZOOM · HOTSPOT +</span>
+              <div class="vr-controls" aria-label="XR 뷰 조작">
+                <button type="button" id="vrZoomIn" aria-label="확대">＋</button>
+                <button type="button" id="vrZoomOut" aria-label="축소">－</button>
+                <button type="button" id="vrReset" aria-label="시점 초기화">↺</button>
+              </div>
+            </div>
+            <div class="scanline"></div>
+            <span class="focus-ring"></span>
+            <div class="hud hud-l">PRE:BUSAN<br><small>360° XR 체험 중</small></div>
+            <div class="hud hud-r">광안리<br><small>GWANGALLI</small></div>
+          </div>
+        </div>
+        <div class="xr-switch" role="group" aria-label="360도 XR 부산 지역 선택">
+          <button class="active" data-scene360="gwangalli" data-place="광안리" data-coord="GWANGALLI">01</button>
+          <button data-scene360="songdo" data-place="송도" data-coord="SONGDO">02</button>
+          <button data-scene360="gamcheon" data-place="감천문화마을" data-coord="GAMCHEON">03</button>
+        </div>
+      </div>
+      <p class="xr-caption reveal">둘러보고, 느끼고, 마음에 담아보세요.</p>
+      <p class="xr-hint reveal">사람이 서 있는 시점처럼 화면을 드래그해 둘러보세요. 정확히 한 바퀴(360°)를 돌아야 처음 장면으로 돌아옵니다. ＋를 누르면 장소 정보가 열립니다.</p>
+      <p class="xr-credit reveal">360° 이미지 출처: 부산광역시 관광정책과 · 부산관광아카이브 / 공공누리 제1유형(출처표시)</p>
+    </section>
+
+    <section class="film" id="film">
+      <div class="section-head light reveal">
+        <span>03 / BRAND FILM</span>
+        <h2>부산에 가기 전,<br>먼저 만나는 1분.</h2>
+      </div>
+      <button class="film-card reveal" id="openFilm" aria-label="브랜드 필름 열기">
+        <img src="assets/film-poster.jpg" alt="PRE:BUSAN 브랜드 필름 포스터">
+        <span class="film-overlay"></span>
+        <span class="play"><i>▶</i></span>
+        <span class="film-meta"><b>PRE:BUSAN</b><small>브랜드 모션그래픽 · 2026</small></span>
+        <span class="film-time">01:05</span>
+      </button>
+    </section>
+
+    <section class="outro">
+      <div class="outro-sky"></div>
+      <div class="outro-copy reveal">
+        <p>04 / ARRIVE</p>
+        <h2>먼저 경험하고,<br>진짜 부산으로.</h2>
+        <div class="outro-brand"><span class="brand-arc"></span><b>PRE:BUSAN</b></div>
+      </div>
+      <p class="outro-bottom">부산 XR 사전 체험 프로젝트 · 2026</p>
+      <p style="position:absolute;left:24px;bottom:18px;margin:0;font-size:9px;opacity:.5;letter-spacing:.03em;z-index:2">360° XR 이미지 출처: 부산광역시 관광정책과·부산관광아카이브 / 공공누리 제1유형</p>
+    </section>
+  </main>
+
+  <!-- BUSAN EXPERIENCE 상세 팝업 -->
+  <div class="scene-modal" id="sceneModal" aria-hidden="true">
+    <div class="scene-modal-backdrop" data-scene-close></div>
+    <section class="scene-modal-panel" role="dialog" aria-modal="true" aria-labelledby="sceneModalTitle">
+      <button class="scene-modal-close" type="button" aria-label="체험 상세 닫기" data-scene-close>×</button>
+      <div class="scene-modal-media">
+        <img id="sceneModalImage" src="assets/gwangalli.jpg" alt="">
+        <span class="scene-modal-index" id="sceneModalIndex">01 / GWANGALLI</span>
+      </div>
+      <div class="scene-modal-content">
+        <p class="scene-modal-kicker">PRE:BUSAN · XR PREVIEW</p>
+        <h2 id="sceneModalTitle">광안리</h2>
+        <p id="sceneModalDescription">광안대교의 야경과 바다의 분위기를 떠나기 전에 먼저 경험해보세요.</p>
+        <div class="scene-modal-actions">
+          <button type="button" class="scene-preview-btn" id="scenePreviewBtn">XR로 미리보기 <span>→</span></button>
+          <button type="button" class="scene-film-btn" id="sceneFilmBtn">브랜드 필름 보기</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="film-modal" id="filmModal" aria-hidden="true">
+    <button class="modal-close" id="closeFilm" aria-label="영상 닫기">×</button>
+    <div class="modal-inner">
+      <video controls playsinline id="brandVideo">
+        <source src="assets/05-pre-busan.mp4" type="video/mp4">
+      </video>
+      <div class="video-fallback" id="videoFallback">
+        <span>PRE:BUSAN / 브랜드 필름</span>
+        <p>현재 브랜드 필름 <b>05-pre-busan.mp4</b>를 재생합니다.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    (() => {
+      const sceneData = {
+        gwangalli: { index:'01 / GWANGALLI · NIGHT', title:'광안리', image:'assets/hero-bridge.jpg', description:'광안대교의 야경과 바다의 분위기를 떠나기 전에 먼저 경험해보세요.', xr:0 },
+        songdo: { index:'02 / SONGDO · OCEAN', title:'송도', image:'https://www.visitbusan.net/archive/upload/2025/02/21/20250221095006225464_m.png', description:'바다 위를 가로지르는 송도의 풍경을 XR로 둘러보고, 여행의 순간을 미리 그려보세요.', xr:1 },
+        gamcheon: { index:'03 / GAMCHEON · VILLAGE', title:'감천문화마을', image:'https://visitbusan.net/archive/upload/2025/12/08/20251208150326622732_m.png', description:'산자락을 따라 이어지는 알록달록한 집과 골목의 풍경을 실제 여행 전에 먼저 둘러보세요.', xr:2 }
+      };
+      const modal = document.getElementById('sceneModal');
+      const modalImage = document.getElementById('sceneModalImage');
+      const modalIndex = document.getElementById('sceneModalIndex');
+      const modalTitle = document.getElementById('sceneModalTitle');
+      const modalDescription = document.getElementById('sceneModalDescription');
+      const previewBtn = document.getElementById('scenePreviewBtn');
+      const filmBtn = document.getElementById('sceneFilmBtn');
+      let current = null;
+
+      function openScene(key) {
+        const data = sceneData[key]; if (!data) return; current = data;
+        modalImage.src = data.image; modalImage.alt = data.title + ' PRE:BUSAN 체험 이미지';
+        modalIndex.textContent = data.index; modalTitle.textContent = data.title; modalDescription.textContent = data.description;
+        modal.classList.add('is-open'); modal.setAttribute('aria-hidden','false'); document.body.classList.add('scene-modal-open');
+        setTimeout(() => modal.querySelector('.scene-modal-close').focus(), 50);
+      }
+      function closeScene() {
+        modal.classList.remove('is-open'); modal.setAttribute('aria-hidden','true'); document.body.classList.remove('scene-modal-open');
+      }
+      document.querySelectorAll('.scene[data-scene]').forEach(card => {
+        card.addEventListener('click', () => openScene(card.dataset.scene));
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openScene(card.dataset.scene); } });
+      });
+      modal.querySelectorAll('[data-scene-close]').forEach(el => el.addEventListener('click', closeScene));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeScene(); });
+      previewBtn.addEventListener('click', () => {
+        if (!current) return; const i = current.xr; closeScene();
+        const xrButtons = document.querySelectorAll('.xr-switch button');
+        setTimeout(() => { document.getElementById('xr').scrollIntoView({behavior:'smooth',block:'center'}); if (xrButtons[i]) xrButtons[i].click(); }, 180);
+      });
+      filmBtn.addEventListener('click', () => {
+        closeScene(); setTimeout(() => document.getElementById('openFilm')?.click(), 220);
+      });
+    })();
+  </script>
+
+  <script>
+    (() => {
+      // Each source below is ONE genuine 2:1 equirectangular panorama.
+      // The viewer never stitches two different photos together: one panorama = one full 360° turn.
+      const scenes = {
+        gwangalli: {
+          place:'광안리', coord:'GWANGALLI BEACH · 360°',
+          image:'https://visitbusan.net/archive/upload/2025/12/08/20251208150326627541_m.png',
+          startYaw:178, startPitch:3,
+          hotspots:[
+            {yaw:2,yawLabel:'SEA',pitch:2,title:'광안리해수욕장',tag:'GWANGALLI BEACH',desc:'모래사장과 바다를 실제 현장에 서 있는 시점처럼 둘러보세요.',url:'https://www.busan.go.kr/eng/beaches/1326145'},
+            {yaw:178,yawLabel:'BRIDGE',pitch:1,title:'광안대교 방향',tag:'GWANGAN BRIDGE',desc:'광안리에서 바다 건너 광안대교 방향을 바라보는 포인트입니다.',url:'https://www.visitbusan.net/archive/dataSearch/view.nm?dataSid=METADATA018719'}
+          ]
+        },
+        songdo: {
+          place:'송도', coord:'SONGDO BEACH · CABLE CAR VIEW',
+          image:'https://visitbusan.net/archive/upload/2025/12/08/20251208150326651902_m.png',
+          startYaw:300, startPitch:2,
+          hotspots:[
+            {yaw:300,pitch:1,title:'송도해상케이블카',tag:'BUSAN AIR CRUISE',desc:'송도 바다 위를 가로지르는 해상케이블카 정보를 확인해보세요.',url:'https://busanaircruise.co.kr/'},
+            {yaw:80,pitch:2,title:'송도해수욕장',tag:'SONGDO BEACH',desc:'송도해수욕장과 해안 풍경을 360°로 둘러보세요.',url:'https://www.visitbusan.net/archive/dataSearch/view.nm?dataSid=METADATA018732'}
+          ]
+        },
+        gamcheon: {
+          place:'감천문화마을', coord:'GAMCHEON · PANORAMA VIEW',
+          image:'https://www.visitbusan.net/archive/upload/2025/12/08/20251208150326622732_m.png',
+          startYaw:10, startPitch:0,
+          hotspots:[
+            {yaw:8,pitch:1,title:'감천문화마을 전망',tag:'GAMCHEON VIEW',desc:'산자락을 따라 펼쳐진 감천문화마을 전체 풍경을 한눈에 바라보는 전망입니다.',url:'https://www.gamcheon.or.kr/'},
+            {yaw:118,pitch:0,title:'감천문화마을 안내',tag:'VILLAGE INFO',desc:'골목과 주요 관람 포인트 등 실제 방문 정보를 확인해보세요.',url:'https://www.visitbusan.net/archive/dataSearch/view.nm?dataSid=METADATA018717'}
+          ]
+        }
+      };
+
+      const vr=document.getElementById('vrLive');
+      const pano=document.getElementById('panoStrip');
+      const hsWrap=document.getElementById('vrHotspots');
+      const pop=document.getElementById('vrPopover');
+      const hud=document.querySelector('#visorScreen .hud-r');
+      let sceneKey='gwangalli', yaw=0, pitch=0, zoom=1, dragging=false, lastX=0,lastY=0,auto=true,lastT=0;
+
+      // Same feel in every location.
+      const dragDegreesPerViewport = 92; // dragging one screen width rotates about 92°
+      const autoSpeed = 1.7;             // degrees / second
+      const baseHFov = 92;               // comfortable human-view FOV
+      const norm=a=>((a%360)+360)%360;
+      const delta=(a,b)=>{let d=norm(a)-norm(b);if(d>180)d-=360;if(d<-180)d+=360;return d;};
+
+      function render(){
+        const W=Math.max(1,vr.clientWidth), H=Math.max(1,vr.clientHeight);
+        const hfov=Math.max(58,Math.min(100,baseHFov/zoom));
+        // Critical fix: ONE panorama width corresponds to exactly 360 degrees.
+        // Therefore 180 degrees is always half of the source, never the same photo again.
+        const panoW=W*(360/hfov);
+        const panoH=panoW/2; // source is 2:1 equirectangular
+        const centerX=W/2-(yaw/360)*panoW;
+        const centerY=(H-panoH)/2 + (pitch/90)*(panoH/2);
+        pano.style.backgroundImage=`url("${scenes[sceneKey].image}")`;
+        pano.style.backgroundSize=`${panoW}px ${panoH}px`;
+        pano.style.backgroundPosition=`${centerX}px ${centerY}px`;
+
+        const vfov=hfov*(H/W);
+        const s=scenes[sceneKey];
+        [...hsWrap.children].forEach((el,i)=>{
+          const h=s.hotspots[i], dx=delta(h.yaw,yaw), dy=(h.pitch??0)-pitch;
+          const visible=Math.abs(dx)<hfov*.52 && Math.abs(dy)<Math.max(28,vfov*.65);
+          el.style.opacity=visible?'1':'0'; el.style.pointerEvents=visible?'auto':'none';
+          el.style.left=(50+dx/hfov*100)+'%';
+          el.style.top=(50-dy/Math.max(45,vfov)*100)+'%';
+        });
+      }
+
+      function build(){
+        hsWrap.innerHTML=''; pop.classList.remove('is-open');
+        scenes[sceneKey].hotspots.forEach((h,i)=>{
+          const b=document.createElement('button'); b.type='button'; b.className='vr-hotspot'; b.textContent='+'; b.dataset.i=i;
+          b.setAttribute('aria-label',h.title+' 정보 보기');
+          b.addEventListener('click',e=>{e.stopPropagation();openHotspot(i,b)}); hsWrap.appendChild(b);
+        });
+        render();
+      }
+
+      function openHotspot(i,el){
+        const h=scenes[sceneKey].hotspots[i];
+        pop.innerHTML=`<small>${h.tag}</small><strong>${h.title}</strong><p>${h.desc}</p><a href="${h.url}" target="_blank" rel="noopener">자세히 보기 <span>↗</span></a>`;
+        pop.classList.add('is-open'); auto=false;
+        const r=el.getBoundingClientRect(), vrR=vr.getBoundingClientRect();
+        let left=r.left-vrR.left+24, top=r.top-vrR.top-30;
+        if(left+290>vr.clientWidth) left=Math.max(12,left-280); if(top+160>vr.clientHeight) top=vr.clientHeight-170; if(top<10) top=10;
+        pop.style.left=left+'px'; pop.style.top=top+'px';
+      }
+
+      function setScene(key){
+        sceneKey=key; const s=scenes[key]; yaw=s.startYaw; pitch=s.startPitch||0; zoom=1; auto=true; build();
+        if(hud) hud.innerHTML=s.place+'<br><small>'+s.coord+'</small>';
+      }
+
+      vr.addEventListener('pointerdown',e=>{
+        if(e.target.closest('button,a'))return; dragging=true; auto=false; lastX=e.clientX; lastY=e.clientY;
+        vr.classList.add('is-dragging'); vr.setPointerCapture?.(e.pointerId); pop.classList.remove('is-open');
+      });
+      vr.addEventListener('pointermove',e=>{
+        if(!dragging)return; const W=Math.max(1,vr.clientWidth); const dx=e.clientX-lastX,dy=e.clientY-lastY; lastX=e.clientX;lastY=e.clientY;
+        yaw=norm(yaw-dx*(dragDegreesPerViewport/W)); pitch=Math.max(-28,Math.min(28,pitch+dy*(55/Math.max(1,vr.clientHeight)))); render();
+      });
+      const end=()=>{dragging=false;vr.classList.remove('is-dragging')}; vr.addEventListener('pointerup',end);vr.addEventListener('pointercancel',end);
+      vr.addEventListener('wheel',e=>{e.preventDefault();auto=false;zoom=Math.max(.9,Math.min(1.6,zoom+(e.deltaY<0?.08:-.08)));render()},{passive:false});
+      document.getElementById('vrZoomIn').onclick=()=>{auto=false;zoom=Math.min(1.6,zoom+.1);render()};
+      document.getElementById('vrZoomOut').onclick=()=>{auto=false;zoom=Math.max(.9,zoom-.1);render()};
+      document.getElementById('vrReset').onclick=()=>setScene(sceneKey);
+      document.querySelectorAll('.xr-switch button').forEach(btn=>btn.addEventListener('click',()=>{
+        document.querySelectorAll('.xr-switch button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');setScene(btn.dataset.scene360);
+      },true));
+
+      function tick(t){if(!lastT)lastT=t;const dt=Math.min(.05,(t-lastT)/1000);lastT=t;if(auto&&!dragging){yaw=norm(yaw+autoSpeed*dt);render()}requestAnimationFrame(tick)}
+      window.addEventListener('resize',render); setScene('gwangalli'); requestAnimationFrame(tick);
+    })();
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>

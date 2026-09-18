@@ -1,0 +1,27 @@
+PRE:BUSAN 웹사이트 v3 — 에셋 교체 가이드
+
+[필수 교체 파일]
+1. assets/hero-bridge.jpg
+   - 첫 화면 대표 부산 이미지 또는 영상 스틸
+   - 권장: 광안대교/부산 야경, 가로형 1920px 이상
+
+2. assets/gwangalli.jpg
+   - 광안리 대표 이미지
+
+3. assets/songdo.jpg
+   - 송도 대표 이미지
+
+4. assets/centum.jpg
+   - 센텀 대표 이미지
+
+5. assets/film-poster.jpg
+   - 30초 브랜드 필름 썸네일
+
+6. assets/brand-film.mp4
+   - 완성된 PRE:BUSAN 30초 브랜드 필름
+   - 이 이름 그대로 넣으면 모달 플레이어에서 재생됩니다.
+
+[방향]
+- 한국 사용자 대상 사이트이므로 주요 카피/버튼/안내는 한국어 중심
+- PRE:BUSAN, XR, BRAND FILM처럼 브랜드 성격을 살리는 짧은 영어만 보조적으로 사용
+- 긴 설명 대신 이미지와 인터랙션으로 프로젝트 콘셉트를 전달

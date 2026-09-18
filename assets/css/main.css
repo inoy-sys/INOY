@@ -3444,8 +3444,45 @@ body.modal-open { padding-right:0!important; }
 .cmv-case .cmv-prototype .device{width:min(100%,390px)!important;margin:auto!important;transform:none!important}
 .cmv-case .cmv-prototype .device iframe{height:calc(100% + 110px)!important;margin-bottom:-110px!important}
 
-.cmv-final{padding:115px 30px 125px;text-align:center;background:#edf3ff}
-.cmv-final img{width:96px;height:96px;object-fit:contain;margin:0 auto 24px}.cmv-final span{display:block;font-size:10px;font-weight:900;letter-spacing:.2em;color:#5d79a7}.cmv-final h3{font-family:"Quicksand",sans-serif;font-size:clamp(58px,9vw,130px);line-height:.9;color:var(--cmv-blue);letter-spacing:-.065em;margin:16px 0 0}
+.cmv-final {
+  padding: 115px 30px 125px;
+  text-align: center;
+  background: #edf3ff;
+}
+
+.cmv-final img {
+  width: 496px;
+  height: 496px;
+  object-fit: contain;
+  margin: 0 auto 24px;
+}
+
+.cmv-final span {
+  display: block;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .2em;
+  color: #5d79a7;
+  margin-bottom: 12px;
+}
+
+.cmv-final h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: clamp(48px, 6vw, 182px);
+  font-weight: 700;
+  line-height: .95;
+  color: var(--cmv-blue);
+  letter-spacing: .04em;
+  margin: 0 0 18px;
+}
+
+.cmv-final p {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #64748b;
+}
 
 @media(max-width:900px){
  .cmv-hero{grid-template-columns:1fr;padding-top:70px}.cmv-hero-phones{height:540px}
@@ -3631,5 +3668,168 @@ body.modal-open { padding-right:0!important; }
   .nomad-full-board{padding:8px;border-radius:18px}
   .nomad-full-board img{border-radius:12px}
   .nomad-finale{padding:85px 20px 100px}
+}
+
+
+
+/* ==========================================================
+   INOY DESIGN + VIDEO manual slide switching FIX
+   ========================================================== */
+#projectShowcaseModal .project-preview-slide:not(.is-design-active) {
+  display: none !important;
+}
+#projectShowcaseModal .project-preview-slide.is-design-active {
+  animation: inoyManualSlideInRight .46s cubic-bezier(.22,.61,.36,1) both;
+}
+#projectShowcaseModal .project-preview-slide.is-design-active.from-prev {
+  animation-name: inoyManualSlideInLeft;
+}
+
+#videoShowcaseModal .video-project-swiper > .swiper-wrapper {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  transform: none !important;
+}
+#videoShowcaseModal .video-project-slide:not(.is-video-active) {
+  display: none !important;
+}
+#videoShowcaseModal .video-project-slide.is-video-active {
+  animation: inoyManualSlideInRight .46s cubic-bezier(.22,.61,.36,1) both;
+}
+#videoShowcaseModal .video-project-slide.is-video-active.from-prev {
+  animation-name: inoyManualSlideInLeft;
+}
+
+@keyframes inoyManualSlideInRight {
+  from { opacity: .18; transform: translateX(42px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes inoyManualSlideInLeft {
+  from { opacity: .18; transform: translateX(-42px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #projectShowcaseModal .project-preview-slide.is-design-active,
+  #videoShowcaseModal .video-project-slide.is-video-active {
+    animation: none !important;
+  }
+}
+
+/* Culture Mate 중간 로고 크기 확대 */
+.project-detail-page.culture-mate-modal-page .cm-embed .logo-stage img {
+  width: clamp(140px, 15vw, 230px) !important;
+  max-width: none !important;
+  height: auto !important;
+}
+
+/* CULTURE MATE 작품 미리보기 설명 sticky 복구 */
+#projectShowcaseModal .project-preview-slide[data-detail="culture-mate"] .project-preview-copy {
+  position: sticky !important;
+  top: 0 !important;
+  align-self: start !important;
+}
+
+/* ==========================================================
+   INOY WEB project slider — ADEN + PRE:BUSAN
+   기존 WEB 레이아웃 크기는 유지하고 전환 기능만 추가
+   ========================================================== */
+#webShowcaseModal .web-project-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#webShowcaseModal .web-project-slide {
+  width: 100%;
+  height: 100%;
+}
+
+#webShowcaseModal .web-project-slide:not(.is-web-active) {
+  display: none !important;
+}
+
+#webShowcaseModal .web-project-slide.is-web-active {
+  animation: inoyWebSlideInRight .46s cubic-bezier(.22,.61,.36,1) both;
+}
+
+#webShowcaseModal .web-project-slide.is-web-active.from-prev {
+  animation-name: inoyWebSlideInLeft;
+}
+
+#webShowcaseModal .web-swiper-prev,
+#webShowcaseModal .web-swiper-next {
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 50%;
+  background: rgba(10,10,12,.72);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: background .2s ease, transform .2s ease;
+}
+
+#webShowcaseModal .web-swiper-prev { left: 14px; }
+#webShowcaseModal .web-swiper-next { right: 14px; }
+
+#webShowcaseModal .web-swiper-prev:hover,
+#webShowcaseModal .web-swiper-next:hover {
+  background: rgba(255,255,255,.18);
+}
+
+#webShowcaseModal .web-swiper-pagination {
+  position: absolute;
+  z-index: 20;
+  right: 30px;
+  bottom: 18px;
+  min-width: 58px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(10,10,12,.68);
+  color: rgba(255,255,255,.9);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-align: center;
+  pointer-events: none;
+}
+
+@keyframes inoyWebSlideInRight {
+  from { opacity: .18; transform: translateX(42px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes inoyWebSlideInLeft {
+  from { opacity: .18; transform: translateX(-42px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 900px) {
+  #webShowcaseModal .web-swiper-prev,
+  #webShowcaseModal .web-swiper-next {
+    width: 42px;
+    height: 42px;
+    top: 42%;
+  }
+  #webShowcaseModal .web-swiper-prev { left: 8px; }
+  #webShowcaseModal .web-swiper-next { right: 8px; }
+  #webShowcaseModal .web-swiper-pagination {
+    right: 18px;
+    bottom: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #webShowcaseModal .web-project-slide.is-web-active {
+    animation: none !important;
+  }
 }
 

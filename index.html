@@ -970,6 +970,18 @@
 }
 </style>
 
+
+<style>
+/* Culture Mate — keep the “작품 미리보기” bar visible while scrolling */
+.project-detail-page[data-detail-page="culture"] > .project-detail-topbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 999 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+</style>
+
 </head>
 <body class="index-page">
 <header class="header d-flex align-items-center fixed-top" id="header">
@@ -1451,8 +1463,7 @@
 
 <section class="cmv-final">
   <img src="assets/img/portfolio/culture-mate/logo.png" alt="Culture Mate logo"/>
-  <span>UX/UI PROJECT</span>
-  <h3>CULTURE MATE</h3>
+ <h3>Culture Mate</h3>
 </section>
 </section>
 <section class="project-detail-page" data-detail-page="velden"><div class="project-detail-topbar"><button class="project-detail-back" type="button"><i class="bi bi-arrow-left"></i> 작품 미리보기</button><span>VELDEN</span></div><header class="project-detail-hero"><p>BRANDING · VISUAL IDENTITY</p><h2></h2><span></span></header><div class="project-detail-long"><img alt="VELDEN BRAND IDENTITY 1" src="assets/img/portfolio/velden/mockup-2.png"/><img alt="VELDEN BRAND IDENTITY 2" src="assets/img/portfolio/velden/mockup-3.png"/><img alt="VELDEN BRAND IDENTITY 3" src="assets/img/portfolio/velden/mockup-1.png"/><img alt="VELDEN BRAND IDENTITY 4" src="assets/img/portfolio/velden/mockup-4.png"/><img alt="VELDEN BRAND IDENTITY 5" src="assets/img/portfolio/velden/mockup-5.png"/><img alt="VELDEN BRAND IDENTITY 7" src="assets/img/portfolio/velden/business-card.png"/><img alt="VELDEN BRAND IDENTITY 6" src="assets/img/portfolio/velden/logo.png"></img></div></section>
@@ -1551,6 +1562,10 @@
 <div class="modal-dialog modal-dialog-centered">
 <div class="modal-content">
 <button aria-label="닫기" class="project-modal-close" data-bs-dismiss="modal" type="button"><i class="bi bi-x-lg"></i></button>
+
+<div class="web-project-slider">
+
+<div class="web-project-slide is-web-active" data-web-index="0">
 <div class="web-project-layout">
 <div class="web-browser-wrap">
 <div class="web-browser-bar"><span></span><span></span><span></span><div>ADEN BOULANGERIE / BRAND WEBSITE</div></div>
@@ -1565,6 +1580,31 @@
 <small>왼쪽 화면에서도 메뉴를 직접 눌러볼 수 있습니다.</small>
 </div>
 </div>
+</div>
+
+<div class="web-project-slide" data-web-index="1">
+<div class="web-project-layout">
+<div class="web-browser-wrap">
+<div class="web-browser-bar"><span></span><span></span><span></span><div>PRE:BUSAN / XR EXPERIENCE WEBSITE</div></div>
+<iframe class="web-project-frame" loading="lazy" src="pre-busan-site/index.html" title="PRE:BUSAN 웹사이트 미리보기"></iframe>
+</div>
+<div class="web-project-copy">
+<span>WEB PUBLISHING · EXPERIENCE WEBSITE · 2026</span>
+<h3>PRE:<br/>BUSAN</h3>
+<p>부산의 주요 명소를 미리 경험하는 PRE:BUSAN 프로젝트를 웹으로 확장한 인터랙티브 사이트입니다. 영상과 장소 콘텐츠를 웹 화면에서 직접 둘러볼 수 있습니다.</p>
+<div class="web-project-tags"><b>HTML</b><b>CSS</b><b>JavaScript</b><b>Responsive</b></div>
+<a class="web-live-button" href="pre-busan-site/index.html" rel="noopener" target="_blank">웹사이트 둘러보기 <i class="bi bi-arrow-up-right"></i></a>
+<small>왼쪽 화면에서도 사이트를 직접 조작할 수 있습니다.</small>
+</div>
+</div>
+</div>
+
+</div>
+
+<button aria-label="이전 웹 프로젝트" class="web-swiper-prev" type="button"><i class="bi bi-chevron-left"></i></button>
+<button aria-label="다음 웹 프로젝트" class="web-swiper-next" type="button"><i class="bi bi-chevron-right"></i></button>
+<div class="web-swiper-pagination">1 / 2</div>
+
 </div>
 </div>
 </div>
