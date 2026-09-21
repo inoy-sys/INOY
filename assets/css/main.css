@@ -3817,3 +3817,31 @@ body.modal-open { padding-right:0!important; }
 /* WATER FESTIVAL: each mockup caption belongs to its own image */
 .water-case .wf-mockup-grid > figure {min-width:0;}
 .water-case .wf-mockup-grid > figure > figcaption {display:block;padding:0 0 13px;}
+
+/* ADEN only — compact mobile preview; PRE:BUSAN desktop preview unchanged */
+#webShowcaseModal .aden-mobile-preview-area{min-width:0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:48px 28px 35px;background:radial-gradient(ellipse at 50% 40%,#26372e 0%,#171c19 53%,#111113 100%)}
+#webShowcaseModal .aden-mobile-preview-label{color:#c4d6c8;font:700 10px/1.5 Quicksand,sans-serif;letter-spacing:.22em;text-align:center}
+#webShowcaseModal .aden-mobile-preview-label span{color:#73b18c;margin:0 7px}
+#webShowcaseModal .aden-mobile-device{position:relative;display:block;width:min(100%,265px,calc((88vh - 205px)*.485));aspect-ratio:390/800;padding:9px;border:2px solid #555b57;border-radius:36px;background:#090b0a;box-shadow:0 22px 60px rgba(0,0,0,.58),0 0 0 2px #151b17;transition:transform .25s ease,box-shadow .25s ease;overflow:hidden}
+#webShowcaseModal .aden-mobile-device:hover{transform:translateY(-5px);box-shadow:0 30px 75px rgba(0,0,0,.7),0 0 0 2px #315b40}
+#webShowcaseModal .aden-mobile-speaker{position:absolute;z-index:3;top:15px;left:50%;transform:translateX(-50%);width:27%;height:13px;border-radius:20px;background:#090b0a;pointer-events:none}
+#webShowcaseModal .aden-mobile-screen{position:relative;display:block;width:100%;height:100%;overflow:hidden;border-radius:27px;background:#f6f3eb}
+#webShowcaseModal .aden-mobile-frame{position:absolute;top:0;left:0;width:390px;height:800px;border:0;transform:scale(.62);transform-origin:top left;pointer-events:none;background:#fff}
+#webShowcaseModal .aden-mobile-tap{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:30px 8px 17px;text-align:center;color:#fff;font:700 11px/1.4 Quicksand,sans-serif;background:linear-gradient(transparent,rgba(0,0,0,.86));letter-spacing:.025em}
+#webShowcaseModal .aden-mobile-tap i{margin-right:5px}
+#webShowcaseModal .aden-mobile-preview-note{color:#a9b5ac;font-size:11px;text-align:center}
+@media(max-width:900px){#webShowcaseModal .aden-mobile-preview-area{padding:56px 16px 16px;gap:9px}#webShowcaseModal .aden-mobile-device{width:min(48vw,205px,calc((100dvh - 355px)*.485));border-radius:29px;padding:7px}#webShowcaseModal .aden-mobile-screen{border-radius:22px}#webShowcaseModal .aden-mobile-preview-note{font-size:10px}}
+
+/* PRE:BUSAN — same compact phone preview as ADEN, blue XR tone */
+#webShowcaseModal .prebusan-mobile-preview-area{background:radial-gradient(ellipse at 50% 40%,#203c63 0%,#131e30 53%,#101217 100%)}
+#webShowcaseModal .prebusan-mobile-preview-area .aden-mobile-preview-label{color:#c4d9f5}
+#webShowcaseModal .prebusan-mobile-preview-area .aden-mobile-preview-label span{color:#7ab7ff}
+#webShowcaseModal .prebusan-mobile-preview-area .aden-mobile-device:hover{box-shadow:0 30px 75px rgba(0,0,0,.7),0 0 0 2px #427cc1}
+#webShowcaseModal .prebusan-mobile-preview-area .aden-mobile-preview-note{color:#a6b8d0}
+
+/* INOY WEB: interactive phone previews (ADEN + PRE:BUSAN) */
+#webShowcaseModal .aden-mobile-device{cursor:default;transform:none!important;}
+#webShowcaseModal .aden-mobile-device:hover{transform:none!important;}
+#webShowcaseModal .aden-mobile-screen{overflow:hidden;}
+#webShowcaseModal .aden-mobile-frame{position:absolute;inset:0;width:100%;height:100%;transform:none;pointer-events:auto;touch-action:auto;overflow:auto;}
+#webShowcaseModal .aden-mobile-speaker{pointer-events:none;}
