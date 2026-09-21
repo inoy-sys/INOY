@@ -2194,3 +2194,177 @@ button{font:inherit}
   border-radius: var(--radius-md);
   display: block;
 }
+
+/* LIVE MENU 박스: 아이콘 배치 기준 */
+.menu-hero-live {
+  position: relative;
+  overflow: hidden;
+  padding-right: 150px;
+}
+
+/* 패스오더 아이콘: 오른쪽 아래 */
+.passorder-icon-wrap {
+  position: absolute;
+  right: 115px;
+  bottom: 55px;
+}
+
+.passorder-icon {
+  display: block;
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  border-radius: 22px;
+}
+
+/* 모바일에서는 글 아래에 배치 */
+@media (max-width: 768px) {
+  .menu-hero-live {
+    padding-right: 24px;
+  }
+
+  .passorder-icon-wrap {
+    position: static;
+    margin-top: 20px;
+  }
+
+  .passorder-icon {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* ===== MENU 페이지 LIVE MENU 카드 확대 ===== */
+.menu-book-page .menu-hero-live {
+  position: relative;
+  box-sizing: border-box;
+
+  width: 600px;
+  max-width: 100%;
+  min-height: 440px;
+
+  padding: 48px;
+  padding-right: 48px;
+  overflow: hidden;
+}
+
+/* LIVE MENU 작은 제목 */
+.menu-book-page .menu-hero-live .eyebrow {
+  font-size: 17px;
+  letter-spacing: 3px;
+  margin-bottom: 26px;
+}
+
+/* 메인 제목 */
+.menu-book-page .menu-hero-live h2 {
+  font-size: 38px;
+  line-height: 1.25;
+  letter-spacing: -1.5px;
+  margin-bottom: 22px;
+}
+
+/* 설명 */
+.menu-book-page .menu-hero-live > p:not(.eyebrow) {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 26px;
+}
+
+/* 패스오더 버튼 */
+.menu-book-page .menu-hero-live .btn {
+  font-size: 16px;
+  padding: 14px 24px;
+}
+
+/* 패스오더 아이콘 위치와 크기 */
+.menu-book-page .passorder-icon-wrap {
+  position: absolute;
+  right: 48px;
+  bottom: 48px;
+}
+
+.menu-book-page .passorder-icon {
+  display: block;
+  width: 125px;
+  height: 125px;
+  object-fit: contain;
+  border-radius: 26px;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .menu-book-page .menu-hero-live {
+    width: 100%;
+    min-height: auto;
+    padding: 28px;
+  }
+
+  .menu-book-page .menu-hero-live h2 {
+    font-size: 27px;
+  }
+
+  .menu-book-page .passorder-icon-wrap {
+    position: static;
+    margin-top: 20px;
+  }
+
+  .menu-book-page .passorder-icon {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* ===== LIVE MENU 카드 내부 글자 확대 ===== */
+
+/* LIVE MENU 영문 */
+.menu-book-page .menu-hero-live .eyebrow {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+}
+
+/* 현재 판매 메뉴와 가격은... */
+.menu-book-page .menu-hero-live h2 {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -1.5px;
+  margin-bottom: 24px;
+}
+
+/* 시즌 메뉴, 할인 가격... */
+.menu-book-page .menu-hero-live > p:not(.eyebrow) {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* 패스오더 메뉴 열기 버튼 */
+.menu-book-page .menu-hero-live .btn {
+  font-size: 18px;
+  font-weight: 800;
+  min-height: 56px;
+  padding: 0 30px;
+}
+
+/* 모바일에서 제목이 너무 커지지 않게 */
+@media (max-width: 768px) {
+  .menu-book-page .menu-hero-live .eyebrow {
+    font-size: 16px;
+  }
+
+  .menu-book-page .menu-hero-live h2 {
+    font-size: 27px;
+  }
+
+  .menu-book-page .menu-hero-live > p:not(.eyebrow) {
+    font-size: 15px;
+  }
+
+  .menu-book-page .menu-hero-live .btn {
+    font-size: 15px;
+    min-height: 48px;
+    padding: 0 22px;
+  }
+}
