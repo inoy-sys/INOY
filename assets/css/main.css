@@ -3885,57 +3885,56 @@ body.modal-open { padding-right:0!important; }
   #webShowcaseModal .aden-mobile-preview-area {padding:40px 12px 14px;}
 }
 
-/* WEB phone: clip the transformed iframe to the screen's rounded corners.
-   clip-path also clips composited iframe layers that may escape overflow:hidden. */
-#webShowcaseModal .aden-mobile-screen {
+/* WEB PHONE — single clipping surface, no iframe corner masks.
+   Both ADEN and PRE:BUSAN share this exact phone markup. */
+#webShowcaseModal .aden-mobile-device {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
   overflow: hidden;
-  clip-path: inset(0 round 38px);
-  isolation: isolate;
 }
-@media (max-width: 900px) {
-  #webShowcaseModal .aden-mobile-screen {
-    clip-path: inset(0 round 22px);
-  }
-}
-
-
-/* WEB phone corner guard: cover square iframe/header pixels at both top corners.
-   Decorative overlays live outside the iframe, so embedded scrolling/clicks remain active. */
 #webShowcaseModal .aden-mobile-screen {
-  border-radius: 38px;
+  position: relative;
+  display: block;
+  flex: 1 1 auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  box-sizing: border-box;
+  border-radius: 36px;
   overflow: hidden;
-  clip-path: inset(0 round 38px);
+  clip-path: inset(0 round 36px);
   isolation: isolate;
+  background: #fff;
+  container-type: normal;
+}
+#webShowcaseModal .aden-mobile-screen > iframe.aden-mobile-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  display: block;
+  width: 390px;
+  min-width: 390px;
+  max-width: none;
+  border: 0;
+  border-radius: 0;
+  clip-path: none;
+  transform: scale(var(--phone-preview-scale, .62));
+  transform-origin: top left;
+  pointer-events: auto;
+  touch-action: auto;
+  background: #fff;
 }
 #webShowcaseModal .aden-mobile-screen::before,
 #webShowcaseModal .aden-mobile-screen::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  z-index: 10;
-  pointer-events: none;
-}
-#webShowcaseModal .aden-mobile-screen::before {
-  left: 0;
-  background: radial-gradient(circle at 100% 100%, transparent 0 38px, #090b0a 39px);
-}
-#webShowcaseModal .aden-mobile-screen::after {
-  right: 0;
-  background: radial-gradient(circle at 0 100%, transparent 0 38px, #090b0a 39px);
+  content: none !important;
+  display: none !important;
 }
 @media (max-width: 900px) {
   #webShowcaseModal .aden-mobile-screen {
     border-radius: 22px;
     clip-path: inset(0 round 22px);
-  }
-  #webShowcaseModal .aden-mobile-screen::before,
-  #webShowcaseModal .aden-mobile-screen::after { width: 24px; height: 24px; }
-  #webShowcaseModal .aden-mobile-screen::before {
-    background: radial-gradient(circle at 100% 100%, transparent 0 22px, #090b0a 23px);
-  }
-  #webShowcaseModal .aden-mobile-screen::after {
-    background: radial-gradient(circle at 0 100%, transparent 0 22px, #090b0a 23px);
   }
 }
