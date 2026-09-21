@@ -1844,5 +1844,36 @@ document.addEventListener('DOMContentLoaded', () => {
   area.addEventListener('pointerup', release);
   area.addEventListener('pointercancel', release);
 });
-</script></body>
+</script>
+<script>
+/* Keep iframe layout at a mobile viewport while the visible phone remains compact.
+   ResizeObserver watches only the mockup screen, never the cross-origin iframe content. */
+(function () {
+  const mobileViewportWidth = 390;
+  function syncPhonePreview(screen) {
+    const frame = screen.querySelector('.aden-mobile-frame');
+    if (!frame) return;
+    const w = screen.clientWidth, h = screen.clientHeight;
+    if (!w || !h) return;
+    const scale = w / mobileViewportWidth;
+    frame.style.setProperty('--phone-preview-scale', String(scale));
+    frame.style.width = mobileViewportWidth + 'px';
+    frame.style.minWidth = mobileViewportWidth + 'px';
+    frame.style.height = Math.ceil(h / scale) + 'px';
+  }
+  function initPhonePreviews() {
+    document.querySelectorAll('#webShowcaseModal .aden-mobile-screen').forEach(function (screen) {
+      syncPhonePreview(screen);
+      if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(function () { syncPhonePreview(screen); }).observe(screen);
+      } else {
+        window.addEventListener('resize', function () { syncPhonePreview(screen); });
+      }
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPhonePreviews);
+  else initPhonePreviews();
+})();
+</script>
+</body>
 </html>

@@ -3845,3 +3845,14 @@ body.modal-open { padding-right:0!important; }
 #webShowcaseModal .aden-mobile-screen{overflow:hidden;}
 #webShowcaseModal .aden-mobile-frame{position:absolute;inset:0;width:100%;height:100%;transform:none;pointer-events:auto;touch-action:auto;overflow:auto;}
 #webShowcaseModal .aden-mobile-speaker{pointer-events:none;}
+
+/* Interactive WEB phone: render each embedded site at a real 390px mobile viewport.
+   Scale the rendered viewport to the visual device width without disabling interactions. */
+#webShowcaseModal .aden-mobile-screen { position:relative; overflow:hidden; }
+#webShowcaseModal .aden-mobile-frame {
+  position:absolute; top:0; left:0; right:auto; bottom:auto;
+  display:block; width:390px; min-width:390px; max-width:none;
+  height:800px; border:0; transform-origin:top left;
+  transform:scale(var(--phone-preview-scale, .62));
+  pointer-events:auto; touch-action:auto; background:#fff;
+}
