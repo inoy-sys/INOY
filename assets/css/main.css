@@ -4074,3 +4074,53 @@ body.modal-open { padding-right:0!important; }
     line-height: 1.6 !important;
   }
 }
+
+
+/* ==========================================
+   INOY 모바일 포트폴리오 썸네일 중앙 정렬
+   ========================================== */
+@media (max-width: 575px) {
+
+  /* 포트폴리오 섹션의 좌우 여백 통일 */
+  #portfolio .container,
+  #portfolio .container-fluid {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* 썸네일을 감싸는 그리드 */
+  #portfolio .isotope-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* DESIGN / VIDEO / WEB 카드 */
+  #portfolio .isotope-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* 썸네일 이미지 비율 유지 */
+  #portfolio .portfolio-category-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  #portfolio .portfolio-category-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
