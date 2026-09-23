@@ -4264,3 +4264,75 @@ body.modal-open { padding-right:0!important; }
     padding: 0 !important;
   }
 }
+
+
+/* ==========================================
+   VELDEN 상세페이지 이미지 100% 표시
+   다른 프로젝트에는 영향 없음
+   ========================================== */
+
+.project-detail-page[data-detail-page="velden"] {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 기존 860px 너비 제한 해제 */
+.project-detail-page[data-detail-page="velden"] .project-detail-long {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #fff;
+}
+
+/* 이미지 전체가 잘리지 않도록 원본 비율 유지 */
+.project-detail-page[data-detail-page="velden"] .project-detail-long img {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+
+
+/* ==========================================
+   VELDEN 모델 사진 2장 — 좌우 꽉 찬 배치
+   ========================================== */
+
+.project-detail-page[data-detail-page="velden"] .velden-model-pair {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box;
+  align-items: stretch !important;
+}
+
+/* 사진을 각 칸의 가로폭에 맞춰 표시 */
+.project-detail-page[data-detail-page="velden"] .velden-model-pair img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* 모바일 */
+@media (max-width: 575px) {
+  .project-detail-page[data-detail-page="velden"] .velden-model-pair {
+    gap: 4px !important;
+  }
+}
