@@ -4196,3 +4196,71 @@ body.modal-open { padding-right:0!important; }
     height: auto;
   }
 }
+
+
+/* ==========================================
+   INOY 실제 모바일 화면 최종 보정
+   ========================================== */
+@media (max-width: 575px) {
+
+  /* 프로필: 이미지와 로고를 화면 안에 배치 */
+  #about .about-v2-visual-row,
+  #about .about-v2-identity-images {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+
+  #about .about-v2-identity-images {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    align-items: center;
+    gap: 16px !important;
+    padding: 0 12px !important;
+  }
+
+  #about .about-v2-identity-images .about-v2-logo,
+  #about .about-v2-identity-images .about-v2-symbol {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  #about .about-v2-identity-images .about-v2-logo img,
+  #about .about-v2-identity-images .about-v2-symbol img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 110px !important;
+    object-fit: contain !important;
+  }
+
+  /* 포트폴리오 제목: 고정 헤더 아래에서 표시 */
+  #portfolio .section-title {
+    padding-top: 110px !important;
+  }
+
+  #portfolio .section-title h2 {
+    font-size: clamp(28px, 8vw, 38px) !important;
+    line-height: 1.2 !important;
+    overflow-wrap: normal !important;
+  }
+
+  /* 포트폴리오 카드 좌우 여백 */
+  #portfolio .portfolio-category-grid {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #portfolio .portfolio-category-grid > .portfolio-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}
