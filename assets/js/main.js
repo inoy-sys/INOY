@@ -61,21 +61,43 @@
   /**
    * Preloader
    */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    const loaderStartedAt = performance.now();
-    const minimumDisplayTime = 800;
 
-    window.addEventListener('load', () => {
-      const elapsed = performance.now() - loaderStartedAt;
-      const wait = Math.max(0, minimumDisplayTime - elapsed);
+/* INOY 프리로더 — 리소스 로딩 대기 + 최대 대기 시간 */
+const preloader = document.querySelector('#preloader');
+
+if (preloader) {
+  const loaderStartedAt = performance.now();
+  const minimumDisplayTime = 800;
+  const maximumDisplayTime = 5000;
+
+  let isHiding = false;
+
+  const hidePreloader = () => {
+    if (isHiding) return;
+    isHiding = true;
+
+    const elapsed = performance.now() - loaderStartedAt;
+    const wait = Math.max(0, minimumDisplayTime - elapsed);
+
+    window.setTimeout(() => {
+      preloader.classList.add('is-leaving');
 
       window.setTimeout(() => {
-        preloader.classList.add('is-leaving');
-        window.setTimeout(() => preloader.remove(), 620);
-      }, wait);
-    });
+        preloader.remove();
+      }, 620);
+    }, wait);
+  };
+
+  // 이미지 등 페이지 리소스 로딩 완료 후 닫기
+  if (document.readyState === 'complete') {
+    hidePreloader();
+  } else {
+    window.addEventListener('load', hidePreloader, { once: true });
   }
+
+  // 일부 리소스가 늦어져도 최대 5초 후에는 닫기
+  window.setTimeout(hidePreloader, maximumDisplayTime);
+}
 
   /**
    * Scroll top button
