@@ -3806,6 +3806,14 @@ body.modal-open { padding-right:0!important; }
 .water-case .wf-hero h2{color:#fff;font:900 clamp(54px,6.4vw,105px)/.94 'Quicksand',sans-serif;letter-spacing:-.065em;margin:25px 0}.water-case .wf-hero h2 em{font-style:normal;color:var(--wf-cyan);font-size:.65em;letter-spacing:-.045em}.water-case .wf-hero-copy p{max-width:480px;color:#c5d5e8;font-size:16px;line-height:1.85}.water-case .wf-hero-line{margin-top:55px;padding-top:20px;border-top:1px solid #ffffff40;font:700 10px 'Quicksand',sans-serif;letter-spacing:.12em;color:#d6e4f5}
 .water-case .wf-hero-art{max-width:510px;justify-self:center;width:100%;transform:rotate(2deg)}.water-case .wf-hero-art img{display:block;width:100%;height:auto;box-shadow:0 35px 90px #0009}
 .water-case .wf-breakdown,.water-case .wf-system,.water-case .wf-application{padding:105px clamp(24px,6vw,100px)}.water-case .wf-breakdown{background:#f4f8fc}.water-case .wf-section-head{max-width:1180px;margin:0 auto 52px}.water-case .wf-section-head h3{font:800 clamp(40px,5vw,72px)/1.06 'Quicksand',sans-serif;letter-spacing:-.05em;margin:12px 0;color:#101b36}.water-case .wf-section-head p{color:#58677d;font-size:15px;line-height:1.8;max-width:650px}
+/* WATER FESTIVAL - 03 / APPLICATION 글자 크기 */
+.water-case .wf-application .wf-section-head > span {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+}
 .water-case .wf-feature{max-width:1180px;margin:0 auto 28px;min-height:390px;display:grid;grid-template-columns:1.12fr .88fr;overflow:hidden;background:#fff;border-radius:22px;box-shadow:0 16px 48px #1023470d}.water-case .wf-feature:nth-of-type(odd) .wf-detail-image{order:2}.water-case .wf-feature:nth-of-type(odd) .wf-feature-copy{order:1}
 .water-case .wf-detail-image{min-height:390px;background-image:url('../img/portfolio/poster/water-festival-original.png');background-repeat:no-repeat;background-color:#0b1531;background-size:210% auto}.water-case .wf-crop-type{background-position:50% 76%}.water-case .wf-crop-people{background-position:50% 23%}.water-case .wf-crop-water{background-position:5% 65%}.water-case .wf-crop-info{background-size:165% auto;background-position:87% 53%}
 .water-case .wf-feature-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(30px,5vw,70px)}.water-case .wf-feature-copy b{color:#177aa9;font:800 11px 'Quicksand',sans-serif;letter-spacing:.16em}.water-case .wf-feature-copy h4{color:#12223e;font:800 clamp(25px,3vw,39px)/1.2 'Quicksand',sans-serif;margin:17px 0}.water-case .wf-feature-copy p{color:#58677d;line-height:1.9;font-size:15px}.water-case .wf-feature-copy>span{margin-top:25px;padding-top:15px;border-top:1px solid #e0e8f1;color:#8b9bb0;font:800 10px 'Quicksand',sans-serif;letter-spacing:.13em}
@@ -4334,5 +4342,45 @@ body.modal-open { padding-right:0!important; }
 @media (max-width: 575px) {
   .project-detail-page[data-detail-page="velden"] .velden-model-pair {
     gap: 4px !important;
+  }
+}
+
+
+/* ==========================================
+   WATER FESTIVAL - APPLICATION 전체 간격 정리
+   ========================================== */
+
+/* 남색 영역 아래부터 APPLICATION 시작까지 */
+.water-case .wf-application {
+  padding-top: 48px !important;
+  padding-bottom: 50px !important;
+}
+
+/* 제목 영역의 불필요한 여백 제거 */
+.water-case .wf-application .wf-section-head {
+  max-width: 1180px;
+  margin: 0 auto 24px !important;
+  padding: 0 !important;
+}
+
+/* 03 / APPLICATION */
+.water-case .wf-application .wf-section-head > span {
+  display: block;
+  margin: 0 0 14px !important;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+}
+
+/* 모바일에서는 간격을 조금 더 축소 */
+@media (max-width: 575px) {
+  .water-case .wf-application {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+  }
+
+  .water-case .wf-application .wf-section-head {
+    margin-bottom: 18px !important;
   }
 }
