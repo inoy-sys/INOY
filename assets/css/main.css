@@ -4124,3 +4124,75 @@ body.modal-open { padding-right:0!important; }
     height: auto;
   }
 }
+
+
+/* ==========================================
+   INOY 모바일 화면 비율 보정
+   ========================================== */
+@media (max-width: 575px) {
+
+  /* 가로 화면 넘침 방지 */
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  /* 프로필 및 소개 이미지 */
+  #about img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* 포트폴리오 제목이 헤더와 겹치지 않도록 */
+  #portfolio {
+    scroll-margin-top: 90px;
+  }
+
+  #portfolio .section-title {
+    padding-top: 40px;
+    padding-bottom: 25px;
+    text-align: center;
+  }
+
+  #portfolio .section-title h2 {
+    font-size: clamp(30px, 8vw, 42px);
+    overflow-wrap: anywhere;
+  }
+
+  /* DESIGN / VIDEO / WEB 카드 좌우 여백 통일 */
+  #portfolio .container,
+  #portfolio .container-fluid {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #portfolio .isotope-container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  #portfolio .isotope-item {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 24px;
+  }
+
+  #portfolio .portfolio-category-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  #portfolio .portfolio-category-card img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
