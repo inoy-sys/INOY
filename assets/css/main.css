@@ -4384,3 +4384,16 @@ body.modal-open { padding-right:0!important; }
     margin-bottom: 18px !important;
   }
 }
+
+
+/* VELDEN - 모델 사진과 명함 이미지 사이 간격 */
+.project-detail-page[data-detail-page="velden"] .velden-model-pair {
+  margin-bottom:8px !important;
+}
+
+/* 모바일에서는 간격을 조금 줄이기 */
+@media (max-width: 575px) {
+  .project-detail-page[data-detail-page="velden"] .velden-model-pair {
+    margin-bottom: 24px !important;
+  }
+}
