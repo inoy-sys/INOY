@@ -4397,3 +4397,15 @@ body.modal-open { padding-right:0!important; }
     margin-bottom: 24px !important;
   }
 }
+
+
+/* VELDEN 상세페이지 마지막 아래 여백 제거 */
+.project-detail-page[data-detail-page="velden"] {
+  padding-bottom: 0 !important;
+}
+
+/* 마지막 로고 이미지 아래 여백 제거 */
+.project-detail-page[data-detail-page="velden"] > :last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
