@@ -997,6 +997,44 @@
 @media(max-width:520px){.le-hero{padding:26px 20px}.le-hero-top,.le-hero-bottom{font-size:8px}.le-hero-stage{height:360px}.le-hero-type h2{font-size:25vw}.le-board{padding:48px 12px 60px}.le-board-head{font-size:8px}.le-poster-mock,.le-card-mock{padding:28px 12px 18px}.le-poster-paper{padding:15px}.le-poster-name{font-size:18vw}.le-application{padding:70px 14px}.le-intro{padding:70px 24px}}
 @media(prefers-reduced-motion:reduce){.luna-editorial *{scroll-behavior:auto!important}}
 </style>
+
+<style>
+/* INOY — individual DESIGN project cards */
+#portfolio .design-project-card{
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+}
+#portfolio .design-project-card > img{
+  width:100%;
+  height:100% !important;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .45s cubic-bezier(.2,.7,.2,1);
+}
+#portfolio .design-project-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(to top,rgba(8,12,18,.76) 0%,rgba(8,12,18,.18) 47%,rgba(8,12,18,0) 72%);
+}
+#portfolio .design-project-card .portfolio-category-label{z-index:2}
+#portfolio .design-project-hit{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  display:block;
+  text-indent:-9999px;
+  overflow:hidden;
+}
+#portfolio .design-project-card:hover > img{transform:scale(1.045)}
+@media(max-width:767px){
+  #portfolio .design-project-card:hover > img{transform:none}
+}
+</style>
+
 </head>
 <body class="index-page">
 <header class="header d-flex align-items-center fixed-top" id="header">
@@ -1209,9 +1247,67 @@
 <!-- <li data-filter=".filter-books">상세디자인</li> -->
 </ul><!-- End Portfolio Filters -->
 <div class="row g-4 isotope-container portfolio-category-grid" data-aos="fade-up" data-aos-delay="200">
-<div class="col-xl-4 col-lg-4 col-md-4 portfolio-item isotope-item filter-app portfolio-direct-design"><div class="portfolio-content portfolio-category-card"><img alt="디자인 프로젝트" class="img-fluid" src="assets/img/portfolio/designsome3.png"/><div class="portfolio-category-label"><span>GRAPHIC · DETAIL PAGE</span><h3>DESIGN</h3><p>상세페이지 · 브랜딩 · 그래픽 작업</p></div></div></div>
-<div class="col-xl-4 col-lg-4 col-md-4 portfolio-item isotope-item filter-product"><div class="portfolio-content portfolio-category-card"><img alt="학원 홍보영상 프로젝트" class="img-fluid" src="assets/img/videosome.png"/><div class="portfolio-category-label"><span>VIDEO · MOTION</span><h3>VIDEO</h3><p>모션그래픽 · 브랜드 · 홍보영상</p></div><div aria-hidden="true" class="video-card-play"><i class="bi bi-play-fill"></i></div><div class="portfolio-info"><a class="details-link video-modal-link" href="#" title="영상 작업 보기"><i class="bi bi-play-fill"></i></a></div></div></div>
-<div class="col-xl-4 col-lg-4 col-md-4 portfolio-item isotope-item filter-branding"><div aria-label="아덴 블랑제리 웹 프로젝트 보기" class="portfolio-content portfolio-category-card web-modal-link" role="button" tabindex="0"><img alt="아덴 블랑제리 웹 프로젝트" class="img-fluid" src="aden-site/assets/Adensome.jpg"/><div class="portfolio-category-label"><span>WEB · PUBLISHING</span><h3>WEB</h3><p>ADEN BOULANGERIE · HTML · CSS · JavaScript</p></div><div class="web-card-badge"><i class="bi bi-window"></i> WEBSITE</div></div></div>
+<!-- ALL view: category representative card -->
+<div class="col-xl-4 col-lg-4 col-md-4 portfolio-item isotope-item portfolio-overview-card portfolio-overview-design">
+  <div class="portfolio-content portfolio-category-card">
+    <img alt="디자인 프로젝트" class="img-fluid" src="assets/img/portfolio/designsome3.png"/>
+    <div class="portfolio-category-label">
+      <span>GRAPHIC · DETAIL PAGE</span>
+      <h3>DESIGN</h3>
+      <p>상세페이지 · 브랜딩 · 그래픽 작업</p>
+    </div>
+  </div>
+</div>
+<!-- DESIGN PROJECTS : individual portfolio cards -->
+<div class="col-xl-4 col-lg-4 col-md-6 portfolio-item isotope-item filter-app design-detail-card">
+  <div class="portfolio-content portfolio-category-card design-project-card">
+    <img alt="CULTURE MATE" class="img-fluid" src="assets/img/portfolio/culture-mate/logo.png"/>
+    <div class="portfolio-category-label"><span>APP PLANNING · UX/UI</span><h3>CULTURE MATE</h3><p>문화생활 동행 매칭 앱 기획</p></div>
+    <a aria-label="CULTURE MATE 프로젝트 보기" class="project-modal-link design-project-hit" data-project-index="0" href="#"></a>
+  </div>
+</div>
+
+<div class="col-xl-4 col-lg-4 col-md-6 portfolio-item isotope-item filter-app design-detail-card">
+  <div class="portfolio-content portfolio-category-card design-project-card">
+    <img alt="VELDEN BRAND IDENTITY" class="img-fluid" src="assets/img/portfolio/velden/veldensome.png"/>
+    <div class="portfolio-category-label"><span>BRAND IDENTITY</span><h3>VELDEN</h3><p>향수 브랜드 아이덴티티</p></div>
+    <a aria-label="VELDEN 프로젝트 보기" class="project-modal-link design-project-hit" data-project-index="1" href="#"></a>
+  </div>
+</div>
+
+<div class="col-xl-4 col-lg-4 col-md-6 portfolio-item isotope-item filter-app design-detail-card">
+  <div class="portfolio-content portfolio-category-card design-project-card">
+    <img alt="DENNY 브랜드 캐릭터" class="img-fluid" src="assets/img/portfolio/denny/denny-preview-main.png"/>
+    <div class="portfolio-category-label"><span>CHARACTER · BRANDING</span><h3>DENNY</h3><p>ADEN BOULANGERIE 캐릭터 리브랜딩</p></div>
+    <a aria-label="DENNY 프로젝트 보기" class="project-modal-link design-project-hit" data-project-index="2" href="#"></a>
+  </div>
+</div>
+
+<div class="col-xl-4 col-lg-4 col-md-6 portfolio-item isotope-item filter-app design-detail-card">
+  <div class="portfolio-content portfolio-category-card design-project-card">
+    <img alt="LOTTE WORLD LUNA" class="img-fluid" src="assets/img/portfolio/lotte-luna/preview-new.png"/>
+    <div class="portfolio-category-label"><span>CHARACTER DESIGN · ILLUSTRATION</span><h3>LUNA</h3><p>부산 롯데월드 캐릭터 뉴브랜딩</p></div>
+    <a aria-label="LUNA 프로젝트 보기" class="project-modal-link design-project-hit" data-project-index="3" href="#"></a>
+  </div>
+</div>
+
+<div class="col-xl-4 col-lg-4 col-md-6 portfolio-item isotope-item filter-app design-detail-card">
+  <div class="portfolio-content portfolio-category-card design-project-card">
+    <img alt="NOMAD TUMBLER" class="img-fluid" src="assets/img/portfolio/tumbler/preview-new.png"/>
+    <div class="portfolio-category-label"><span>GRAPHIC · DETAIL PAGE</span><h3>NOMAD TUMBLER</h3><p>제품 상세페이지 디자인</p></div>
+    <a aria-label="NOMAD TUMBLER 프로젝트 보기" class="project-modal-link design-project-hit" data-project-index="4" href="#"></a>
+  </div>
+</div>
+
+<div class="col-xl-4 col-lg-4 col-md-6 portfolio-item isotope-item filter-app design-detail-card">
+  <div class="portfolio-content portfolio-category-card design-project-card">
+    <img alt="WATER FESTIVAL POSTER" class="img-fluid" src="assets/img/portfolio/poster/포스터.png"/>
+    <div class="portfolio-category-label"><span>POSTER · EDITORIAL</span><h3>WATER FESTIVAL</h3><p>포스터 · 리플렛 · 티켓 비주얼</p></div>
+    <a aria-label="WATER FESTIVAL 프로젝트 보기" class="project-modal-link design-project-hit" data-project-index="5" href="#"></a>
+  </div>
+</div>
+<div class="col-xl-4 col-lg-4 col-md-4 portfolio-item isotope-item filter-product portfolio-overview-card"><div class="portfolio-content portfolio-category-card"><img alt="학원 홍보영상 프로젝트" class="img-fluid" src="assets/img/videosome.png"/><div class="portfolio-category-label"><span>VIDEO · MOTION</span><h3>VIDEO</h3><p>모션그래픽 · 브랜드 · 홍보영상</p></div><div aria-hidden="true" class="video-card-play"><i class="bi bi-play-fill"></i></div><div class="portfolio-info"><a class="details-link video-modal-link" href="#" title="영상 작업 보기"><i class="bi bi-play-fill"></i></a></div></div></div>
+<div class="col-xl-4 col-lg-4 col-md-4 portfolio-item isotope-item filter-branding portfolio-overview-card"><div aria-label="아덴 블랑제리 웹 프로젝트 보기" class="portfolio-content portfolio-category-card web-modal-link" role="button" tabindex="0"><img alt="아덴 블랑제리 웹 프로젝트" class="img-fluid" src="aden-site/assets/Adensome.jpg"/><div class="portfolio-category-label"><span>WEB · PUBLISHING</span><h3>WEB</h3><p>ADEN BOULANGERIE · HTML · CSS · JavaScript</p></div><div class="web-card-badge"><i class="bi bi-window"></i> WEBSITE</div></div></div>
 </div><!-- End Portfolio Container -->
 </div>
 </div>
@@ -1490,8 +1586,8 @@
 
   <section class="le-board le-board-cream"><div class="le-board-head"><span>01 — INTRODUCTION</span><span>ORIGINAL ARTWORK</span></div><img data-src="assets/img/portfolio/lotte-luna/luna-intro-clean.png" alt="루나 캐릭터 소개 원본 디자인"><p class="le-board-caption">LUNA / CHARACTER INTRODUCTION</p></section>
   
-  <section class="le-board le-board-lilac"><div class="le-board-head"><span>03 — TURNAROUND</span><span>FORM &amp; PROPORTION</span></div><div class="le-board-title"><h3>Every angle<br><i>of LUNA.</i></h3><p>다양한 방향에서도 일관되게 보이도록 정리한 캐릭터 턴어라운드.</p></div><img data-src="assets/img/portfolio/lotte-luna/luna-turnaround-clean.png" alt="루나 턴어라운드 원본 디자인"><p class="le-board-caption">LUNA / TURNAROUND</p></section>
-  <section class="le-board le-board-cream"><div class="le-board-head"><span>04 — POSE DESIGN</span><span>MOVEMENT &amp; PERSONALITY</span></div><div class="le-board-title"><h3>A little more<br><i>alive.</i></h3><p>동작과 제스처로 확장한 루나의 캐릭터성.</p></div><img data-src="assets/img/portfolio/lotte-luna/luna-poses-clean.png" alt="루나 포즈 원본 디자인"><p class="le-board-caption">LUNA / POSE STUDY</p></section>
+  <section class="le-board le-board-lilac"><div class="le-board-head"><span>03 — TURNAROUND</span><span>FORM &amp; PROPORTION</span></div><div class="le-board-title"><h3></i></h3><p>다양한 방향에서도 일관되게 보이도록 정리한 캐릭터 턴어라운드.</p></div><img data-src="assets/img/portfolio/lotte-luna/luna-turnaround-clean.png" alt="루나 턴어라운드 원본 디자인"><p class="le-board-caption">LUNA / TURNAROUND</p></section>
+  <section class="le-board le-board-cream"><div class="le-board-head"><span>04 — POSE DESIGN</span><span>MOVEMENT &amp; PERSONALITY</span></div><div class="le-board-title"><h3></i></h3><p>동작과 제스처로 확장한 루나의 캐릭터성.</p></div><img data-src="assets/img/portfolio/lotte-luna/luna-poses-clean.png" alt="루나 포즈 원본 디자인"><p class="le-board-caption">LUNA / POSE STUDY</p></section>
   <section class="le-board le-board-lilac"><div class="le-board-head"><span>05 — EXPRESSION</span><span>EMOTION &amp; DETAIL</span></div><div class="le-board-title"><h3>Many moods.<br><i>One LUNA.</i></h3><p>표정 변화로 표현한 캐릭터의 감정과 디테일.</p></div><img data-src="assets/img/portfolio/lotte-luna/luna-expression-clean.png" alt="루나 표정 원본 디자인"><p class="le-board-caption">LUNA / EXPRESSION STUDY</p></section>
   <footer class="le-finale"><span>END OF CHARACTER STUDY</span><strong>LUNA<span>✳</span></strong><p>THANK YOU FOR WATCHING.</p></footer>
 </div></section>
@@ -1691,6 +1787,90 @@
 })();
 </script>
 <script src="assets/js/main.js"></script>
+<script>
+/* INOY portfolio category switch
+   전체 = DESIGN / VIDEO / WEB representative cards
+   디자인 = six individual design projects
+   영상 / 웹 = their existing category cards
+*/
+(function () {
+  function getIso(layout) {
+    var container = layout.querySelector('.isotope-container');
+    if (!container || typeof Isotope === 'undefined') return null;
+    return Isotope.data(container);
+  }
+
+  function applyPortfolioMode(filterValue) {
+    var layout = document.querySelector('#portfolio .isotope-layout');
+    if (!layout) return;
+
+    var iso = getIso(layout);
+    var allCards = layout.querySelectorAll('.isotope-item');
+    var designDetails = layout.querySelectorAll('.design-detail-card');
+    var overviewCards = layout.querySelectorAll('.portfolio-overview-card');
+    var designOverview = layout.querySelector('.portfolio-overview-design');
+
+    allCards.forEach(function (el) {
+      el.classList.remove('inoy-force-hide');
+    });
+
+    if (filterValue === '*') {
+      designDetails.forEach(function (el) { el.classList.add('inoy-force-hide'); });
+      overviewCards.forEach(function (el) { el.classList.remove('inoy-force-hide'); });
+    } else if (filterValue === '.filter-app') {
+      overviewCards.forEach(function (el) { el.classList.add('inoy-force-hide'); });
+      designDetails.forEach(function (el) { el.classList.remove('inoy-force-hide'); });
+    } else if (filterValue === '.filter-product') {
+      designDetails.forEach(function (el) { el.classList.add('inoy-force-hide'); });
+      overviewCards.forEach(function (el) {
+        if (!el.classList.contains('filter-product')) el.classList.add('inoy-force-hide');
+      });
+    } else if (filterValue === '.filter-branding') {
+      designDetails.forEach(function (el) { el.classList.add('inoy-force-hide'); });
+      overviewCards.forEach(function (el) {
+        if (!el.classList.contains('filter-branding')) el.classList.add('inoy-force-hide');
+      });
+    }
+
+    if (iso) {
+      /* Use the visibility class as the source of truth.
+         This preserves Isotope's smooth transition/re-layout. */
+      iso.arrange({
+        filter: function (itemElem) {
+          return !itemElem.classList.contains('inoy-force-hide');
+        }
+      });
+    }
+  }
+
+  function init() {
+    var layout = document.querySelector('#portfolio .isotope-layout');
+    if (!layout) return;
+    var filters = layout.querySelectorAll('.portfolio-filters li');
+
+    filters.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var value = btn.getAttribute('data-filter') || '*';
+        /* Run after the template's own click handler. */
+        setTimeout(function () { applyPortfolioMode(value); }, 0);
+      });
+    });
+
+    /* Initial ALL view after images / Isotope initialization. */
+    var runInitial = function () {
+      setTimeout(function () { applyPortfolioMode('*'); }, 80);
+    };
+    if (document.readyState === 'complete') runInitial();
+    else window.addEventListener('load', runInitial, { once: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 <div aria-hidden="true" class="about-brand-lightbox" id="aboutBrandLightbox">
 <button aria-label="닫기" class="about-brand-lightbox-close" type="button">×</button>
 <div class="about-brand-lightbox-panel">

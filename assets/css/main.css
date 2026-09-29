@@ -4620,3 +4620,106 @@ body.modal-open { padding-right:0!important; }
   padding-right: clamp(20px, 4vw, 60px) !important;
   box-sizing: border-box !important;
 }
+
+/* =========================================================
+   INOY PORTFOLIO CATEGORY SWITCH
+   ALL: DESIGN / VIDEO / WEB
+   DESIGN: 3 columns desktop, 2 tablet, 1 mobile
+   ========================================================= */
+#portfolio .isotope-item.inoy-force-hide {
+  display: none !important;
+}
+
+/* Keep original overview cards at the familiar 3-up size */
+#portfolio .portfolio-overview-card {
+  width: 33.333333% !important;
+}
+
+/* Individual DESIGN projects */
+#portfolio .design-detail-card {
+  width: 33.333333% !important;
+  max-width: 33.333333% !important;
+  flex: 0 0 33.333333% !important;
+}
+
+@media (max-width: 991.98px) {
+  #portfolio .design-detail-card {
+    width: 50% !important;
+    max-width: 50% !important;
+    flex: 0 0 50% !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  #portfolio .portfolio-overview-card,
+  #portfolio .design-detail-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+}
+
+/* =========================================================
+   FINAL PORTFOLIO 3-COLUMN BOUNDS FIX
+   Prevents cards from sticking out left/right.
+   Desktop 3 / Tablet 2 / Mobile 1.
+   ========================================================= */
+#portfolio .container-fluid {
+  padding-left: clamp(20px, 4vw, 64px) !important;
+  padding-right: clamp(20px, 4vw, 64px) !important;
+}
+
+#portfolio .isotope-layout {
+  width: 100% !important;
+  max-width: 1440px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#portfolio .isotope-container.portfolio-category-grid {
+  position: relative !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Isotope calculates positions from this exact item width. */
+#portfolio .isotope-container > .portfolio-item {
+  width: 33.333333% !important;
+  max-width: 33.333333% !important;
+  padding: 12px !important;
+  box-sizing: border-box !important;
+}
+
+#portfolio .portfolio-content.portfolio-category-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+#portfolio .portfolio-category-card > img {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 991.98px) {
+  #portfolio .isotope-container > .portfolio-item {
+    width: 50% !important;
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  #portfolio .container-fluid {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  #portfolio .isotope-container > .portfolio-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px 0 !important;
+  }
+}
+
