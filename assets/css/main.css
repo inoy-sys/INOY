@@ -4609,3 +4609,14 @@ body.modal-open { padding-right:0!important; }
     object-position: center !important;
   }
 }
+
+/* =========================================
+   DESIGN 상세페이지 공통 좌우 여백
+   PC / 태블릿 / 모바일
+   ========================================= */
+
+#projectShowcaseModal .project-detail-page {
+  padding-left: clamp(20px, 4vw, 60px) !important;
+  padding-right: clamp(20px, 4vw, 60px) !important;
+  box-sizing: border-box !important;
+}
