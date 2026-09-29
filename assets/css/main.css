@@ -4562,3 +4562,50 @@ body.modal-open { padding-right:0!important; }
     box-sizing: border-box !important;
   }
 }
+
+/* 모바일 DESIGN 미리보기 - 스크롤바 공간 제거 */
+@media (max-width: 900px) {
+
+  #projectShowcaseModal .modal-content {
+    scrollbar-width: none !important;
+  }
+
+  #projectShowcaseModal .modal-content::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+  }
+
+  #projectShowcaseModal .project-preview-view {
+    scrollbar-width: none !important;
+  }
+
+  #projectShowcaseModal .project-preview-view::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+  }
+}
+
+/* DENNY 썸네일을 VELDEN과 동일한 규칙으로 */
+@media (max-width: 900px) {
+
+  #projectShowcaseModal
+  .project-preview-slide[data-detail="denny"]
+  .project-preview-media {
+    width: 100% !important;
+    height: 390px !important;
+    min-height: 390px !important;
+    padding: 40px 24px !important;
+    box-sizing: border-box !important;
+  }
+
+  #projectShowcaseModal
+  .project-preview-slide[data-detail="denny"]
+  .project-preview-media img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+}
