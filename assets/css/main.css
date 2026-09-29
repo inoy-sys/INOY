@@ -4475,3 +4475,90 @@ body.modal-open { padding-right:0!important; }
   }
 }
 
+/* =========================================
+   CULTURE MATE PREVIEW - DESKTOP ONLY
+   모바일은 건드리지 않음
+   ========================================= */
+
+/* =========================================
+   DESIGN PREVIEW - DESKTOP SIZE UNIFY
+   Culture Mate 크기로 전부 통일
+   모바일은 그대로 유지
+   ========================================= */
+
+/* PC DESIGN 미리보기 내부 높이/하단 여백 통일 */
+@media (min-width: 901px) {
+
+  #projectShowcaseModal .project-preview-slide {
+    height: 100% !important;
+    min-height: 0 !important;
+  }
+
+  #projectShowcaseModal .project-preview-media {
+    height: 100% !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  #projectShowcaseModal .project-preview-copy {
+    align-self: end !important;
+    padding: 48px 42px 72px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Culture Mate에 따로 걸려 있던 위치 예외도 제거 */
+  #projectShowcaseModal
+  .project-preview-slide[data-detail="culture-mate"]
+  .project-preview-copy {
+    position: static !important;
+    align-self: end !important;
+  }
+}
+
+/* =========================================
+   DESIGN PREVIEW - MOBILE CARD HEIGHT FIX
+   작품을 넘겨도 카드 전체 높이 고정
+   ========================================= */
+
+@media (max-width: 900px) {
+
+  #projectShowcaseModal .modal-dialog:has(.project-preview-view:not(.is-hidden)),
+  #projectShowcaseModal .modal-content:has(.project-preview-view:not(.is-hidden)) {
+    height: 680px !important;
+    min-height: 680px !important;
+    max-height: 92dvh !important;
+  }
+
+  #projectShowcaseModal .project-preview-view:not(.is-hidden),
+  #projectShowcaseModal .project-preview-view:not(.is-hidden) .project-preview-swiper,
+  #projectShowcaseModal .project-preview-view:not(.is-hidden) .swiper-wrapper,
+  #projectShowcaseModal .project-preview-view:not(.is-hidden) .project-preview-slide {
+    height: 100% !important;
+    min-height: 0 !important;
+  }
+
+  #projectShowcaseModal .project-preview-slide {
+    grid-template-rows: 390px 1fr !important;
+    align-content: stretch !important;
+  }
+
+  /* 썸네일 칸 자체 높이도 모든 작품 동일 */
+  #projectShowcaseModal .project-preview-media {
+    height: 390px !important;
+    min-height: 390px !important;
+    box-sizing: border-box !important;
+  }
+
+  #projectShowcaseModal .project-preview-media img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  /* 글 영역 */
+  #projectShowcaseModal .project-preview-copy {
+    align-self: stretch !important;
+    box-sizing: border-box !important;
+  }
+}
